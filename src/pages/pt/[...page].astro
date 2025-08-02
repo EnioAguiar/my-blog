@@ -167,8 +167,8 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			}
 			.pagination {
 				display: flex;
-				justify-content: space-between;
 				margin-top: 4rem;
+				width: 100%;
 			}
 			.pagination a {
 				color: rgb(var(--black));
@@ -181,6 +181,9 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			.pagination a:hover {
 				color: var(--green-bright);
 				border-color: var(--green-bright);
+			}
+			.pagination .next {
+				margin-left: auto; /* Empurra o botão "Próximo" para a direita */
 			}
 		</style>
 	</head>
@@ -247,8 +250,8 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			</section>
 
 			<nav class="pagination">
-				{page.url.prev && <a href={page.url.prev}>&laquo; Voltar</a>}
-				{page.url.next && <a href={page.url.next}>Próximo &raquo;</a>}
+				{page.url.prev && <a class="prev" href={page.url.prev}>&laquo; Voltar</a>}
+				{page.url.next && <a class="next" href={page.url.next}>Próximo &raquo;</a>}
 			</nav>
 		</main>
 		<Footer />

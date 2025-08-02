@@ -1,0 +1,30 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<BaseHead title="Busca" description="Encontre posts no site" />
+		<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div id="search"></div>
+		</main>
+		<Footer />
+		<script>
+			window.addEventListener('DOMContentLoaded', () => {
+				new PagefindUI({
+					element: '#search',
+					showSubResults: true,
+					showImages: false,
+				});
+			});
+		</script>
+		<script src="/pagefind/pagefind-ui.js" is:inline></script>
+	</body>
+</html>
