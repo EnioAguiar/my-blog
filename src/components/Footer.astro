@@ -3,7 +3,9 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} <span class="author-name">Enio</span>. All rights reserved.
+	<div class="copyright">
+		&copy; {today.getFullYear()} Enio. All rights reserved.
+	</div>
 	<div class="social-links">
 		<a href="https://github.com/withastro/astro" target="_blank">
 			<span class="sr-only">Go to Astro's GitHub repo</span>
@@ -19,25 +21,20 @@ const today = new Date();
 <style>
 	footer {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 		gap: 1rem;
 		margin-top: 2rem;
 		padding: 2rem;
-		background-color: #121212;
+		background-color: #000000;
 		border-top: 1px solid rgb(var(--gray-dark));
-		text-align: center;
 		font-size: var(--text-sm);
 		color: rgb(var(--gray));
 	}
 
-	.author-name {
-		color: var(--green);
-	}
-
 	.social-links {
 		display: flex;
-		justify-content: center;
 		gap: 1rem;
-		margin-top: 1rem;
 	}
 </style>

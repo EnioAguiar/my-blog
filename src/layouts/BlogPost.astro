@@ -15,8 +15,13 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 	<head>
 		<BaseHead title={title} description={description} />
 		<style>
+			main {
+				width: auto;
+				padding: 0;
+			}
 			.hero-image {
 				width: 100%;
+				margin-top: 2rem;
 			}
 			.hero-image img {
 				display: block;
@@ -25,24 +30,30 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				box-shadow: var(--box-shadow);
 			}
 			.prose {
-				padding: 1em;
+				width: 720px;
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em 0;
 				color: rgb(var(--gray-dark));
 			}
 			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
+				margin-bottom: 2em;
+				padding: 1em 1em 0 1em;
 				text-align: center;
-				line-height: 1;
+				line-height: 1.2;
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
 			}
 			.date {
 				margin-bottom: 0.5em;
-				color: var(--green);
+				color: rgb(var(--black));
 			}
 			.last-updated-on {
 				font-style: italic;
+			}
+			.content {
+				padding: 0 1em;
 			}
 		</style>
 	</head>
@@ -54,22 +65,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				<div class="hero-image">
 					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
 				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
+				<div class="title">
+					<div class="date">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="last-updated-on">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
 					</div>
-					<slot />
+					<h1>{title}</h1>
+					<hr />
+				</div>
+				<div class="prose">
+					<div class="content">
+						<slot />
+					</div>
 				</div>
 			</article>
 		</main>

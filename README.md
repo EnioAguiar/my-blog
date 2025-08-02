@@ -7,9 +7,12 @@ Este é o repositório do meu blog pessoal, construído com [Astro](https://astr
 O projeto foi migrado de sua estrutura original para o Astro. As principais alterações incluem:
 
 -   **Migração para Astro:** O site agora usa o framework Astro.
--   **Novo Tema:** Foi aplicado um tema escuro (preto e branco), inspirado no site abduzeedo.com.
+-   **Novo Tema:** Foi aplicado um tema escuro, e a cor de destaque principal (verde) foi atualizada para um tom mais vibrante (`#59ef0b`).
+-   **Funcionalidades da Home:**
+    -   A página inicial agora exibe uma breve descrição para cada post.
+    -   Os posts agora podem ter tags, que são exibidas com um estilo minimalista (ex: `#astro`).
 -   **Limpeza:** Os posts de exemplo originais foram substituídos e os links de redes sociais foram limpos.
--   **Idioma:** O conteúdo principal está em inglês.
+-   **Idioma:** O conteúdo principal está em português.
 
 ## 🚀 Estrutura do Projeto
 
