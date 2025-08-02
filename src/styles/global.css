@@ -5,16 +5,17 @@
  */
 
 :root {
-	--accent: #2337ff;
-	--accent-dark: #000d8a;
-	--black: 15, 18, 25;
-	--gray: 96, 115, 159;
-	--gray-light: 229, 233, 240;
-	--gray-dark: 34, 41, 57;
-	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--accent: #d1d5db; /* Light Gray for links */
+	--accent-dark: #f9fafb; /* Lighter Gray for hover */
+	--black: 240, 240, 240; /* White text */
+	--gray: 156, 163, 175; /* Medium Gray */
+	--gray-light: 75, 85, 99; /* Dark Gray for code blocks */
+	--gray-dark: 229, 231, 235; /* Light Gray for text */
+	--gray-gradient: none; /* Remove gradient */
 	--box-shadow:
-		0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px
-		rgba(var(--gray), 33%);
+		0 2px 6px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.6), 0 16px 32px
+		rgba(0, 0, 0, 0.6);
+	--green: #22c55e; /* Verde */
 }
 @font-face {
 	font-family: "Atkinson";
@@ -35,8 +36,7 @@ body {
 	margin: 0;
 	padding: 0;
 	text-align: left;
-	background: linear-gradient(var(--gray-gradient)) no-repeat;
-	background-size: 100% 600px;
+	background-color: #000000; /* Black background */
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	color: rgb(var(--gray-dark));
@@ -82,7 +82,7 @@ a {
 	color: var(--accent);
 }
 a:hover {
-	color: var(--accent);
+	color: var(--accent-dark);
 }
 p {
 	margin-bottom: 1em;
@@ -93,9 +93,15 @@ p {
 textarea {
 	width: 100%;
 	font-size: 16px;
+	background-color: #374151;
+	color: white;
+	border: 1px solid rgb(var(--gray-light));
 }
 input {
 	font-size: 16px;
+	background-color: #374151;
+	color: white;
+	border: 1px solid rgb(var(--gray-light));
 }
 table {
 	width: 100%;
@@ -108,11 +114,13 @@ img {
 code {
 	padding: 2px 5px;
 	background-color: rgb(var(--gray-light));
+	color: #e5e7eb;
 	border-radius: 2px;
 }
 pre {
 	padding: 1.5em;
 	border-radius: 8px;
+	background-color: #1f2937;
 }
 pre > code {
 	all: unset;
@@ -125,7 +133,7 @@ blockquote {
 }
 hr {
 	border: none;
-	border-top: 1px solid rgb(var(--gray-light));
+	border-top: 1px solid var(--green);
 }
 @media (max-width: 720px) {
 	body {
@@ -144,12 +152,8 @@ hr {
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	/* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
 	clip: rect(1px 1px 1px 1px);
-	/* maybe deprecated but we need to support legacy browsers */
 	clip: rect(1px, 1px, 1px, 1px);
-	/* modern browsers, clip-path works inwards from each corner */
 	clip-path: inset(50%);
-	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }

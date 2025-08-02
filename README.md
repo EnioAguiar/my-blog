@@ -1,62 +1,55 @@
-# Astro Starter Kit: Blog
+# Meu Blog Pessoal
 
-```sh
-npm create astro@latest -- --template blog
-```
+Este é o repositório do meu blog pessoal, construído com [Astro](https://astro.build/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Status do Projeto
 
-Features:
+O projeto foi migrado de sua estrutura original para o Astro. As principais alterações incluem:
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+-   **Migração para Astro:** O site agora usa o framework Astro.
+-   **Novo Tema:** Foi aplicado um tema escuro (preto e branco), inspirado no site abduzeedo.com.
+-   **Limpeza:** Os posts de exemplo originais foram substituídos e os links de redes sociais foram limpos.
+-   **Idioma:** O conteúdo principal está em inglês.
 
-## 🚀 Project Structure
+## 🚀 Estrutura do Projeto
 
-Inside of your Astro project, you'll see the following folders and files:
+A estrutura de pastas e arquivos do projeto é a seguinte:
 
 ```text
 ├── public/
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── components/
+│   ├── content/
+│   │   └── blog/
+│   ├── layouts/
+│   └── pages/
 ├── astro.config.mjs
 ├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+-   **`src/pages/`**: Contém as páginas do site. Cada arquivo `.astro` ou `.md` nesta pasta se torna uma rota no site.
+-   **`src/content/blog/`**: Contém as postagens do blog em formato Markdown ou MDX.
+-   **`src/components/`**: Contém os componentes reutilizáveis (Astro, React, etc.).
+-   **`public/`**: Contém os arquivos estáticos, como imagens e fontes.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🧞 Comandos
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+Todos os comandos devem ser executados a partir da raiz do projeto em um terminal:
 
-Any static assets, like images, can be placed in the `public/` directory.
+| Comando | Ação |
+| :--- | :--- |
+| `npm install` | Instala as dependências do projeto. |
+| `npm run dev` | Inicia o servidor de desenvolvimento local em `localhost:4321`. |
+| `npm run build` | Compila o site para produção na pasta `./dist/`. |
+| `npm run preview` | Visualiza a compilação de produção localmente antes de implantar. |
 
-## 🧞 Commands
+## ✨ Recursos Úteis
 
-All commands are run from the root of the project, from a terminal:
+-   **Documentação do Astro:** [docs.astro.build](https://docs.astro.build)
+-   **Servidor do Discord:** [astro.build/chat](https://astro.build/chat)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Créditos
 
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Este tema é baseado no [Bear Blog](https://github.com/HermanMartinus/bearblog/).
