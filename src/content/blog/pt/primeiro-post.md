@@ -1,7 +1,7 @@
 ---
 title: "Meu Primeiro Post com Astro"
 description: "Este é o primeiro post criado após a migração para o Astro."
-pubDate: "2025-08-01"
+pubDate: "2025-08-02"
 heroImage: "../../../assets/blog-placeholder-5.jpg"
 tags: ["astro", "blog", "desenvolvimento web"]
 ---

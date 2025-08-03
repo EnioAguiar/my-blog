@@ -4,6 +4,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
+import PostCard from '../../components/PostCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { Image } from 'astro:assets';
 
@@ -34,6 +35,21 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				margin-bottom: 4rem;
 				border-bottom: 2px solid rgb(var(--black));
 				padding-bottom: 2rem;
+				position: relative; /* Necessário para o posicionamento da etiqueta */
+			}
+
+			.featured-post .label {
+				position: absolute;
+				top: -0.75rem;
+				left: -0.75rem;
+				background-color: var(--green);
+				color: #000000;
+				font-size: 1rem;
+				font-weight: 700;
+				padding: 0.25rem 0.75rem;
+				border-radius: 12px;
+				line-height: 1.5;
+				z-index: 1;
 			}
 
 			.featured-post a {
@@ -91,71 +107,10 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				margin: 0;
 				padding: 0;
 			}
-			.posts-grid li {
+			.posts-grid :global(li) {
 				width: calc(50% - 2rem);
-				position: relative;
 			}
-			.posts-grid li::before {
-				content: attr(data-post-number);
-				position: absolute;
-				top: -0.75rem;
-				left: -0.75rem;
-				background-color: var(--green);
-				color: #000000;
-				font-size: 1rem;
-				font-weight: 700;
-				padding: 0.25rem 0.75rem;
-				border-radius: 12px;
-				line-height: 1.5;
-				z-index: 1;
-			}
-			.posts-grid li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			.posts-grid li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			.posts-grid li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--black));
-			}
-			.description {
-				margin: 0.5rem 0 0;
-				color: rgb(var(--gray-dark));
-				font-size: 0.9rem;
-			}
-			.tags {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 0.5rem;
-				margin-top: 1rem;
-			}
-			.tag {
-				font-size: 0.9rem;
-				color: rgb(var(--black));
-				background-color: transparent;
-				padding: 0;
-				border: none;
-			}
-			.posts-grid li a:hover .title,
-			.posts-grid li a:hover .description,
-			.posts-grid li a:hover .date,
-			.posts-grid li a:hover .tags {
-				color: var(--green-bright);
-			}
-			.posts-grid li a:hover img {
-				box-shadow: var(--box-shadow);
-			}
+			
 			@media (max-width: 720px) {
 				.posts-grid ul {
 					gap: 0.5em;
@@ -193,6 +148,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			{
 				featuredPost && (
 					<section class="featured-post">
+						<span class="label">1</span>
 						<a href={`/blog/${featuredPost.id}/`}>
 							{featuredPost.data.heroImage && (
 								<Image
@@ -225,25 +181,10 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				<ul>
 					{
 						otherPosts.map((post, i) => (
-							<li data-post-number={isFirstPage ? i + 2 : page.start + i + 1}>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="description">{post.data.description}</p>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-									{post.data.tags && (
-										<div class="tags">
-											{post.data.tags.map((tag) => (
-												<span class="tag">#{tag}</span>
-											))}
-										</div>
-									)}
-								</a>
-							</li>
+							<PostCard 
+								post={post}
+								number={(isFirstPage ? i + 2 : page.start + i + 1).toString()}
+							/>
 						))
 					}
 				</ul>
