@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
+import { ui } from '../i18n/ui';
 
 export interface Props {
   post: any;
@@ -8,6 +9,15 @@ export interface Props {
 }
 
 const { post, number } = Astro.props;
+const lang = post.id.startsWith('pt/') ? 'pt' : 'en';
+const categoriesSlug = lang === 'pt' ? 'categorias' : 'categories';
+
+// Função para obter o nome e slug traduzido de uma tag
+function getTranslatedTag(tagKey: string) {
+    const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
+    const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
+    return { name, slug };
+}
 ---
 
 <!-- Componente de Card para Post -->
@@ -25,15 +35,20 @@ const { post, number } = Astro.props;
         <p class="date">
           <FormattedDate date={post.data.pubDate} />
         </p>
-        {post.data.tags && (
-          <div class="tags">
-            {post.data.tags.map((tag) => (
-              <span class="tag">#{tag}</span>
-            ))}
-          </div>
-        )}
       </div>
     </a>
+    {post.data.tags && (
+      <div class="tags">
+        {post.data.tags.map((tagKey) => {
+          const translatedTag = getTranslatedTag(tagKey);
+          return (
+            <a href={`/${lang}/${categoriesSlug}/${translatedTag.slug}/`} class="tag">
+              #{translatedTag.name}
+            </a>
+          )
+        })}
+      </div>
+    )}
   </div>
 </li>
 
@@ -41,26 +56,29 @@ const { post, number } = Astro.props;
   li {
     position: relative;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
   }
 
   .card {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
 
-  .card a {
-    display: block;
+  .card > a {
     text-decoration: none;
-    height: 100%;
+    flex-grow: 1;
   }
 
-  .card a:hover .title,
-  .card a:hover .description,
-  .card a:hover .date,
-  .card a:hover .tags {
+  .card > a:hover .title,
+  .card > a:hover .description,
+  .card > a:hover .date {
     color: var(--green-bright);
   }
 
-  .card a:hover img {
+  .card > a:hover img {
     box-shadow: var(--box-shadow);
   }
 
@@ -78,6 +96,13 @@ const { post, number } = Astro.props;
 
   .content {
     padding: 0 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content p {
+    flex-grow: 1;
   }
 
   .title {
@@ -102,6 +127,7 @@ const { post, number } = Astro.props;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
+    padding: 0 1rem;
   }
 
   .tag {
@@ -110,5 +136,10 @@ const { post, number } = Astro.props;
     background-color: transparent;
     padding: 0;
     border: none;
+    text-decoration: none;
+  }
+
+  .tag:hover {
+    color: var(--green-bright);
   }
 </style>

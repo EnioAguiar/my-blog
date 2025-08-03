@@ -3,7 +3,7 @@ title: "Meu Primeiro Post com Astro"
 description: "Este é o primeiro post criado após a migração para o Astro."
 pubDate: "2025-08-02"
 heroImage: "../../../assets/blog-placeholder-5.jpg"
-tags: ["astro", "blog", "desenvolvimento web"]
+tags: ["astro", "blog", "web-dev"]
 ---
 
 Bem-vindo ao meu novo blog! Este é o primeiro post escrito com Astro. Estou animado para explorar os recursos e a velocidade que o Astro oferece. A renderização do lado do servidor e a capacidade de usar componentes de diferentes frameworks são incrivelmente poderosas.

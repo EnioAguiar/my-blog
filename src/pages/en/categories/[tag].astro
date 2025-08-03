@@ -5,34 +5,48 @@ import Footer from '../../../components/Footer.astro';
 import Header from '../../../components/Header.astro';
 import FormattedDate from '../../../components/FormattedDate.astro';
 import { Image } from 'astro:assets';
+import { ui } from '../../../i18n/ui';
 
 export async function getStaticPaths() {
 	const allPosts = await getCollection('blog', ({ id }) => id.startsWith('en/'));
-	// Extrai tags de forma segura, ignorando posts sem a propriedade 'tags'
-	const uniqueTags = [...new Set(allPosts.flatMap(post => Array.isArray(post.data.tags) ? post.data.tags : []))];
+	const uniqueTagKeys = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
 
-	return uniqueTags.map((tag) => {
-		// Filtra posts de forma segura
+	return uniqueTagKeys.map((tagKey) => {
+		const tagName = ui.en[`tags.${tagKey}.name`] || tagKey;
+		const tagSlug = ui.en[`tags.${tagKey}.slug`] || tagKey;
+
 		const filteredPosts = allPosts.filter((post) =>
-			(post.data.tags || []).includes(tag)
+			(post.data.tags || []).includes(tagKey)
 		);
+
 		return {
-			params: { tag },
-			props: { posts: filteredPosts },
+			params: { tag: tagSlug },
+			props: { 
+				posts: filteredPosts,
+				tagKey: tagKey,
+				tagName: tagName,
+			},
 		};
 	});
 }
 
 const { tag } = Astro.params;
-const { posts } = Astro.props as { posts: CollectionEntry<'blog'>[] };
+const { posts, tagName } = Astro.props as { posts: CollectionEntry<'blog'>[], tagName: string };
+
+// Função para obter o nome traduzido de uma tag
+function getTranslatedTag(tagKey: string, lang: 'pt' | 'en') {
+    const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
+    const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
+    return { name, slug };
+}
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<BaseHead
-			title={`Posts about ${tag}`}
-			description={`All posts about ${tag}`}
+			title={`Posts about ${tagName}`}
+			description={`All posts about ${tagName}`}
 		/>
 		<style>
 			main {
@@ -133,7 +147,7 @@ const { posts } = Astro.props as { posts: CollectionEntry<'blog'>[] };
 	<body>
 		<Header />
 		<main>
-			<h1>Posts com a categoria: <span class="tag-name">#{tag}</span></h1>
+			<h1>Posts with category: <span class="tag-name">#{tagName}</span></h1>
 			<section class="posts-grid">
 				<ul>
 					{
@@ -150,9 +164,10 @@ const { posts } = Astro.props as { posts: CollectionEntry<'blog'>[] };
 									</p>
 									{post.data.tags && (
 										<div class="tags">
-											{post.data.tags.map((t) => (
-												<span class="tag">#{t}</span>
-											))}
+											{post.data.tags.map((t) => {
+												const translatedTag = getTranslatedTag(t, 'en');
+												return <span class="tag">#{translatedTag.name}</span>
+											})}
 										</div>
 									)}
 								</a>

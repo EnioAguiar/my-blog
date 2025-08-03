@@ -3,7 +3,7 @@ title: "Explorando o Astro"
 description: "Um olhar sobre os recursos e a facilidade de uso do Astro."
 pubDate: "2025-08-01"
 heroImage: "../../../assets/blog-placeholder-1.jpg"
-tags: ["astro", "publicidade"]
+tags: ["astro", "ads"]
 ads: true
 ---
 

@@ -16,16 +16,15 @@ const t = ui[lang];
 <header>
 	<nav>
 		<div class="nav-left">
-			<h2><a href={`/${lang}/`}>{SITE_TITLE}</a></h2>
-			<div class="internal-links">
-				<HeaderLink href={`/${lang}/${t['nav.about.slug']}/`}>{t['nav.about']}</HeaderLink>
-				<HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`}>{t['nav.categories']}</HeaderLink>
-			</div>
+			<a href={`/${lang}/`} class="site-title-link">{SITE_TITLE}</a>
 		</div>
-		<div class="language-switcher">
-			<a href="/pt/" class={lang === 'pt' ? 'active' : ''}>PT</a>
-			<span class="separator">|</span>
-			<a href="/en/" class={lang === 'en' ? 'active' : ''}>EN</a>
+		<div class="nav-right">
+			<HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`} class="categories-link">{t['nav.categories']}</HeaderLink>
+			<div class="language-switcher">
+				<a href="/pt/" class={lang === 'pt' ? 'active' : ''}>PT</a>
+				<span class="separator">|</span>
+				<a href="/en/" class={lang === 'en' ? 'active' : ''}>EN</a>
+			</div>
 		</div>
 	</nav>
 </header>
@@ -35,44 +34,51 @@ const t = ui[lang];
 		top: 0;
 		z-index: 10;
 		margin: 0;
-		padding: 0 1em;
+		padding: 0 1.5em;
 		background: #000000;
-		border-bottom: 2px solid rgb(var(--black));
+		border-bottom: 3px solid #FFFFFF;
 	}
 	nav {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
+		height: 4.5rem;
 	}
-	.nav-left {
+	.site-title-link {
+		font-size: 1.8em;
+		font-weight: 700;
+		text-decoration: none !important; /* Remove o sublinhado com prioridade */
+		color: rgb(var(--black)); /* Cor padrão branca */
+		text-shadow: none; /* Sem brilho por padrão */
+		transition: color 0.3s ease, text-shadow 0.3s ease;
+	}
+	.site-title-link:hover {
+		color: var(--green); /* Cor verde no hover */
+		text-shadow: 0 0 8px rgba(89, 239, 11, 0.4); /* Efeito de brilho no hover */
+	}
+	.nav-right {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
-		flex-shrink: 0;
+		gap: 1.5rem;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	.internal-links {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-	.internal-links a {
-		padding: 1em 0.5em;
+	.categories-link {
+		padding: 0.6em 1.2em; /* Aumenta o padding */
+		border: 2px solid rgb(var(--gray)); /* Borda mais grossa */
+		border-radius: 20px;
 		color: rgb(var(--gray-dark));
-		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		font-family: "Poppins", sans-serif; /* Fonte de título */
+		font-size: 0.8em; /* Ajusta o tamanho da fonte */
+		font-weight: 600; /* Mais pesado */
+		text-transform: uppercase; /* Caixa alta */
+		letter-spacing: 0.05em; /* Espaçamento entre letras */
+		transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 	}
-	.internal-links a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
+	.categories-link:hover,
+	.categories-link.active {
+		background-color: var(--green);
+		border-color: var(--green);
+		color: #000000;
 	}
 	.language-switcher {
 		display: flex;
@@ -92,4 +98,3 @@ const t = ui[lang];
 		color: rgb(var(--gray-dark));
 	}
 </style>
-

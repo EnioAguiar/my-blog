@@ -15,6 +15,21 @@ O projeto foi migrado de sua estrutura original para o Astro. As principais alte
 -   **Limpeza:** Os posts de exemplo originais foram substituídos e os links de redes sociais foram limpos.
 -   **Idioma:** O conteúdo principal está em português.
 
+## Melhorias Recentes
+
+### Layout e Estilo
+- **Rodapé Fixo:** O layout do site foi ajustado com Flexbox para garantir que o rodapé permaneça fixo na parte inferior da tela, mesmo em páginas com pouco conteúdo.
+- **Estilo do Cabeçalho:** O cabeçalho foi redesenhado:
+    - O título do site ("brainnoises") agora tem um estilo mais sutil (branco por padrão, verde ao passar o mouse).
+    - O link "Categorias" foi transformado em um botão estilizado para melhor destaque visual.
+- **Linhas Divisórias:** A espessura das linhas divisórias em todo o site (cabeçalho, rodapé e corpo da página) foi aumentada para `3px` para maior consistência e impacto visual.
+
+### Sistema de Tags Internacionalizado
+Foi implementado um sistema robusto para que as tags (categorias) sejam traduzidas e funcionem de forma independente em cada idioma.
+- **Tradução Centralizada:** As tags agora são gerenciadas a partir de um único local, o arquivo `src/i18n/ui.ts`. Ele mapeia uma "chave" de tag neutra (ex: `web-dev`) para seu nome de exibição e slug de URL em cada idioma.
+- **URLs Amigáveis:** As páginas de categoria agora usam slugs traduzidos (ex: `/pt/categorias/desenvolvimento-web` e `/en/categories/web-development`).
+- **Como Adicionar Novas Tags:** As instruções para adicionar novas tags foram documentadas diretamente no arquivo `src/i18n/ui.ts` para facilitar a manutenção futura.
+
 ## Funcionalidades Adicionais
 
 ### Sistema de Publicidade em Posts
