@@ -1,0 +1,115 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+---
+
+<PageLayout
+	title="Contact"
+	description="Get in touch for proposals, questions, or feedback."
+>
+	<p>
+		Have a question, a proposal, or just want to say hello? Use the form below. I'm happy to hear from you.
+	</p>
+
+	<form action="https://formspree.io/f/xzzvaylo" method="POST">
+		<div class="form-group">
+			<label for="name">Your Name</label>
+			<input type="text" id="name" name="name" required />
+		</div>
+
+		<div class="form-group">
+			<label for="email">Your Email</label>
+			<input type="email" id="email" name="email" required />
+		</div>
+
+		<div class="form-group">
+			<label for="subject">Subject</label>
+			<select id="subject" name="subject" required>
+				<option value="" disabled selected>Select a reason...</option>
+				<option value="Project Proposal">Project Proposal</option>
+				<option value="Blog Feedback">Blog Feedback</option>
+				<option value="Technical Question">Technical Question</option>
+				<option value="Other">Other</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="message">Your Message</label>
+			<textarea id="message" name="message" rows="6" required></textarea>
+		</div>
+
+		<div class="form-group-checkbox">
+			<input type="checkbox" id="consent" name="consent" required />
+			<label for="consent">
+				I agree to share my information and understand that it will be used to contact me in response to my message.
+			</label>
+		</div>
+
+		<button type="submit">Send Message</button>
+	</form>
+</PageLayout>
+
+<style>
+	form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+	.form-group label {
+		font-weight: 600;
+		margin-bottom: 0.5rem;
+		color: rgb(var(--black));
+	}
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		padding: 0.75rem;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 8px;
+		font-size: 1rem;
+		background-color: #111111; /* Cinza quase preto */
+		color: #ffffff; /* Texto branco */
+	}
+	.form-group select option {
+		background-color: #111111;
+		color: #ffffff;
+	}
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: var(--green);
+		box-shadow: 0 0 0 2px var(--green-light);
+	}
+	.form-group-checkbox {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+	.form-group-checkbox input {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+	.form-group-checkbox label {
+		font-size: 0.9rem;
+		color: rgb(var(--gray-dark));
+	}
+	button {
+		padding: 1rem;
+		border: none;
+		border-radius: 8px;
+		background-color: var(--green);
+		color: #000;
+		font-size: 1.1rem;
+		font-weight: 700;
+		cursor: pointer;
+		transition: background-color 0.2s ease;
+	}
+	button:hover {
+		background-color: var(--green-bright);
+	}
+</style>

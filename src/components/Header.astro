@@ -1,17 +1,31 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-const locale = Astro.currentLocale;
+import { ui, defaultLang } from '../i18n/ui';
+
+function getLangFromUrl(url: URL) {
+  const [, lang] = url.pathname.split('/');
+  if (lang in ui) return lang as keyof typeof ui;
+  return defaultLang;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = ui[lang];
 ---
 
 <header>
 	<nav>
 		<div class="nav-left">
-			<h2><a href={`/${locale}/`}>{SITE_TITLE}</a></h2>
+			<h2><a href={`/${lang}/`}>{SITE_TITLE}</a></h2>
 			<div class="internal-links">
-				<HeaderLink href={`/${locale}/about/`}>About</HeaderLink>
-				<HeaderLink href={`/${locale}/categorias/`}>Categorias</HeaderLink>
+				<HeaderLink href={`/${lang}/${t['nav.about.slug']}/`}>{t['nav.about']}</HeaderLink>
+				<HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`}>{t['nav.categories']}</HeaderLink>
 			</div>
+		</div>
+		<div class="language-switcher">
+			<a href="/pt/" class={lang === 'pt' ? 'active' : ''}>PT</a>
+			<span class="separator">|</span>
+			<a href="/en/" class={lang === 'en' ? 'active' : ''}>EN</a>
 		</div>
 	</nav>
 </header>
@@ -59,6 +73,23 @@ const locale = Astro.currentLocale;
 	.internal-links a.active {
 		text-decoration: none;
 		border-bottom-color: var(--accent);
+	}
+	.language-switcher {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+	.language-switcher a {
+		color: rgb(var(--gray-dark));
+		text-decoration: none;
+		font-weight: 500;
+	}
+	.language-switcher a.active {
+		color: var(--green-bright);
+		font-weight: 700;
+	}
+	.separator {
+		color: rgb(var(--gray-dark));
 	}
 </style>
 

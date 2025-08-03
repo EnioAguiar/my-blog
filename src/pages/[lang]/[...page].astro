@@ -7,23 +7,38 @@ import Header from '../../components/Header.astro';
 import PostCard from '../../components/PostCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 import { Image } from 'astro:assets';
+import { ui } from '../../i18n/ui';
 
 export async function getStaticPaths({ paginate }) {
-	const allPosts = await getCollection('blog');
-	const posts = allPosts
-		.filter((post) => post.id && post.id.startsWith('pt/'))
-		.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-	return paginate(posts, { pageSize: 9 });
+  const allPosts = await getCollection('blog');
+  
+  const paths = [];
+
+  for (const lang of Object.keys(ui)) {
+    const posts = allPosts
+      .filter((post) => post.id.startsWith(`${lang}/`))
+      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+    
+    paginate(posts, {
+      pageSize: 9,
+      params: { lang },
+      props: { lang }
+    }).forEach(page => paths.push(page));
+  }
+  
+  return paths;
 }
 
-const { page } = Astro.props;
+const { page, lang } = Astro.props;
+const t = ui[lang];
+
 const isFirstPage = page.currentPage === 1;
 const featuredPost = isFirstPage ? page.data[0] : null;
 const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -142,9 +157,9 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			}
 		</style>
 	</head>
-	<body>
+	<body style="display: flex; flex-direction: column; min-height: 100vh;">
 		<Header />
-		<main>
+		<main style="flex-grow: 1;">
 			{
 				featuredPost && (
 					<section class="featured-post">
@@ -191,8 +206,8 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			</section>
 
 			<nav class="pagination">
-				{page.url.prev && <a class="prev" href={page.url.prev}>&laquo; Voltar</a>}
-				{page.url.next && <a class="next" href={page.url.next}>Próximo &raquo;</a>}
+				{page.url.prev && <a class="prev" href={page.url.prev}>{t['pagination.previous']}</a>}
+				{page.url.next && <a class="next" href={page.url.next}>{t['pagination.next']}</a>}
 			</nav>
 		</main>
 		<Footer />

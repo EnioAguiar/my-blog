@@ -64,7 +64,7 @@ const { post, number } = Astro.props;
     box-shadow: var(--box-shadow);
   }
 
-  .label {
+  li .label {
     position: absolute;
     top: -0.75rem;
     left: -0.75rem;
@@ -76,9 +76,10 @@ const { post, number } = Astro.props;
     border-radius: 12px;
     line-height: 1.5;
     z-index: 1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   }
 
-  .label.is-ad {
+  li .label.is-ad {
     background-color: #ffd700; /* Cor dourada */
     left: unset;
     right: -0.75rem;

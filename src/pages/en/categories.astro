@@ -6,7 +6,7 @@ import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
 // 1. Obter todos os posts em português
-const posts = await getCollection('blog', ({ id }) => id.startsWith('pt/'));
+const posts = await getCollection('blog', ({ id }) => id.startsWith('en/'));
 
 // 2. Contar as ocorrências de cada tag
 const tagCounts: Record<string, number> = {};

@@ -1,0 +1,167 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import BaseHead from '../../../components/BaseHead.astro';
+import Footer from '../../../components/Footer.astro';
+import Header from '../../../components/Header.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+	const allPosts = await getCollection('blog', ({ id }) => id.startsWith('en/'));
+	// Extrai tags de forma segura, ignorando posts sem a propriedade 'tags'
+	const uniqueTags = [...new Set(allPosts.flatMap(post => Array.isArray(post.data.tags) ? post.data.tags : []))];
+
+	return uniqueTags.map((tag) => {
+		// Filtra posts de forma segura
+		const filteredPosts = allPosts.filter((post) =>
+			(post.data.tags || []).includes(tag)
+		);
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		};
+	});
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props as { posts: CollectionEntry<'blog'>[] };
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title={`Posts about ${tag}`}
+			description={`All posts about ${tag}`}
+		/>
+		<style>
+			main {
+				width: 960px;
+			}
+			h1 {
+				text-align: center;
+				margin-bottom: 2rem;
+				text-transform: capitalize;
+			}
+			h1 .tag-name {
+				color: var(--green);
+			}
+			.posts-grid ul {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 4rem;
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+			.posts-grid li {
+				width: calc(50% - 2rem);
+				position: relative;
+			}
+			.posts-grid li::before {
+				content: attr(data-post-number);
+				position: absolute;
+				top: -0.75rem;
+				left: -0.75rem;
+				background-color: var(--green);
+				color: #000000;
+				font-size: 1rem;
+				font-weight: 700;
+				padding: 0.25rem 0.75rem;
+				border-radius: 12px;
+				line-height: 1.5;
+				z-index: 1;
+			}
+			.posts-grid li * {
+				text-decoration: none;
+				transition: 0.2s ease;
+			}
+			.posts-grid li img {
+				margin-bottom: 0.5rem;
+				border-radius: 12px;
+			}
+			.posts-grid li a {
+				display: block;
+			}
+			.title {
+				margin: 0;
+				color: rgb(var(--black));
+				line-height: 1;
+			}
+			.date {
+				margin: 0;
+				color: rgb(var(--black));
+			}
+			.description {
+				margin: 0.5rem 0 0;
+				color: rgb(var(--gray-dark));
+				font-size: 0.9rem;
+			}
+			.tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5rem;
+				margin-top: 1rem;
+			}
+			.tag {
+				font-size: 0.9rem;
+				color: rgb(var(--black));
+				background-color: transparent;
+				padding: 0;
+				border: none;
+			}
+			.posts-grid li a:hover .title,
+			.posts-grid li a:hover .description,
+			.posts-grid li a:hover .date,
+			.posts-grid li a:hover .tags {
+				color: var(--green-bright);
+			}
+			.posts-grid a:hover img {
+				box-shadow: var(--box-shadow);
+			}
+			@media (max-width: 720px) {
+				.posts-grid ul {
+					gap: 0.5em;
+				}
+				.posts-grid li {
+					width: 100%;
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Posts com a categoria: <span class="tag-name">#{tag}</span></h1>
+			<section class="posts-grid">
+				<ul>
+					{
+						posts.map((post, i) => (
+							<li data-post-number={i + 1}>
+								<a href={`/blog/${post.id}/`}>
+									{post.data.heroImage && (
+										<Image width={720} height={360} src={post.data.heroImage} alt="" />
+									)}
+									<h4 class="title">{post.data.title}</h4>
+									<p class="description">{post.data.description}</p>
+									<p class="date">
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+									{post.data.tags && (
+										<div class="tags">
+											{post.data.tags.map((t) => (
+												<span class="tag">#{t}</span>
+											))}
+										</div>
+									)}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
