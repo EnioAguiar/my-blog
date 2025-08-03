@@ -43,6 +43,24 @@ Para profissionalizar o site, foram criadas páginas essenciais e um layout dedi
 -   **Página de Contato (`/pt/contato`):** Foi criada uma página de contato com um formulário completo, integrado com o serviço [Formspree](https://formspree.io/) para o envio de e-mails.
 -   **Rodapé Atualizado:** O rodapé do site foi limpo e agora contém links para as páginas "Sobre" e "Contato".
 
+### Internacionalização e Estrutura de Conteúdo
+
+O blog foi estruturado para suportar múltiplos idiomas (português e inglês) de forma coesa. A seguir, a descrição da arquitetura que mantém o sistema funcionando.
+
+**Nota sobre `id` vs. `slug`:** Após depuração, foi identificado que a propriedade correta para criar links únicos para os posts é `id`, e não `slug`. O objeto de post retornado por `getCollection` neste projeto contém o `id` (ex: `pt/primeiro-post`) como o identificador que também funciona como o slug da URL. Toda a lógica foi padronizada para usar `post.id` de forma consistente.
+
+A funcionalidade de internacionalização é mantida pela seguinte estrutura:
+
+1.  **Configuração de Idiomas (`src/i18n/ui.ts`)**: Este arquivo é o centro do sistema de tradução. Ele define os idiomas suportados (`en`, `pt`) e armazena os textos da interface do usuário (UI), como títulos de navegação e seus respectivos slugs.
+
+2.  **Organização do Conteúdo (`src/content/blog/`)**: As postagens do blog são organizadas em subdiretórios nomeados com o código do idioma (ex: `en/` e `pt/`). Isso permite que o Astro associe cada post ao seu idioma correto.
+
+3.  **Geração de Páginas de Post (`src/pages/blog/[...slug].astro`)**: Esta é a rota dinâmica que renderiza cada post individual. Sua função `getStaticPaths` itera sobre todos os posts e gera uma página para cada um, usando o `post.id` como o parâmetro da URL.
+
+4.  **Geração das Páginas de Listagem (`src/pages/[lang]/[...page].astro`)**: Esta rota dinâmica cria as páginas de índice para cada idioma (ex: `/pt/`, `/en/`, `/pt/2`). Ela filtra os posts pelo idioma contido no `id` antes de criar as páginas paginadas.
+
+5.  **Layouts (`src/layouts/`)**: O `BlogPost.astro` serve como o template para as páginas de post individuais, incluindo a lógica para encontrar e exibir posts relacionados do mesmo idioma. O `PageLayout.astro` é usado para páginas estáticas como "Sobre" e "Contato".
+
 ## 🚀 Estrutura do Projeto
 
 A estrutura de pastas e arquivos do projeto é a seguinte:

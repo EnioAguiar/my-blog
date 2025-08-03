@@ -7,27 +7,6 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import PostCard from '../components/PostCard.astro';
-
-type Props = CollectionEntry<'blog'>['data'] & {
-	slug: CollectionEntry<'blog'>['slug'];
-	id: CollectionEntry<'blog'>['id'];
-};
-
-const { title, description, pubDate, updatedDate, heroImage, tags = [], slug, id } = Astro.props;
-
-// 1. Obter todos os posts do blog em português
-const allPosts = await getCollection('blog', ({ id }) => id.startsWith('pt/'));
-
-// 2. Encontrar posts relacionados
----
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import PostCard from '../components/PostCard.astro';
 import { ui, defaultLang } from '../i18n/ui';
 
 type Props = CollectionEntry<'blog'>['data'] & {
@@ -35,7 +14,7 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	id: CollectionEntry<'blog'>['id'];
 };
 
-const { title, description, pubDate, updatedDate, heroImage, tags = [], slug, id } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags = [], id } = Astro.props;
 
 function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
@@ -49,14 +28,15 @@ const t = ui[lang];
 // 1. Obter todos os posts do idioma atual
 const allPosts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
 
-// 2. Encontrar posts relacionados
+// 2. Encontrar posts relacionados, excluindo o post atual
 const relatedPosts = allPosts
 	.filter((post) => {
-		if (post.id === id) return false;
-		if (!tags || tags.length === 0) return false;
+		if (post.id === id) return false; // Exclui o próprio post
+		if (!tags || tags.length === 0) return false; // Se o post atual não tem tags, não há relacionados
+		// Retorna posts que compartilham pelo menos uma tag
 		return post.data.tags?.some((tag: string) => tags.includes(tag));
 	})
-	.slice(0, 3);
+	.slice(0, 3); // Limita a 3 posts relacionados
 ---
 
 <html lang={lang}>
@@ -172,134 +152,6 @@ const relatedPosts = allPosts
 				relatedPosts.length > 0 && (
 					<div class="related-posts-container">
 						<h2>{t['posts.related']}</h2>
-						<ul class="related-posts-list">
-							{relatedPosts.map((relatedPost, i) => (
-								<PostCard post={relatedPost} number={(i + 1).toString()} />
-							))}
-						</ul>
-					</div>
-				)
-			}
-		</main>
-		<Footer />
-	</body>
-</html>
-
----
-
-<html lang="pt-BR">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: auto;
-				padding: 0;
-			}
-			.hero-image {
-				width: 100%;
-				margin-top: 2rem;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em 0;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 2em;
-				padding: 1em 1em 0 1em;
-				text-align: center;
-				line-height: 1.2;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--black));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-			.content {
-				padding: 0 1em;
-			}
-			.related-posts-container {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: 2rem auto;
-				padding: 1em;
-			}
-
-			.related-posts-container h2 {
-				text-align: center;
-				margin-bottom: 2rem;
-				font-size: 1.8rem;
-			}
-
-			.related-posts-list {
-				display: grid;
-				grid-template-columns: 1fr;
-				gap: 2rem;
-				padding: 0;
-				list-style-type: none;
-			}
-
-			@media (min-width: 768px) {
-				.related-posts-list {
-					grid-template-columns: repeat(3, 1fr);
-				}
-			}
-		</style>
-	</head>
-
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{
-						heroImage && (
-							<Image
-								width={1020}
-								src={heroImage}
-								alt={title}
-								class="object-cover w-full h-full"
-							/>
-						)
-					}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-
-			<!-- Seção de Posts Relacionados -->
-			{
-				relatedPosts.length > 0 && (
-					<div class="related-posts-container">
-						<h2>Posts Relacionados</h2>
 						<ul class="related-posts-list">
 							{relatedPosts.map((relatedPost, i) => (
 								<PostCard post={relatedPost} number={(i + 1).toString()} />

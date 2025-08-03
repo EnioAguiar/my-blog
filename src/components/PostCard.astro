@@ -14,8 +14,8 @@ const { post, number } = Astro.props;
 <li>
   <div class="card">
     <a href={`/blog/${post.id}/`}>
-      <span class="label">{number}</span>
-      {post.data.ads && <span class="label is-ad">ads</span>}
+      <span class="post-label">{number}</span>
+      {post.data.ads && <span class="post-label is-ad">ads</span>}
       {post.data.heroImage && (
         <Image width={720} height={360} src={post.data.heroImage} alt="" />
       )}
@@ -64,22 +64,7 @@ const { post, number } = Astro.props;
     box-shadow: var(--box-shadow);
   }
 
-  li .label {
-    position: absolute;
-    top: -0.75rem;
-    left: -0.75rem;
-    background-color: var(--green);
-    color: #000000;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    line-height: 1.5;
-    z-index: 1;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-  }
-
-  li .label.is-ad {
+  li .post-label.is-ad {
     background-color: #ffd700; /* Cor dourada */
     left: unset;
     right: -0.75rem;

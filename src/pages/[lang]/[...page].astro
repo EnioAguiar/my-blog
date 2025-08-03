@@ -53,20 +53,6 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				position: relative; /* Necessário para o posicionamento da etiqueta */
 			}
 
-			.featured-post .label {
-				position: absolute;
-				top: -0.75rem;
-				left: -0.75rem;
-				background-color: var(--green);
-				color: #000000;
-				font-size: 1rem;
-				font-weight: 700;
-				padding: 0.25rem 0.75rem;
-				border-radius: 12px;
-				line-height: 1.5;
-				z-index: 1;
-			}
-
 			.featured-post a {
 				text-decoration: none;
 				display: block;
@@ -163,7 +149,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			{
 				featuredPost && (
 					<section class="featured-post">
-						<span class="label">1</span>
+						<span class="post-label">1</span>
 						<a href={`/blog/${featuredPost.id}/`}>
 							{featuredPost.data.heroImage && (
 								<Image
