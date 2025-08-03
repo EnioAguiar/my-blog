@@ -11,6 +11,7 @@ O projeto foi migrado de sua estrutura original para o Astro. As principais alte
 -   **Funcionalidades da Home:**
     -   A página inicial agora exibe uma breve descrição para cada post.
     -   Os posts agora podem ter tags, que são exibidas com um estilo minimalista (ex: `#astro`).
+-   **Busca Integrada:** A funcionalidade de busca foi integrada diretamente no cabeçalho, permitindo pesquisar em todo o site sem sair da página atual.
 -   **Limpeza:** Os posts de exemplo originais foram substituídos e os links de redes sociais foram limpos.
 -   **Idioma:** O conteúdo principal está em português.
 

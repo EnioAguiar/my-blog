@@ -11,13 +11,15 @@ const locale = Astro.currentLocale;
 			<div class="internal-links">
 				<HeaderLink href={`/${locale}/about/`}>About</HeaderLink>
 				<HeaderLink href={`/${locale}/categorias/`}>Categorias</HeaderLink>
-				<HeaderLink href={`/${locale}/search/`}>Busca</HeaderLink>
 			</div>
 		</div>
 	</nav>
 </header>
 <style>
 	header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
 		margin: 0;
 		padding: 0 1em;
 		background: #000000;
@@ -33,7 +35,7 @@ const locale = Astro.currentLocale;
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		flex-shrink: 0; /* Impede que os links encolham */
+		flex-shrink: 0;
 	}
 	h2 {
 		margin: 0;
@@ -59,3 +61,4 @@ const locale = Astro.currentLocale;
 		border-bottom-color: var(--accent);
 	}
 </style>
+
