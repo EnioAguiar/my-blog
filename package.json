@@ -7,7 +7,8 @@
     "build": "astro build",
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "optimize": "node optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.3",
@@ -16,5 +17,8 @@
     "astro": "^5.12.8",
     "astro-pagefind": "^1.8.3",
     "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.3.3"
   }
 }

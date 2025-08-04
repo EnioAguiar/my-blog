@@ -122,12 +122,12 @@ Todos os comandos devem ser executados a partir da raiz do projeto em um termina
 | `npm run dev` | Inicia o servidor de desenvolvimento local em `localhost:4321`. |
 | `npm run build` | Compila o site para produção na pasta `./dist/`. |
 | `npm run preview` | Visualiza a compilação de produção localmente antes de implantar. |
+| `npm run optimize` | Otimiza as imagens na pasta `src/assets` para a web. |
 
 ## ✨ Recursos Úteis
 
 -   **Documentação do Astro:** [docs.astro.build](https://docs.astro.build)
 -   **Servidor do Discord:** [astro.build/chat](https://astro.build/chat)
-
 ## Créditos
 
 Este tema é baseado no [Bear Blog](https://github.com/HermanMartinus/bearblog/).
@@ -159,6 +159,20 @@ Esta seção documenta os processos para criar e gerenciar o conteúdo do blog.
 
     O conteúdo do seu post começa aqui...
     ```
+
+### Otimizando Imagens
+
+Para garantir que o site permaneça rápido, todas as imagens de capa (`heroImage`) devem ser otimizadas. Foi criado um comando para automatizar esse processo.
+
+**Quando usar:** Após adicionar um novo arquivo de imagem (ex: `.jpg`) na pasta `src/assets`.
+
+**Como usar:**
+1.  Adicione sua imagem original em `src/assets`.
+2.  Execute o seguinte comando no terminal:
+    ```bash
+    npm run optimize
+    ```
+3.  O script irá automaticamente redimensionar e comprimir a imagem, sobrescrevendo o arquivo original com a versão otimizada.
 
 ### Gerenciando Tags (Categorias)
 
