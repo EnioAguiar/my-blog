@@ -8,10 +8,15 @@ import { ui } from '../../i18n/ui';
 
 const lang = 'en';
 
-// 1. Get all English posts
+// 1. Get all tag KEYs defined in ui.ts
+const allTagKeys = Object.keys(ui[lang])
+  .filter(key => key.startsWith('tags.') && key.endsWith('.name'))
+  .map(key => key.replace('tags.', '').replace('.name', ''));
+
+// 2. Get all English posts
 const posts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
 
-// 2. Count occurrences of each tag KEY
+// 3. Count occurrences of each tag KEY in posts
 const tagKeyCounts: Record<string, number> = {};
 posts.forEach((post) => {
 	if (Array.isArray(post.data.tags)) {
@@ -23,25 +28,28 @@ posts.forEach((post) => {
 	}
 });
 
-// 3. Map keys to translated data and counts
-const tagsData = Object.keys(tagKeyCounts).map(tagKey => {
+// 4. Map ALL keys to translated data and counts
+const tagsData = allTagKeys.map(tagKey => {
     const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
     const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
     return {
         name,
         slug,
-        count: tagKeyCounts[tagKey]
+        count: tagKeyCounts[tagKey] || 0 // Use 0 if tag is not found
     };
 }).sort((a, b) => a.name.localeCompare(b.name)); // Sort by translated name
 
-// 4. Prepare data for font size in the Cloud
-const counts = tagsData.map(tag => tag.count);
-const minCount = Math.min(...counts);
-const maxCount = Math.max(...counts);
+// 5. Prepare data for font size in the Cloud (ignores tags with 0 posts)
+const counts = tagsData.filter(tag => tag.count > 0).map(tag => tag.count);
+const minCount = counts.length > 0 ? Math.min(...counts) : 1;
+const maxCount = counts.length > 0 ? Math.max(...counts) : 1;
 const minFontSize = 16; // in pixels
 const maxFontSize = 48; // in pixels
 
 function getFontSize(count: number) {
+	if (count === 0) {
+		return minFontSize; // Default size for tags with no posts
+	}
 	if (maxCount === minCount) {
 		return (minFontSize + maxFontSize) / 2;
 	}

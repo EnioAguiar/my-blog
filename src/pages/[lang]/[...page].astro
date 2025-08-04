@@ -35,6 +35,12 @@ const t = ui[lang];
 const isFirstPage = page.currentPage === 1;
 const featuredPost = isFirstPage ? page.data[0] : null;
 const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
+
+function getTranslatedTag(tagKey: string) {
+    const name = t[`tags.${tagKey}.name`] || tagKey;
+    const slug = t[`tags.${tagKey}.slug`] || tagKey;
+    return { name, slug };
+}
 ---
 
 <!doctype html>
@@ -86,17 +92,26 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 
 			.featured-post .tags {
 				margin-top: 1rem;
+				padding: 0 1rem; /* Adiciona o mesmo padding do content */
+				display: flex;
+    		flex-wrap: wrap;
 			}
 
 			.featured-post .tag {
 				font-size: 1rem;
 				color: rgb(var(--black));
+				text-decoration: none;
+				margin-right: 0.5rem;
+				display: inline-block; /* Garante que fiquem na mesma linha */
 			}
 
 			.featured-post a:hover .title,
 			.featured-post a:hover .description,
-			.featured-post a:hover .date,
-			.featured-post a:hover .tags {
+			.featured-post a:hover .date {
+				color: var(--green-bright);
+			}
+
+			.featured-post .tag:hover { /* Seletor corrigido para o link da tag */
 				color: var(--green-bright);
 			}
 
@@ -149,8 +164,8 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			{
 				featuredPost && (
 					<section class="featured-post">
-						<span class="post-label">1</span>
 						<a href={`/blog/${featuredPost.id}/`}>
+							<span class="post-label">1</span>
 							{featuredPost.data.heroImage && (
 								<Image
 									width={1080}
@@ -165,15 +180,20 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 								<p class="date">
 									<FormattedDate date={featuredPost.data.pubDate} />
 								</p>
-								{featuredPost.data.tags && (
-									<div class="tags">
-										{featuredPost.data.tags.map((tag) => (
-											<span class="tag">#{tag}</span>
-										))}
-									</div>
-								)}
 							</div>
 						</a>
+						{featuredPost.data.tags && (
+							<div class="tags">
+								{featuredPost.data.tags.map((tagKey) => {
+									const translatedTag = getTranslatedTag(tagKey);
+									return (
+										<a href={`/${lang}/${t['nav.categories.slug']}/${translatedTag.slug}/`} class="tag">
+											#{translatedTag.name}
+										</a>
+									)
+								})}
+							</div>
+						)}
 					</section>
 				)
 			}

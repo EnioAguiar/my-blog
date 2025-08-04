@@ -30,6 +30,19 @@ Foi implementado um sistema robusto para que as tags (categorias) sejam traduzid
 - **URLs Amigáveis:** As páginas de categoria agora usam slugs traduzidos (ex: `/pt/categorias/desenvolvimento-web` e `/en/categories/web-development`).
 - **Como Adicionar Novas Tags:** As instruções para adicionar novas tags foram documentadas diretamente no arquivo `src/i18n/ui.ts` para facilitar a manutenção futura.
 
+### Otimização de SEO
+
+Para melhorar a visibilidade do blog nos motores de busca, foi realizada uma otimização completa de SEO, cobrindo aspectos técnicos e de conteúdo.
+
+-   **SEO Técnico:**
+    -   **Sitemap:** O projeto foi configurado com a integração `@astrojs/sitemap` para gerar automaticamente um `sitemap-index.xml`, ajudando os buscadores a descobrir e indexar todas as páginas de forma eficiente.
+    -   **`robots.txt`:** Foi criado um arquivo `public/robots.txt` para instruir os robôs de busca, permitindo o rastreamento de todo o site e apontando para o sitemap.
+    -   **Meta Tags:** O componente `BaseHead.astro` foi verificado e confirmado que já implementa as melhores práticas, incluindo tags `canonical`, Open Graph (para redes sociais) e Twitter Cards.
+
+-   **SEO On-Page:**
+    -   **Títulos e Descrições:** Os títulos e descrições de todos os posts existentes (em português e inglês) foram reescritos para serem mais curtos, diretos e ricos em palavras-chave relevantes.
+    -   **Subtítulos:** A estrutura de subtítulos (`##`, `###`) dentro dos posts foi revisada para garantir uma hierarquia clara e o uso de termos específicos, melhorando a legibilidade para usuários e robôs.
+
 ## Funcionalidades Adicionais
 
 ### Sistema de Publicidade em Posts
@@ -118,3 +131,53 @@ Todos os comandos devem ser executados a partir da raiz do projeto em um termina
 ## Créditos
 
 Este tema é baseado no [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+
+---
+
+## Como Gerenciar o Blog
+
+Esta seção documenta os processos para criar e gerenciar o conteúdo do blog.
+
+### Criando um Novo Post
+
+1.  **Localização:** Crie um novo arquivo `.md` dentro do diretório correspondente ao idioma:
+    -   **Português:** `src/content/blog/pt/`
+    -   **Inglês:** `src/content/blog/en/`
+
+2.  **Nome do Arquivo:** O nome do arquivo se tornará parte da URL (ex: `meu-novo-post.md`).
+
+3.  **Estrutura do Post (Frontmatter):** O cabeçalho do arquivo deve conter os seguintes campos:
+    ```yaml
+    ---
+    title: "Título do Post"
+    description: "Uma breve descrição que aparecerá na listagem e nos resultados de busca."
+    pubDate: "YYYY-MM-DD" # Data de publicação. Use o formato ANO-MÊS-DIA.
+    heroImage: "../../../assets/nome-da-imagem.jpg" # Caminho relativo para a imagem de capa.
+    tags: ["chave-da-tag-1", "chave-da-tag-2"] # Lista de chaves de tags (veja abaixo).
+    ads: true # (Opcional) Adicione esta linha para marcar o post como publicidade.
+    ---
+
+    O conteúdo do seu post começa aqui...
+    ```
+
+### Gerenciando Tags (Categorias)
+
+O sistema de tags é centralizado e preparado para múltiplos idiomas.
+
+1.  **Como Funciona:** As tags nos posts são definidas por **chaves** (apelidos curtos em inglês, ex: `web-dev`, `crypto`). O site então usa o arquivo `src/i18n/ui.ts` para traduzir essas chaves para o nome e a URL corretos em cada idioma.
+
+2.  **Para Adicionar uma Nova Tag:**
+    1.  **Escolha uma Chave:** Pense em uma chave curta e descritiva em inglês (ex: `performance`).
+    2.  **Edite `src/i18n/ui.ts`:** Adicione as traduções para a nova chave nos objetos `pt` e `en`. Siga o padrão existente:
+        ```javascript
+        // Dentro do objeto 'pt':
+        'tags.performance.name': 'Performance',
+        'tags.performance.slug': 'performance',
+
+        // Dentro do objeto 'en':
+        'tags.performance.name': 'Performance',
+        'tags.performance.slug': 'performance',
+        ```
+    3.  **Use a Chave no Post:** Agora você pode usar a chave `performance` na lista de `tags` do seu post.
+
+3.  **Exibição das Categorias:** As páginas de categoria (`/pt/categorias` e `/en/categories`) foram projetadas para exibir **todas as tags definidas** em `ui.ts`, mesmo que uma tag ainda não tenha sido usada em nenhum post daquele idioma. A contagem de posts será simplesmente "0". Isso garante que a lista de categorias seja consistente em todo o site.

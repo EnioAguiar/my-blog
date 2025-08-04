@@ -8,10 +8,15 @@ import { ui } from '../../i18n/ui';
 
 const lang = 'pt';
 
-// 1. Obter todos os posts em português
+// 1. Obter todas as CHAVES de tags definidas em ui.ts
+const allTagKeys = Object.keys(ui[lang])
+  .filter(key => key.startsWith('tags.') && key.endsWith('.name'))
+  .map(key => key.replace('tags.', '').replace('.name', ''));
+
+// 2. Obter todos os posts em português
 const posts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
 
-// 2. Contar as ocorrências de cada CHAVE de tag
+// 3. Contar as ocorrências de cada CHAVE de tag nos posts
 const tagKeyCounts: Record<string, number> = {};
 posts.forEach((post) => {
 	if (Array.isArray(post.data.tags)) {
@@ -23,25 +28,28 @@ posts.forEach((post) => {
 	}
 });
 
-// 3. Mapear chaves para dados traduzidos e contagens
-const tagsData = Object.keys(tagKeyCounts).map(tagKey => {
+// 4. Mapear TODAS as chaves para dados traduzidos e contagens
+const tagsData = allTagKeys.map(tagKey => {
     const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
     const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
     return {
         name,
         slug,
-        count: tagKeyCounts[tagKey]
+        count: tagKeyCounts[tagKey] || 0 // Usa 0 se a tag não for encontrada
     };
 }).sort((a, b) => a.name.localeCompare(b.name)); // Ordenar pelo nome traduzido
 
-// 4. Preparar dados para o tamanho da fonte na Nuvem
-const counts = tagsData.map(tag => tag.count);
-const minCount = Math.min(...counts);
-const maxCount = Math.max(...counts);
+// 5. Preparar dados para o tamanho da fonte na Nuvem (ignora tags com 0 posts)
+const counts = tagsData.filter(tag => tag.count > 0).map(tag => tag.count);
+const minCount = counts.length > 0 ? Math.min(...counts) : 1;
+const maxCount = counts.length > 0 ? Math.max(...counts) : 1;
 const minFontSize = 16; // em pixels
 const maxFontSize = 48; // em pixels
 
 function getFontSize(count: number) {
+	if (count === 0) {
+		return minFontSize; // Tamanho padrão para tags sem posts
+	}
 	if (maxCount === minCount) {
 		return (minFontSize + maxFontSize) / 2;
 	}

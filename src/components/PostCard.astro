@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
-import { ui } from '../i18n/ui';
+import { ui, defaultLang } from '../i18n/ui';
 
 export interface Props {
   post: any;
@@ -9,13 +9,21 @@ export interface Props {
 }
 
 const { post, number } = Astro.props;
-const lang = post.id.startsWith('pt/') ? 'pt' : 'en';
-const categoriesSlug = lang === 'pt' ? 'categorias' : 'categories';
+
+function getLangFromId(id: string) {
+	const [lang] = id.split('/');
+	if (lang in ui) return lang as keyof typeof ui;
+	return defaultLang;
+}
+
+const lang = getLangFromId(post.id);
+const t = ui[lang];
+const categoriesSlug = t['nav.categories.slug'];
 
 // Função para obter o nome e slug traduzido de uma tag
 function getTranslatedTag(tagKey: string) {
-    const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
-    const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
+    const name = t[`tags.${tagKey}.name`] || tagKey;
+    const slug = t[`tags.${tagKey}.slug`] || tagKey;
     return { name, slug };
 }
 ---
@@ -137,6 +145,7 @@ function getTranslatedTag(tagKey: string) {
     padding: 0;
     border: none;
     text-decoration: none;
+	margin-right: 0.5rem; /* Garante o espaçamento */
   }
 
   .tag:hover {

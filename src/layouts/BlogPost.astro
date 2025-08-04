@@ -23,8 +23,6 @@ function getLangFromUrl(url: URL) {
 }
 
 const lang = getLangFromUrl(Astro.url);
-const t = ui[lang];
-const categoriesSlug = lang === 'pt' ? 'categorias' : 'categories';
 
 // Função para obter o nome e slug traduzido de uma tag
 function getTranslatedTag(tagKey: string) {
@@ -32,6 +30,9 @@ function getTranslatedTag(tagKey: string) {
     const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
     return { name, slug };
 }
+
+const t = ui[lang];
+const categoriesSlug = t['nav.categories.slug'];
 
 // 1. Obter todos os posts do idioma atual
 const allPosts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
@@ -108,6 +109,7 @@ const relatedPosts = allPosts
 				padding: 0;
 				border: none;
 				text-decoration: none;
+				margin-right: 0.5rem; /* Garante o espaçamento */
 			}
 			.tag:hover {
 				color: var(--green-bright);
@@ -184,7 +186,10 @@ const relatedPosts = allPosts
 									{tags.map((tagKey) => {
 										const translatedTag = getTranslatedTag(tagKey);
 										return (
-											<a href={`/${lang}/${categoriesSlug}/${translatedTag.slug}/`} class="tag">
+											<a
+												href={`/${lang}/${categoriesSlug}/${translatedTag.slug}/`}
+												class="tag"
+											>
 												#{translatedTag.name}
 											</a>
 										);
