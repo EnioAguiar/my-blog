@@ -1,19 +1,15 @@
 ---
-// This page is intentionally left blank.
-// It redirects to the default locale.
+// Redirects to the default locale (`pt`)
+// This redirect is instant and should be invisible to the user.
+import { SITE_TITLE } from '../consts';
 ---
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="refresh" content="0;url=/pt/">
-    <link rel="canonical" href="/pt/">
-    <title>Redirecting...</title>
-</head>
-<body>
-    <h1>Redirecting...</h1>
-    <p>If you are not redirected automatically, follow this <a href="/pt/">link to the homepage</a>.</p>
-    <script>
-        window.location.href = '/pt/';
-    </script>
-</body>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="refresh" content="0;url=/pt/" />
+		<link rel="canonical" href="/pt/" />
+		<title>{SITE_TITLE}</title>
+	</head>
+	<body></body>
 </html>
