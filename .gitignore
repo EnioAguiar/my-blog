@@ -24,4 +24,4 @@ pnpm-debug.log*
 .idea/
 
 # Gemini files
-.gemini/
+.gemini/GEMINI.md
