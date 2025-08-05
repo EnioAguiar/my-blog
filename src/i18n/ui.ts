@@ -67,6 +67,8 @@ export const ui = {
     'tags.security.slug': 'seguranca',
     'tags.ai.name': 'Inteligência Artificial',
     'tags.ai.slug': 'inteligencia-artificial',
+    'tags.film-review.name': 'Crítica de Filme',
+    'tags.film-review.slug': 'critica-de-filme',
   },
   en: {
     'nav.about': 'About',
@@ -111,5 +113,7 @@ export const ui = {
     'tags.security.slug': 'security',
     'tags.ai.name': 'AI',
     'tags.ai.slug': 'ai',
+    'tags.film-review.name': 'Film Review',
+    'tags.film-review.slug': 'film-review',
   },
 } as const;

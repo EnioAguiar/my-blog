@@ -16,13 +16,8 @@ type Props = CollectionEntry<'blog'>['data'] & {
 
 const { title, description, pubDate, updatedDate, heroImage, tags = [], id } = Astro.props;
 
-function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
-}
-
-const lang = getLangFromUrl(Astro.url);
+// Extrai o idioma do ID do post (ex: "en/my-post" -> "en")
+const lang = id.split('/')[0] as keyof typeof ui;
 
 // Função para obter o nome e slug traduzido de uma tag
 function getTranslatedTag(tagKey: string) {
@@ -144,7 +139,7 @@ const relatedPosts = allPosts
 	</head>
 
 	<body>
-		<Header />
+		<Header lang={lang} />
 		<main>
 			<article>
 				<div class="hero-image">

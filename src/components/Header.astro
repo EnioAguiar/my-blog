@@ -3,13 +3,18 @@ import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 import { ui, defaultLang } from '../i18n/ui';
 
+// O Header agora pode receber o idioma via props.
+// Isso é necessário para páginas de post, onde a URL não segue o padrão /en/ ou /pt/.
+const { lang: langFromProps } = Astro.props;
+
 function getLangFromUrl(url: URL) {
   const [, lang] = url.pathname.split('/');
   if (lang in ui) return lang as keyof typeof ui;
   return defaultLang;
 }
 
-const lang = getLangFromUrl(Astro.url);
+// Usa o idioma da prop se existir, senão, extrai da URL.
+const lang = langFromProps || getLangFromUrl(Astro.url);
 const t = ui[lang];
 ---
 
