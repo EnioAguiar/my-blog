@@ -37,7 +37,7 @@ if (optimizedCount > 0) {
     console.log(`
 Successfully optimized ${optimizedCount} new images.`);
 } else {
-    console.log('
-No new large images to optimize. All good!');
+    console.log(`
+No new large images to optimize. All good!`);
 }
 
