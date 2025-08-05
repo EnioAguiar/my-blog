@@ -16,7 +16,7 @@ A propaganda se baseia em **um único indicador** dos doze que a ONU analisa: a 
 
 Mas e os outros indicadores? Uma reportagem do Poder360 destrinchou o relatório e a verdade é assustadora:
 
-*   **O Brasil piorou em 8 das 12 categorias.**
+*   **O Brasil piorou em 8 de 11 categorias.**
 *   **Melhorou em apenas 3** (uma delas, a que virou manchete).
 *   Uma categoria não tinha dados para comparação.
 
@@ -40,4 +40,4 @@ A verdade inconveniente é que, para a maioria dos brasileiros, a situação ali
 Sair de um "mapa" por um detalhe técnico enquanto a vida real se deteriora não é vitória. É fraude. E a única fome que parece ter acabado é a fome de verdade do governo.
 
 ---
-**Fonte:** [Poder360 - Brasil piorou em 8 de 12 categorias do relatório da fome da ONU](https://www.poder360.com.br/poder-infograficos/brasil-piorou-em-8-de-11-categorias-do-relatorio-da-fome-da-onu/)
+**Fonte:** [Poder360 - Brasil piorou em 8 de 11 categorias do relatório da fome da ONU](https://www.poder360.com.br/poder-infograficos/brasil-piorou-em-8-de-11-categorias-do-relatorio-da-fome-da-onu/)
