@@ -2,7 +2,7 @@
 title: "My View on Global Crypto in 2025: Regulation, ETFs, and AI are Changing Everything"
 description: "From my perspective, 2025 is the year crypto finally grows up. I'm breaking down the three things that I believe matter most: real regulation, the flood of institutional money from ETFs, and the mind-blowing impact of AI."
 pubDate: "2025-08-04"
-heroImage: "../../../assets/crypto.jpg"
+heroImage: "@/assets/crypto.jpg"
 tags: ["crypto", "blockchain", "regulation"]
 ---
 

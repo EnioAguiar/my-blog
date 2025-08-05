@@ -2,7 +2,7 @@
 title: "Cripto no Brasil em 2025: Adoção, Regulação e o Alerta do Drex"
 description: "Minha visão sobre o mercado cripto no Brasil. A regulação está vindo, mas o Drex, o Real Digital, me preocupa. Será o fim da nossa privacidade financeira?"
 pubDate: "2025-08-04"
-heroImage: "../../../assets/jievani-weerasinghe-NHRM1u4GD_A-unsplash.jpg"
+heroImage: "@/assets/jievani-weerasinghe-NHRM1u4GD_A-unsplash.jpg"
 tags: ["crypto", "brazil", "regulation", "blockchain", "drex"]
 ---
 

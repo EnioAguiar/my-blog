@@ -2,7 +2,7 @@
 title: "Fui às ruas e vi o Brasil protestar contra Moraes. O recado foi claro."
 description: "Minha análise sobre as manifestações de 3 de agosto. Não se trata apenas de Bolsonaro, mas de um grito contra o que muitos, como eu, veem como abuso de poder de Alexandre de Moraes."
 pubDate: "2025-08-04"
-heroImage: "../../../assets/brasil.jpg"
+heroImage: "@/assets/brasil.jpg"
 tags: ["politics"]
 ---
 

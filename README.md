@@ -152,7 +152,7 @@ Esta seção documenta os processos para criar e gerenciar o conteúdo do blog.
     title: "Título do Post"
     description: "Uma breve descrição que aparecerá na listagem e nos resultados de busca."
     pubDate: "YYYY-MM-DD" # Data de publicação. Use o formato ANO-MÊS-DIA.
-    heroImage: "../../../assets/nome-da-imagem.jpg" # Caminho relativo para a imagem de capa.
+    heroImage: "@/assets/nome-da-imagem.jpg" # Caminho para a imagem usando o alias.
     tags: ["chave-da-tag-1", "chave-da-tag-2"] # Lista de chaves de tags (veja abaixo).
     ads: true # (Opcional) Adicione esta linha para marcar o post como publicidade.
     ---
@@ -195,3 +195,25 @@ O sistema de tags é centralizado e preparado para múltiplos idiomas.
     3.  **Use a Chave no Post:** Agora você pode usar a chave `performance` na lista de `tags` do seu post.
 
 3.  **Exibição das Categorias:** As páginas de categoria (`/pt/categorias` e `/en/categories`) foram projetadas para exibir **todas as tags definidas** em `ui.ts`, mesmo que uma tag ainda não tenha sido usada em nenhum post daquele idioma. A contagem de posts será simplesmente "0". Isso garante que a lista de categorias seja consistente em todo o site.
+
+### Aliases de Caminho
+
+Para simplificar as importações e referências a arquivos no projeto, foram configurados aliases de caminho. Em vez de usar caminhos relativos complexos como `../../../components/Header.astro`, você pode usar um alias mais limpo.
+
+**Como usar:**
+
+-   Use os aliases no frontmatter dos posts (para `heroImage`) ou em qualquer importação dentro de arquivos `.astro` ou `.ts`.
+-   Exemplo de `heroImage`: `heroImage: "@/assets/minha-imagem.jpg"`
+-   Exemplo de importação: `import Header from '@/components/Header.astro';`
+
+**Aliases Disponíveis:**
+
+| Alias | Caminho Real |
+| :--- | :--- |
+| `@/assets` | `src/assets` |
+| `@/components` | `src/components` |
+| `@/layouts` | `src/layouts` |
+| `@/pages` | `src/pages` |
+| `@/styles` | `src/styles` |
+| `@/i18n` | `src/i18n` |
+| `@/consts` | `src/consts.ts` |
