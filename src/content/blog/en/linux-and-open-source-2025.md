@@ -2,7 +2,7 @@
 title: "My Take on Linux & Open Source in 2025: AI, Security Drama, and Gaming"
 description: "As someone deep in the open-source world, here are my thoughts on 2025. We need to talk about the AI revolution, the xz backdoor drama, and why I think Linux gaming is finally becoming a real thing."
 pubDate: "2025-08-04"
-heroImage: "../../assets/linux.jpg"
+heroImage: "../../../assets/linux.jpg"
 tags: ["linux", "open-source", "security", "ai"]
 ---
 

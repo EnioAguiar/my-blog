@@ -2,7 +2,7 @@
 title: "A Fraude do 'Mapa da Fome': Como o Governo Usa um Número para Esconder a Piora da Sua Alimentação"
 description: "O governo celebra, mas os dados do próprio relatório da ONU são um soco no estômago. O custo da comida explodiu, menos gente pode pagar por uma dieta saudável e a insegurança alimentar, na prática, aumentou. Eu te mostro a manipulação."
 pubDate: "2025-08-05"
-heroImage: "../../assets/fake.jpg"
+heroImage: "../../../assets/fake.jpg"
 tags: ["politics", "brazil"]
 ---
 
