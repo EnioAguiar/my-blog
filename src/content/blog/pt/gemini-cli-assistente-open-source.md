@@ -3,7 +3,7 @@ title: "Gemini CLI: Meu Novo Assistente de Programação Gratuito e Open Source"
 description: "Cansado de pular entre o terminal e o navegador? Descubra como o Gemini CLI, a nova ferramenta open source do Google, está mudando meu jeito de programar com mais segurança e zero custo."
 pubDate: "2025-08-06T09:00:00"
 heroImage: "/src/assets/gemini.jpg"
-tags: ["ia", "open-source", "seguranca"]
+tags: ["ai", "open-source", "security"]
 ---
 
 Sabe aquele ciclo infinito de programar, esbarrar num erro, xingar baixinho, selecionar o trecho problemático, `Ctrl+C`, `Alt+Tab` pro navegador, `Ctrl+V` no Google, abrir 15 abas do Stack Overflow e blogs indianos, adaptar uma solução que nunca é exatamente o seu caso, voltar pro terminal e... esquecer qual era o problema original? Pois é. Eu vivia nessa dança caótica. Até semana passada.

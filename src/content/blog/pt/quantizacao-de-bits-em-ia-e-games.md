@@ -2,8 +2,8 @@
 title: "Quantização de Bits: O Segredo da Eficiência em IA e Games (e Não, Não é Quântico!)"
 description: "Você já ouviu falar em 'quantização' e pensou em computadores quânticos? Calma. A técnica usada em IA e games é outra coisa, e ela é a razão pela qual seus modelos e jogos rodam tão rápido."
 pubDate: "2025-08-06T11:00:00"
-heroImage: "/src/assets/Machine Learning"
-tags: ["ia", "games"]
+heroImage: "/src/assets/machine-learning.jpeg"
+tags: ["ai", "games"]
 ---
 
 Existe um termo no mundo da tecnologia que soa incrivelmente complexo e futurista: **quantização**. A primeira vez que ouvi, minha mente voou direto para a física quântica, para qubits e para a computação do futuro. A verdade, no entanto, é muito mais prática, pé no chão e absolutamente essencial para a tecnologia que usamos hoje, especialmente em Inteligência Artificial e motores de jogos.
