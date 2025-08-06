@@ -3,7 +3,7 @@ title: "Cripto no Brasil em 2025: Adoção, Regulação e o Alerta do Drex"
 description: "Minha visão sobre o mercado cripto no Brasil. A regulação está vindo, mas o Drex, o Real Digital, me preocupa. Será o fim da nossa privacidade financeira?"
 pubDate: "2025-08-04"
 heroImage: "@/assets/jievani-weerasinghe-NHRM1u4GD_A-unsplash.jpg"
-tags: ["crypto", "brazil", "regulation", "blockchain", "drex"]
+tags: ["crypto", "brazil", "regulation", "blockchain"]
 ---
 
 Se você, como eu, acompanha o mercado de criptomoedas, 2025 é um ano para ficar de olho aqui no Brasil. Aquele papo de que cripto era "coisa de nerd" já ficou para trás. O que eu estou vendo é um mercado amadurecendo na marra, e o principal motivo tem nome e sobrenome: Banco Central.
