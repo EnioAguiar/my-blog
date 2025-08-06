@@ -19,20 +19,36 @@ const t = ui[lang];
 ---
 
 <header>
-	<nav>
-		<div class="nav-left">
-			<a href={`/${lang}/`} class="site-title-link">{SITE_TITLE}</a>
-		</div>
-		<div class="nav-right">
-			<HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`} class="categories-link">{t['nav.categories']}</HeaderLink>
-			<div class="language-switcher">
-				<a href="/pt/" class={lang === 'pt' ? 'active' : ''}>PT</a>
-				<span class="separator">|</span>
-				<a href="/en/" class={lang === 'en' ? 'active' : ''}>EN</a>
-			</div>
-		</div>
-	</nav>
+    <nav>
+        <div class="nav-left">
+            <a href={`/${lang}/`} class="site-title-link">{SITE_TITLE}</a>
+        </div>
+        <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </div>
+        <div class="nav-links">
+            <HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`} class="categories-link">{t['nav.categories']}</HeaderLink>
+            <div class="language-switcher">
+                <a href="/pt/" class={lang === 'pt' ? 'active' : ''}>PT</a>
+                <span class="separator">|</span>
+                <a href="/en/" class={lang === 'en' ? 'active' : ''}>EN</a>
+            </div>
+        </div>
+    </nav>
 </header>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('expanded');
+        hamburger.classList.toggle('active');
+    });
+</script>
+
 <style>
 	header {
 		position: sticky;
@@ -52,31 +68,31 @@ const t = ui[lang];
 	.site-title-link {
 		font-size: 1.8em;
 		font-weight: 700;
-		text-decoration: none !important; /* Remove o sublinhado com prioridade */
-		color: rgb(var(--black)); /* Cor padrão branca */
-		text-shadow: none; /* Sem brilho por padrão */
+		text-decoration: none !important;
+		color: rgb(var(--black));
+		text-shadow: none;
 		transition: color 0.3s ease, text-shadow 0.3s ease;
 	}
 	.site-title-link:hover {
-		color: var(--green); /* Cor verde no hover */
-		text-shadow: 0 0 8px rgba(89, 239, 11, 0.4); /* Efeito de brilho no hover */
+		color: var(--green);
+		text-shadow: 0 0 8px rgba(89, 239, 11, 0.4);
 	}
-	.nav-right {
+	.nav-links {
 		display: flex;
 		align-items: center;
 		gap: 1.5rem;
 	}
 	.categories-link {
-		padding: 0.6em 1.2em; /* Aumenta o padding */
-		border: 2px solid rgb(var(--gray)); /* Borda mais grossa */
+		padding: 0.6em 1.2em;
+		border: 2px solid rgb(var(--gray));
 		border-radius: 20px;
 		color: rgb(var(--gray-dark));
 		text-decoration: none;
-		font-family: "Poppins", sans-serif; /* Fonte de título */
-		font-size: 0.8em; /* Ajusta o tamanho da fonte */
-		font-weight: 600; /* Mais pesado */
-		text-transform: uppercase; /* Caixa alta */
-		letter-spacing: 0.05em; /* Espaçamento entre letras */
+		font-family: "Poppins", sans-serif;
+		font-size: 0.8em;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
 		transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 	}
 	.categories-link:hover,
@@ -102,4 +118,53 @@ const t = ui[lang];
 	.separator {
 		color: rgb(var(--gray-dark));
 	}
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+        z-index: 20;
+    }
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background-color: white;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger.active .line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .line:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    @media (max-width: 720px) {
+        .nav-links {
+            display: none;
+            position: absolute;
+            top: 4.5rem;
+            left: 0;
+            width: 100%;
+            background-color: #000000;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 0;
+            border-bottom: 3px solid #FFFFFF;
+        }
+
+        .nav-links.expanded {
+            display: flex;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
 </style>
