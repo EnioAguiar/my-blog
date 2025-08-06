@@ -8,34 +8,29 @@ import { ui } from '../../i18n/ui';
 
 const lang = 'en';
 
-// 1. Get all tag KEYs defined in ui.ts
-const allTagKeys = Object.keys(ui[lang])
-  .filter(key => key.startsWith('tags.') && key.endsWith('.name'))
-  .map(key => key.replace('tags.', '').replace('.name', ''));
-
-// 2. Get all English posts
+// 1. Get all English posts
 const posts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
 
-// 3. Count occurrences of each tag KEY in posts
+// 2. Collect all used tag keys and count their occurrences
 const tagKeyCounts: Record<string, number> = {};
-posts.forEach((post) => {
-	if (Array.isArray(post.data.tags)) {
-		post.data.tags.forEach((tagKey: string) => {
-			if (tagKey.trim() !== '') {
-				tagKeyCounts[tagKey] = (tagKeyCounts[tagKey] || 0) + 1;
-			}
-		});
-	}
+posts.forEach(post => {
+    if (Array.isArray(post.data.tags)) {
+        post.data.tags.forEach((tagKey: string) => {
+            if (tagKey.trim() !== '') {
+                tagKeyCounts[tagKey] = (tagKeyCounts[tagKey] || 0) + 1;
+            }
+        });
+    }
 });
 
-// 4. Map ALL keys to translated data and counts
-const tagsData = allTagKeys.map(tagKey => {
+// 3. Map only the USED tag keys to translated data and counts
+const tagsData = Object.keys(tagKeyCounts).map(tagKey => {
     const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
     const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
     return {
         name,
         slug,
-        count: tagKeyCounts[tagKey] || 0 // Use 0 if tag is not found
+        count: tagKeyCounts[tagKey]
     };
 }).sort((a, b) => a.name.localeCompare(b.name)); // Sort by translated name
 

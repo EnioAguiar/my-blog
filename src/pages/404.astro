@@ -1,0 +1,44 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { ui, defaultLang } from '../i18n/ui';
+
+// Como esta página não tem [lang] na URL, vamos detectar o idioma pelo navegador.
+// O Astro.currentLocale pode ser undefined, então garantimos um fallback.
+const lang = 'pt'; // Forçando PT como padrão para o build
+
+const t = (key: keyof typeof ui[typeof lang]) => ui[lang][key] || ui[defaultLang][key];
+---
+
+<PageLayout title={t('404.title')} description="Página não encontrada">
+  <div class="container">
+    <p>{t('404.message')}</p>
+    <a href="/" class="button">{t('404.back')}</a>
+  </div>
+</PageLayout>
+
+<style>
+  .container {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    color: rgb(var(--gray-light));
+    border: 1px solid rgb(var(--gray));
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+  }
+  .button:hover {
+    background-color: var(--green);
+    color: var(--black);
+    border-color: var(--green);
+  }
+</style>

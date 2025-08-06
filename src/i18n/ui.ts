@@ -95,6 +95,9 @@ export const ui = {
     'tags.mentalidade.slug': 'mentalidade',
     'tags.web3.name': 'Web3',
     'tags.web3.slug': 'web3',
+    '404.title': 'Página não encontrada',
+    '404.message': 'A página que você está procurando não existe ou foi movida.',
+    '404.back': 'Voltar para a página inicial',
   },
   en: {
     'nav.about': 'About',
@@ -165,5 +168,8 @@ export const ui = {
     'tags.mentalidade.slug': 'mindset',
     'tags.web3.name': 'Web3',
     'tags.web3.slug': 'web3',
+    '404.title': 'Page Not Found',
+    '404.message': 'The page you are looking for does not exist or has been moved.',
+    '404.back': 'Go back to the homepage',
   },
 } as const;
