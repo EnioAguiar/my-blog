@@ -13,8 +13,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
 	site: 'https://brainnoises.com',
 	integrations: [mdx(), sitemap(), pagefind()],
+    redirects: {
+        '/': '/en/', // Aponta para o inglês como padrão
+    },
 	i18n: {
-		defaultLocale: 'pt',
+		defaultLocale: 'en', // Define o inglês como idioma principal
 		locales: ['pt', 'en'],
 		routing: {
 			prefixDefaultLocale: true,
