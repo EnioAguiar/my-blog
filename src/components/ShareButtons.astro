@@ -1,0 +1,103 @@
+---
+import { ui, defaultLang } from '../i18n/ui';
+
+interface Props {
+  title: string;
+  slug: string;
+  lang: keyof typeof ui;
+}
+
+const { title, slug, lang } = Astro.props;
+const t = ui[lang] ?? ui[defaultLang];
+
+const url = `https://brainnoises.com/${lang}/blog/${slug}/`;
+const encodedUrl = encodeURIComponent(url);
+const encodedTitle = encodeURIComponent(title);
+
+const shareLinks = {
+  twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+  linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}`,
+  whatsapp: `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedUrl}`,
+  telegram: `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`,
+};
+---
+
+<div class="share-container">
+  <h3>{t['share.title']}</h3>
+  <div class="share-buttons">
+    <a href={shareLinks.twitter} target="_blank" rel="noopener noreferrer" class="share-button" aria-label={t['share.twitter']}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+    </a>
+    <a href={shareLinks.facebook} target="_blank" rel="noopener noreferrer" class="share-button" aria-label={t['share.facebook']}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+    </a>
+    <a href={shareLinks.linkedin} target="_blank" rel="noopener noreferrer" class="share-button" aria-label={t['share.linkedin']}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </a>
+    <a href={shareLinks.whatsapp} target="_blank" rel="noopener noreferrer" class="share-button" aria-label={t['share.whatsapp']}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
+    <a href={shareLinks.telegram} target="_blank" rel="noopener noreferrer" class="share-button" aria-label={t['share.telegram']}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"></path><path d="M22 2 15 22 11 13 2 9z"></path></svg>
+    </a>
+    <button id="copy-link-button" class="share-button" aria-label={t['share.copy']}>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+    </button>
+  </div>
+  <div id="copy-link-feedback" class="feedback-message" aria-live="polite"></div>
+</div>
+
+<script define:vars={{ t }}>
+  const copyButton = document.getElementById('copy-link-button');
+  const feedbackMessage = document.getElementById('copy-link-feedback');
+  
+  copyButton.addEventListener('click', () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      feedbackMessage.textContent = t['share.copied'];
+      setTimeout(() => {
+        feedbackMessage.textContent = '';
+      }, 2000);
+    });
+  });
+</script>
+
+<style>
+  .share-container {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .share-container h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: rgb(var(--black));
+  }
+  .share-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .share-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgb(var(--gray));
+    color: rgb(var(--gray));
+    transition: all 0.3s ease;
+  }
+  .share-button:hover {
+    background-color: rgb(var(--gray));
+    color: #000000;
+    transform: scale(1.1);
+  }
+  .feedback-message {
+    margin-top: 1rem;
+    color: var(--green);
+    font-weight: bold;
+    height: 1.2em;
+  }
+</style>
