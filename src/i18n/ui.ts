@@ -69,6 +69,10 @@ export const ui = {
     'tags.ai.slug': 'inteligencia-artificial',
     'tags.film-review.name': 'Crítica de Filme',
     'tags.film-review.slug': 'critica-de-filme',
+    'tags.games.name': 'Jogos',
+    'tags.games.slug': 'jogos',
+    'tags.fps.name': 'FPS',
+    'tags.fps.slug': 'fps',
   },
   en: {
     'nav.about': 'About',
@@ -115,5 +119,9 @@ export const ui = {
     'tags.ai.slug': 'ai',
     'tags.film-review.name': 'Film Review',
     'tags.film-review.slug': 'film-review',
+    'tags.games.name': 'Games',
+    'tags.games.slug': 'games',
+    'tags.fps.name': 'FPS',
+    'tags.fps.slug': 'fps',
   },
 } as const;

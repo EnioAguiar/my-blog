@@ -116,13 +116,19 @@ A estrutura de pastas e arquivos do projeto é a seguinte:
 
 Todos os comandos devem ser executados a partir da raiz do projeto em um terminal:
 
-| Comando | Ação |
-| :--- | :--- |
-| `npm install` | Instala as dependências do projeto. |
-| `npm run dev` | Inicia o servidor de desenvolvimento local em `localhost:4321`. |
-| `npm run build` | Compila o site para produção na pasta `./dist/`. |
-| `npm run preview` | Visualiza a compilação de produção localmente antes de implantar. |
-| `npm run optimize` | Otimiza as imagens na pasta `src/assets` para a web. |
+| Comando            | Ação                                                                                                                   |
+| :----------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| `npm install`      | Instala as dependências do projeto.                                                                                    |
+| `npm run dev`      | Inicia o servidor de desenvolvimento local em `localhost:4321`.                                                        |
+| `npm run build`    | Compila o site para produção. **Útil para testar a versão final localmente**, mas não é necessário para publicar.      |
+| `npm run preview`  | Visualiza a compilação de produção localmente antes de implantar.                                                      |
+| `npm run optimize` | Otimiza as imagens na pasta `src/assets` para a web.                                                                   |
+
+## 🚀 Publicação (Deploy)
+
+Este projeto utiliza **GitHub Actions** para automatizar o processo de publicação. Qualquer `push` para a branch `main` irá disparar um fluxo de trabalho que automaticamente compila e publica o site no GitHub Pages.
+
+Isso significa que **não é necessário executar `npm run build` localmente** antes de enviar suas alterações. O processo é 100% automatizado.
 
 ## ✨ Recursos Úteis
 
