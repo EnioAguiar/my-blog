@@ -54,3 +54,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+
+<!-- Umami Analytics -->
+<script defer src="https://analytics-umami-kohl.vercel.app/script.js" data-website-id="b192b7c6-5a62-490a-a78b-32585d1544ec"></script>
+
