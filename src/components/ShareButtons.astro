@@ -10,7 +10,7 @@ interface Props {
 const { title, slug, lang } = Astro.props;
 const t = ui[lang] ?? ui[defaultLang];
 
-const url = `https://brainnoises.com/${lang}/blog/${slug}/`;
+const url = `https://brainnoises.com/blog/${slug}/`;
 const encodedUrl = encodeURIComponent(url);
 const encodedTitle = encodeURIComponent(title);
 
