@@ -45,6 +45,18 @@ const today = new Date();
 				<a href={`/${lang}/${t['nav.terms.slug']}`}>{t['nav.terms']}</a>
 				<a href={`/${lang}/${t['nav.privacy.slug']}`}>{t['nav.privacy']}</a>
 			</div>
+			<div class="social-links">
+				<a href="https://x.com/brainnoises_io" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+					<svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+					</svg>
+				</a>
+				<a href="https://www.reddit.com/r/Brainnoises/" target="_blank" rel="noopener noreferrer" aria-label="Reddit">
+					<svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.017 21.64c-5.325 0-9.642-4.318-9.642-9.643C2.375 6.675 6.692 2.358 12.017 2.358c5.325 0 9.642 4.317 9.642 9.642s-4.317 9.64-9.642 9.64M12.017 0C5.39 0 0 5.39 0 12.017c0 6.627 5.39 12.017 12.017 12.017 6.627 0 12.017-5.39 12.017-12.017C24.034 5.39 18.644 0 12.017 0m5.83 12.576c0-1.42-.92-2.62-2.21-3.09.24-.18.39-.46.39-.77 0-.52-.42-.94-.94-.94s-.94.42-.94.94c0 .31.15.59.39.77-1.29.47-2.21 1.67-2.21 3.09 0 .52.42.94.94.94h2.44c.52 0 .94-.42.94-.94m-2.93-1.42c-.4 0-.72.32-.72.72s.32.72.72.72.72-.32.72-.72-.32-.72-.72-.72m-5.03 1.42c0-1.42-.92-2.62-2.21-3.09.24-.18.39-.46.39-.77 0-.52-.42-.94-.94-.94s-.94.42-.94.94c0 .31.15.59.39.77-1.29.47-2.21 1.67-2.21 3.09 0 .52.42.94.94.94h2.44c.52 0 .94-.42.94-.94m-2.93-1.42c-.4 0-.72.32-.72.72s.32.72.72.72.72-.32.72-.72-.32-.72-.72-.72m7.83 4.25c-1.83 1.12-4.23 1.12-6.06 0-1.02-.62-1.02-1.67 0-2.29 1.83-1.12 4.23-1.12 6.06 0 1.02.62 1.02 1.67 0 2.29"/>
+					</svg>
+				</a>
+			</div>
 		</div>
 	</div>
 </footer>
@@ -96,6 +108,25 @@ const today = new Date();
 	}
 
 	.links a:hover {
+		color: var(--green-bright);
+	}
+
+	.social-links {
+		display: flex;
+		justify-content: flex-end;
+		gap: 1.5rem;
+		margin-top: 1rem;
+	}
+
+	.social-icon {
+		width: 24px;
+		height: 24px;
+		vertical-align: middle;
+		color: rgb(var(--gray));
+		transition: color 0.2s ease;
+	}
+
+	.social-links a:hover .social-icon {
 		color: var(--green-bright);
 	}
 
