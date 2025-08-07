@@ -1,7 +1,7 @@
 ---
 title: "ETFs em Queda: Por que o Investidor de Cripto de Verdade Não se Abala"
 description: "O mercado de cripto é uma montanha-russa, e os ETFs não mudaram isso. Uma queda de US$ 1.9 bilhão? Para quem entende o jogo, isso é só mais um dia no escritório."
-pubDate: "2025-08-08T11:00:00Z"
+pubDate: "2025-08-06T13:00:00Z"
 heroImage: "@/assets/crypto volatility.jpg"
 tags: ["crypto", "investing", "mentalidade"]
 ---

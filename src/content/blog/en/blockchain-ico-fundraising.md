@@ -1,7 +1,7 @@
 ---
 title: "ICOs Aren't Dead, They Just Evolved: The Role of Blockchain Today"
 description: "Remember the ICO craze of 2017? It was a wild west. But blockchain's role in fundraising didn't die; it matured, becoming more sophisticated and regulated."
-pubDate: "2025-08-09T10:00:00Z"
+pubDate: "2025-08-06T17:00:00Z"
 heroImage: "@/assets/blockchain evolution.jpg"
 tags: ["crypto", "blockchain", "investing", "web3"]
 ---

@@ -157,7 +157,7 @@ Esta seção documenta os processos para criar e gerenciar o conteúdo do blog.
     ---
     title: "Título do Post"
     description: "Uma breve descrição que aparecerá na listagem e nos resultados de busca."
-    pubDate: "YYYY-MM-DD" # Data de publicação. Use o formato ANO-MÊS-DIA.
+    pubDate: "YYYY-MM-DDTHH:MM:SSZ" # Data de publicação. Use o formato ISO 8601 com horário para garantir a ordem correta.
     heroImage: "@/assets/nome-da-imagem.jpg" # Caminho para a imagem usando o alias.
     tags: ["chave-da-tag-1", "chave-da-tag-2"] # Lista de chaves de tags (veja abaixo).
     ads: true # (Opcional) Adicione esta linha para marcar o post como publicidade.

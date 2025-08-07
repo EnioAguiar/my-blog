@@ -30,6 +30,7 @@ Abaixo estão os comandos NPM mais importantes para o desenvolvimento e manuten�
 ### Estrutura de Conteúdo
 -   **Posts:** Ficam em `src/content/blog/`. Cada idioma tem seu próprio subdiretório (`pt/`, `en/`).
 -   **Frontmatter:** Cada post deve conter metadados definidos no schema em `src/content.config.ts`, incluindo `title`, `description`, `pubDate`, `heroImage` e `tags`.
+-   **Datas (`pubDate`):** Para garantir a ordem correta de posts publicados no mesmo dia, a `pubDate` deve incluir o horário no formato ISO 8601 (ex: `YYYY-MM-DDTHH:MM:SSZ`). Isso evita inconsistências na ordenação.
 -   **Imagens:** As imagens dos posts devem ser colocadas em `src/assets/` e otimizadas com o comando `npm run optimize` antes do commit.
 
 ### Sistema de Internacionalização (i18n)

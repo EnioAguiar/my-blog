@@ -1,7 +1,7 @@
 ---
 title: "Is Litecoin's ETF Hype Real? A Skeptic's Take"
 description: "Everyone's excited about a potential Litecoin ETF, but let's ask the hard questions. Is this real momentum or just an echo of Bitcoin's success?"
-pubDate: "2025-08-08T10:00:00Z"
+pubDate: "2025-08-06T16:00:00Z"
 heroImage: "@/assets/litecoin.jpg"
 tags: ["crypto", "investing"]
 ---

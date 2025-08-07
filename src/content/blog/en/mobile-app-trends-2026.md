@@ -1,7 +1,7 @@
 ---
 title: "Beyond the Hype: 3 Mobile App Trends for 2026 That Actually Matter"
 description: "Forget the buzzwords. Let's break down the three mobile app development trends that will actually change how we use our phones by 2026."
-pubDate: "2025-08-07T10:00:00Z"
+pubDate: "2025-08-06T15:00:00Z"
 heroImage: "@/assets/futuristic mobile app.jpg"
 tags: ["tech", "mobile", "ai", "development"]
 ---

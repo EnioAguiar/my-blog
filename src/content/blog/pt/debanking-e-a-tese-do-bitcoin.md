@@ -1,7 +1,7 @@
 ---
 title: "Debanking: Quando seu Banco Vira seu Inimigo Político, o Bitcoin Ri por Último"
 description: "A notícia de que Trump acusa bancos de perseguição política não é sobre ele. É sobre você. E é o lembrete mais brutal da razão pela qual o Bitcoin existe."
-pubDate: "2025-08-07T11:00:00Z"
+pubDate: "2025-08-06T14:00:00Z"
 heroImage: "@/assets/financial control.jpg"
 tags: ["politics", "crypto", "liberdade", "debanking"]
 ---
