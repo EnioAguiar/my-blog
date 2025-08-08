@@ -40,7 +40,7 @@ Para melhorar a visibilidade do blog nos motores de busca, foi realizada uma oti
     -   **Meta Tags:** O componente `BaseHead.astro` foi verificado e confirmado que já implementa as melhores práticas, incluindo tags `canonical`, Open Graph (para redes sociais) e Twitter Cards.
 
 -   **SEO On-Page:**
-    -   **Títulos e Descrições:** Os títulos e descrições de todos os posts existentes (em português e inglês) foram reescritos para serem mais curtos, diretos e ricos em palavras-chave relevantes.
+    -   **Títulos e Descrições:** A `SITE_DESCRIPTION` em `src/consts.ts` foi atualizada para ser mais descritiva e otimizada. Os títulos das páginas "Sobre" (`/about` e `/sobre`) foram ajustados para incluir o nome do blog ("Brainnoises"), reforçando a identidade da marca. Além disso, os títulos e descrições de todos os posts existentes (em português e inglês) foram reescritos para serem mais curtos, diretos e ricos em palavras-chave relevantes.
     -   **Subtítulos:** A estrutura de subtítulos (`##`, `###`) dentro dos posts foi revisada para garantir uma hierarquia clara e o uso de termos específicos, melhorando a legibilidade para usuários e robôs.
 
 ## Funcionalidades Adicionais
@@ -170,7 +170,7 @@ Esta seção documenta os processos para criar e gerenciar o conteúdo do blog.
 
 Para garantir que o site permaneça rápido, todas as imagens de capa (`heroImage`) devem ser otimizadas. Foi criado um comando para automatizar esse processo.
 
-**Quando usar:** Após adicionar um novo arquivo de imagem (ex: `.jpg`) na pasta `src/assets`.
+**Quando usar:** Após adicionar um novo arquivo de imagem (ex: `.jpg` ou `.png`) na pasta `src/assets`.
 
 **Como usar:**
 1.  Adicione sua imagem original em `src/assets`.
@@ -178,7 +178,7 @@ Para garantir que o site permaneça rápido, todas as imagens de capa (`heroImag
     ```bash
     npm run optimize
     ```
-3.  O script irá automaticamente redimensionar e comprimir a imagem, sobrescrevendo o arquivo original com a versão otimizada.
+3.  O script irá automaticamente redimensionar imagens (se maiores que 1200px de largura) e **converterá para o formato WebP**, salvando a versão `.webp` ao lado do arquivo original. O Astro, através do `astro:assets`, servirá automaticamente a versão mais otimizada para o navegador do usuário.
 
 ### Gerenciando Tags (Categorias)
 
