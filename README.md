@@ -43,6 +43,37 @@ Para melhorar a visibilidade do blog nos motores de busca, foi realizada uma oti
     -   **Títulos e Descrições:** A `SITE_DESCRIPTION` em `src/consts.ts` foi atualizada para ser mais descritiva e otimizada. Os títulos das páginas "Sobre" (`/about` e `/sobre`) foram ajustados para incluir o nome do blog ("Brainnoises"), reforçando a identidade da marca. Além disso, os títulos e descrições de todos os posts existentes (em português e inglês) foram reescritos para serem mais curtos, diretos e ricos em palavras-chave relevantes.
     -   **Subtítulos:** A estrutura de subtítulos (`##`, `###`) dentro dos posts foi revisada para garantir uma hierarquia clara e o uso de termos específicos, melhorando a legibilidade para usuários e robôs.
 
+## Filosofia e Estratégia de Conteúdo
+
+O conteúdo deste blog é guiado por uma filosofia central de análise crítica sobre tecnologia, liberdade e finanças. O objetivo é ir além das notícias e oferecer uma perspectiva original e aprofundada. A estratégia de conteúdo se baseia nos seguintes pilares temáticos:
+
+### Pilares Temáticos
+
+1.  **Privacidade e Soberania Digital:**
+    -   **Foco:** Este é o pilar principal e o maior diferencial do blog. O objetivo é capacitar o leitor a retomar o controle de sua vida digital.
+    -   **Tópicos Chave:** `segurança digital para leigos`, `privacidade online`, `self-hosted applications`, `digital sovereignty guide`.
+    -   **Estratégia:** Criar guias completos e séries de posts que se tornem referência no assunto, com uma abordagem filosófica e prática.
+
+2.  **Linux e Open Source:**
+    -   **Foco:** Apresentar o mundo do software livre como uma alternativa viável e poderosa ao ecossistema das Big Techs.
+    -   **Tópicos Chave:** `tutoriais linux`, `melhores distribuições linux`, `customização de desktop`, `automação de tarefas`.
+    -   **Estratégia:** Abordar tópicos populares com um ângulo único, sempre conectando a ferramenta à filosofia de liberdade e privacidade.
+
+3.  **Cripto e Web3:**
+    -   **Foco:** Análise crítica do cenário de criptoativos e tecnologias descentralizadas, evitando a narrativa puramente especulativa.
+    -   **Tópicos Chave:** `arbitragem de criptomoedas`, `web3 como funciona`, `DeFi explicado`, `tokenização`.
+    -   **Estratégia:** Manter uma lente política e social, discutindo as implicações de poder, os riscos e as promessas não cumpridas do setor.
+
+4.  **IA e Produtividade (com Foco em Open Source):**
+    -   **Foco:** Explorar o universo da Inteligência Artificial através da perspectiva do código aberto, destacando ferramentas que respeitam a soberania do usuário.
+    -   **Tópicos Chave:** `inteligência artificial de código aberto`, `ferramentas de IA para produtividade`, `modelos de IA auto-hospedados`.
+    -   **Estratégia:** Posicionar o blog como uma referência em IA que pode ser controlada pelo próprio usuário, em oposição às plataformas fechadas.
+
+5.  **Desenvolvimento e Cloud:**
+    -   **Foco:** Oferecer guias práticos para desenvolvedores e pequenos negócios que buscam construir na web de forma independente e com baixo custo.
+    -   **Tópicos Chave:** `desenvolvimento web open source`, `computação em nuvem para pequenos negócios`, `zero cost cloud solutions`.
+    -   **Estratégia:** Criar tutoriais e guias de alto valor prático que resolvam problemas reais para um público técnico.
+
 ## Funcionalidades Adicionais
 
 ### Estratégias de Engajamento e Marketing

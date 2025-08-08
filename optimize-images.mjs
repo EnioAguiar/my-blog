@@ -1,37 +1,49 @@
 
 import sharp from 'sharp';
 import fg from 'fast-glob';
-import { stat } from 'node:fs/promises';
-import path from 'node:path'; // Importar o módulo path
+import { stat, access } from 'node:fs/promises';
+import path from 'node:path';
 
-const imagePaths = await fg(['src/assets/*.jpg', 'src/assets/*.png']); // Incluir PNGs
+// Função para verificar se um arquivo existe
+async function fileExists(filePath) {
+    try {
+        await access(filePath);
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+const imagePaths = await fg(['src/assets/*.jpg', 'src/assets/*.png']);
 
 console.log(`Found ${imagePaths.length} images. Checking which ones to optimize and convert to WebP...`);
 
 let optimizedCount = 0;
 
 for (const imagePath of imagePaths) {
+    const { dir, name } = path.parse(imagePath);
+    const webpOutputPath = path.join(dir, `${name}.webp`);
+
+    // Verifica se a versão WebP já existe
+    if (await fileExists(webpOutputPath)) {
+        continue; // Pula para a próxima imagem se a versão WebP já existir
+    }
+
     try {
         const image = sharp(imagePath);
         const metadata = await image.metadata();
         const originalSize = (await stat(imagePath)).size / 1024;
 
-        let processedImage = image; // Stream da imagem para processamento
+        let processedImage = image;
         let resized = false;
 
-        // Redimensionar se a imagem for maior que 1200px
         if (metadata.width && metadata.width > 1200) {
             processedImage = processedImage.resize(1200);
             resized = true;
         }
 
-        // Determinar o caminho de saída para o WebP
-        const { dir, name } = path.parse(imagePath);
-        const webpOutputPath = path.join(dir, `${name}.webp`);
-
-        // Converter para WebP
         const webpBuffer = await processedImage
-            .webp({ quality: 80 }) // Qualidade do WebP
+            .webp({ quality: 80 })
             .toBuffer();
 
         await sharp(webpBuffer).toFile(webpOutputPath);
@@ -52,9 +64,9 @@ for (const imagePath of imagePaths) {
 
 if (optimizedCount > 0) {
     console.log(`
-Sucesso! ${optimizedCount} imagens otimizadas e convertidas para WebP.`);
+Sucesso! ${optimizedCount} imagens novas foram otimizadas e convertidas para WebP.`);
 } else {
     console.log(`
-Nenhuma imagem nova para otimizar ou converter para WebP.`);
+Nenhuma imagem nova para otimizar.`);
 }
 
