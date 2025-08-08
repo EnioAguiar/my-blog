@@ -18,7 +18,7 @@ export default defineConfig({
 		defaultLocale: 'en', // Define o inglês como idioma principal
 		locales: ['pt', 'en'],
 		routing: {
-			prefixDefaultLocale: true,
+			prefixDefaultLocale: false,
 		},
 	},
 	vite: {
