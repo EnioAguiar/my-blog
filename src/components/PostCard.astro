@@ -35,7 +35,9 @@ function getTranslatedTag(tagKey: string) {
       <span class="post-label">{number}</span>
       {post.data.ads && <span class="post-label is-ad">ads</span>}
       {post.data.heroImage && (
-        <Image width={720} height={360} src={post.data.heroImage} alt="" />
+        <div class="image-wrapper">
+          <Image width={720} height={360} src={post.data.heroImage} alt="" />
+        </div>
       )}
       <div class="content">
         <h4 class="title">{post.data.title}</h4>
@@ -86,8 +88,8 @@ function getTranslatedTag(tagKey: string) {
     color: var(--green-bright);
   }
 
-  .card > a:hover img {
-    box-shadow: var(--box-shadow);
+  .card > a:hover .image-wrapper img {
+    transform: scale(1.05);
   }
 
   li .post-label.is-ad {
@@ -96,13 +98,23 @@ function getTranslatedTag(tagKey: string) {
     right: -0.75rem;
   }
 
-  img {
-    width: 100%;
-    aspect-ratio: 2 / 1;
-    object-fit: cover;
+  .image-wrapper {
     margin-bottom: 0.5rem;
     border-radius: 12px;
-    transition: 0.2s ease;
+    overflow: hidden; /* Garante que a imagem não ultrapasse a borda arredondada */
+    height: 200px; /* Altura fixa para o contêiner da imagem */
+    transition: box-shadow 0.2s ease;
+  }
+
+  .card > a:hover .image-wrapper {
+    box-shadow: var(--box-shadow);
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre o contêiner mantendo a proporção */
+    transition: transform 0.2s ease;
   }
 
   .content {
