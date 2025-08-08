@@ -45,6 +45,12 @@ Para melhorar a visibilidade do blog nos motores de busca, foi realizada uma oti
 
 ## Funcionalidades Adicionais
 
+### Estratégias de Engajamento e Marketing
+
+Para otimizar o retorno sobre o investimento em campanhas de publicidade e melhorar o engajamento de novos visitantes, estão sendo implementadas as seguintes estratégias:
+
+-   **Landing Page para Anúncios (`/en/welcome`):** Foi criada uma página de destino dedicada para campanhas de anúncios. Em vez de direcionar o tráfego para o feed principal (que pode causar "paralisia de decisão"), esta página funciona como uma vitrine curada. Ela apresenta os melhores e mais populares artigos do blog, cada um com sua imagem, título e descrição, guiando o novo usuário a uma experiência de leitura de alta qualidade e aumentando a probabilidade de um primeiro clique.
+
 ### Sistema de Publicidade em Posts
 
 Foi implementado um sistema para destacar posts como publicidade. A solução foi reestruturada para usar uma arquitetura de componentes, garantindo que o código seja robusto e de fácil manutenção.

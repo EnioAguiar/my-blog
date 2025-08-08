@@ -1,0 +1,92 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead 
+      title="Welcome to BrainNoise"
+      description="Choose your language to explore insights on technology, finance, and culture."
+    />
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #000000; /* Correct black background */
+        color: rgb(var(--black));
+        font-family: "Inter", sans-serif;
+        margin: 0;
+      }
+      .container {
+        text-align: center;
+        padding: 2rem;
+      }
+      .logo {
+        font-family: "Poppins", sans-serif;
+        font-size: 3rem;
+        font-weight: bold;
+        color: rgb(var(--black));
+        margin-bottom: 1rem;
+        text-decoration: none;
+        transition: color 0.3s ease, text-shadow 0.3s ease;
+      }
+      .logo:hover {
+        color: var(--green-bright);
+        text-shadow: 0 0 15px rgba(124, 249, 59, 0.5);
+      }
+      h1 {
+        font-family: "Inter", sans-serif;
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        font-weight: 400;
+        color: rgb(var(--gray));
+      }
+      .language-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: center;
+      }
+      .language-button {
+        display: inline-block;
+        padding: 0.75rem 2.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: rgb(var(--black));
+        background-color: transparent;
+        border-radius: 8px;
+        text-decoration: none;
+        border: 2px solid rgb(var(--black));
+        min-width: 300px; /* Ensure buttons have same width */
+        transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+      .language-button:hover {
+        transform: translateY(-4px);
+        color: var(--green-bright);
+        border-color: var(--green-bright);
+        box-shadow: 0 10px 25px rgba(124, 249, 59, 0.3);
+      }
+
+      @media (min-width: 768px) {
+        .language-selector {
+          flex-direction: row;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">brainnoise</div>
+      <h1>Choose your language to continue</h1>
+      <div class="language-selector">
+        <a href="/en/" class="language-button">Continue in English</a>
+        <a href="/pt/" class="language-button secondary">Continuar em Português</a>
+      </div>
+    </div>
+  </body>
+</html>
