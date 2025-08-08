@@ -10,11 +10,11 @@ import BaseHead from '@/components/BaseHead.astro';
     />
     <style>
       body {
+        /* The background is now handled by global.css */
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background-color: #000000; /* Correct black background */
         color: rgb(var(--black));
         font-family: "Inter", sans-serif;
         margin: 0;
@@ -35,6 +35,13 @@ import BaseHead from '@/components/BaseHead.astro';
       .logo:hover {
         color: var(--green-bright);
         text-shadow: 0 0 15px rgba(124, 249, 59, 0.5);
+      }
+      .tagline {
+        font-size: 1.1rem;
+        color: rgb(var(--gray));
+        max-width: 50ch;
+        margin: -1rem auto 2.5rem;
+        line-height: 1.6;
       }
       h1 {
         font-family: "Inter", sans-serif;
@@ -82,6 +89,7 @@ import BaseHead from '@/components/BaseHead.astro';
   <body>
     <div class="container">
       <div class="logo">brainnoise</div>
+      <p class="tagline">A space for curiosity. Here, technology, open-source philosophy, and reflections on the digital world are explored without a fixed map.</p>
       <h1>Choose your language to continue</h1>
       <div class="language-selector">
         <a href="/en/" class="language-button">Continue in English</a>
