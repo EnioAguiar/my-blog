@@ -42,3 +42,18 @@ Abaixo estão os comandos NPM mais importantes para o desenvolvimento e manuten�
 
 ### Segurança
 -   Um middleware em `src/middleware.ts` adiciona cabeçalhos de segurança (`X-Frame-Options`, `X-Content-Type-Options`, etc.) a todas as respostas do servidor para aumentar a proteção do site.
+
+---
+
+### Ferramentas de Desenvolvimento Local
+
+Esta seção descreve scripts e ferramentas que são para uso exclusivo em desenvolvimento local e não fazem parte do build do site. A pasta `scripts/` está no `.gitignore`.
+
+#### Extrator de Conteúdo Web (`scrape.mjs`)
+-   **Objetivo:** Acelerar a criação de conteúdo extraindo o texto principal de um artigo a partir de uma URL.
+-   **Tecnologia:** É um script Node.js que usa as bibliotecas `axios` para baixar a página e `cheerio` para analisar o HTML.
+-   **Como usar:**
+    ```bash
+    node scripts/scrape.mjs "URL_DO_ARTIGO_AQUI"
+    ```
+-   **Importante:** O script é uma ferramenta de conveniência. Sites com proteção avançada (como a Bloomberg) podem bloqueá-lo.
