@@ -1,10 +1,9 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import Search from './Search.astro';
 import { ui, defaultLang } from '../i18n/ui';
 
-// O Header agora pode receber o idioma via props.
-// Isso é necessário para páginas de post, onde a URL não segue o padrão /en/ ou /pt/.
 const { lang: langFromProps } = Astro.props;
 
 function getLangFromUrl(url: URL) {
@@ -13,7 +12,6 @@ function getLangFromUrl(url: URL) {
   return defaultLang;
 }
 
-// Usa o idioma da prop se existir, senão, extrai da URL.
 const lang = langFromProps || getLangFromUrl(Astro.url);
 const t = ui[lang];
 ---
@@ -23,11 +21,21 @@ const t = ui[lang];
         <div class="nav-left">
             <a href={`/${lang}/`} class="site-title-link">{SITE_TITLE}</a>
         </div>
+
+        <div class="search-container">
+            <form action={`/${lang === 'pt' ? 'pt/busca' : 'en/search'}`} method="GET">
+                <label for="header-search-input" class="sr-only">{t['search.label']}</label>
+                <input type="search" id="header-search-input" name="q" placeholder={t['search.placeholder']} />
+                <button type="submit">{t['search.label']}</button>
+            </form>
+        </div>
+
         <div class="hamburger">
             <span class="line"></span>
             <span class="line"></span>
             <span class="line"></span>
         </div>
+
         <div class="nav-links">
             <HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`} class="categories-link">{t['nav.categories']}</HeaderLink>
             <div class="language-switcher">
@@ -40,12 +48,17 @@ const t = ui[lang];
 </header>
 
 <script>
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    // Este script é apenas para o menu hamburger em telas pequenas
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('expanded');
-        hamburger.classList.toggle('active');
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('expanded');
+                hamburger.classList.toggle('active');
+            });
+        }
     });
 </script>
 
@@ -145,7 +158,69 @@ const t = ui[lang];
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .search-container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        padding: 0 2rem;
+    }
+
+    .search-container form {
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+        gap: 0.5rem;
+    }
+
+    .search-container input {
+        flex-grow: 1;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgb(var(--gray));
+        border-radius: 4px;
+        background-color: #000000;
+        color: rgb(var(--black));
+        font-size: 0.9em;
+    }
+
+    .search-container input::placeholder {
+        color: var(--accent-dark);
+        opacity: 1;
+    }
+
+    .search-container button {
+        padding: 0.5rem 1rem;
+        border: 1px solid rgb(var(--gray));
+        border-radius: 4px;
+        background-color: #000000;
+        color: rgb(var(--black));
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        font-size: 0.9em;
+    }
+
+    .search-container button:hover {
+        background-color: rgb(var(--black));
+        color: #000000;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
     @media (max-width: 720px) {
+        .search-container {
+            display: none;
+        }
+
         .nav-links {
             display: none;
             position: absolute;

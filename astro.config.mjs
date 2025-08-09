@@ -2,7 +2,6 @@
 
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import pagefind from 'astro-pagefind';
 import { defineConfig } from 'astro/config';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -12,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://brainnoises.com',
-	integrations: [mdx(), sitemap(), pagefind()],
+	integrations: [mdx(), sitemap()],
     
 	i18n: {
 		defaultLocale: 'en', // Define o inglês como idioma principal

@@ -23,6 +23,12 @@ export const defaultLang = 'pt';
  *
  * O site cuidará do resto automaticamente.
  */
+export function getLangFromUrl(url: URL) {
+  const [, lang] = url.pathname.split('/');
+  if (lang in ui) return lang as keyof typeof ui;
+  return defaultLang;
+}
+
 export const ui = {
   pt: {
     'nav.about': 'Sobre',
@@ -43,6 +49,13 @@ export const ui = {
     'posts.related': 'Posts Relacionados',
     'pagination.previous': '« Voltar',
     'pagination.next': 'Próximo »',
+
+    'search.placeholder': 'Buscar posts...',
+    'search.label': 'Busca',
+    'search.results': 'Resultados da Busca',
+    'search.resultsFor': 'Resultados para',
+    'search.noResults': 'Nenhum resultado encontrado.',
+
     'share.title': 'Compartilhe este post',
     'share.twitter': 'Compartilhar no Twitter',
     'share.facebook': 'Compartilhar no Facebook',
@@ -121,6 +134,13 @@ export const ui = {
     'posts.related': 'Related Posts',
     'pagination.previous': '« Previous',
     'pagination.next': 'Next »',
+
+    'search.placeholder': 'Search posts...',
+    'search.label': 'Search',
+    'search.results': 'Search Results',
+    'search.resultsFor': 'Results for',
+    'search.noResults': 'No results found.',
+
     'share.title': 'Share this post',
     'share.twitter': 'Share on Twitter',
     'share.facebook': 'Share on Facebook',

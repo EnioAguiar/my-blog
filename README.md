@@ -11,7 +11,13 @@ O projeto foi migrado de sua estrutura original para o Astro. As principais alte
 -   **Funcionalidades da Home:**
     -   A página inicial agora exibe uma breve descrição para cada post.
     -   Os posts agora podem ter tags, que são exibidas com um estilo minimalista (ex: `#astro`).
--   **Busca Integrada:** A funcionalidade de busca foi integrada diretamente no cabeçalho, permitindo pesquisar em todo o site sem sair da página atual.
+### Busca com Índice JSON e Fuse.js
+
+Para oferecer uma experiência de busca rápida e totalmente no lado do cliente, o blog utiliza uma abordagem moderna e eficiente:
+
+1.  **Geração de Índice:** Durante o processo de build, um endpoint de API do Astro (`/api/search-index.json.ts`) gera um arquivo `search-index.json`. Este arquivo contém os dados essenciais de todos os posts (título, descrição, corpo e URL) para a busca.
+2.  **Busca no Cliente:** Uma página de busca dedicada (`/pt/busca.astro`) utiliza a biblioteca [Fuse.js](https://fusejs.io/) para fazer uma busca "fuzzy" (aproximada) diretamente no navegador do usuário. Isso significa que a busca é quase instantânea, sem a necessidade de chamadas a um servidor externo.
+3.  **Experiência do Usuário:** A busca é sensível ao idioma e os resultados são exibidos dinamicamente conforme o usuário digita.
 -   **Limpeza:** Os posts de exemplo originais foram substituídos e os links de redes sociais foram limpos.
 -   **Idioma:** O conteúdo principal está em português.
 
