@@ -1,23 +1,21 @@
 ---
-import { ui, defaultLang, getLangFromUrl } from '../i18n/ui';
+import { t } from '../i18n/ui';
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-
-const lang = getLangFromUrl(Astro.url);
-const t = ui[lang] || ui[defaultLang];
+import { SITE_TITLE } from '../consts';
 ---
 
-<html lang={lang}>
+<html lang="en">
 	<head>
-		<BaseHead title={`${t['404.title']} | ${t['site.title']}`} description={t['404.description']} />
+		<BaseHead title={`404: Not Found - ${SITE_TITLE}`} description="The page you were looking for could not be found." />
 	</head>
 	<body>
-		<Header lang={lang} />
+		<Header />
 		<main>
-			<h1>{t['404.title']}</h1>
-			<p>{t['404.message']}</p>
-			<a href={`/${lang}/`}>{t['404.link']}</a>
+			<h1>{t('404.title')}</h1>
+			<p>{t('404.message')}</p>
+			<a href="/">{t('404.back')}</a>
 		</main>
 		<Footer />
 	</body>

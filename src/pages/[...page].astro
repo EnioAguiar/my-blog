@@ -1,50 +1,31 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
-import PostCard from '../../components/PostCard.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import PostCard from '../components/PostCard.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { Image } from 'astro:assets';
-import { ui } from '../../i18n/ui';
+import { t, getTag } from '../i18n/ui';
 
 export async function getStaticPaths({ paginate }) {
-  const allPosts = await getCollection('blog');
+  const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
   
-  const paths = [];
-
-  for (const lang of Object.keys(ui)) {
-    const posts = allPosts
-      .filter((post) => post.id.startsWith(`${lang}/`))
-      .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-    
-    paginate(posts, {
-      pageSize: 9,
-      params: { lang },
-      props: { lang }
-    }).forEach(page => paths.push(page));
-  }
-  
-  return paths;
+  return paginate(posts, { pageSize: 9 });
 }
 
-const { page, lang } = Astro.props;
-const t = ui[lang];
+const { page } = Astro.props;
 
 const isFirstPage = page.currentPage === 1;
 const featuredPost = isFirstPage ? page.data[0] : null;
 const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
-
-function getTranslatedTag(tagKey: string) {
-    const name = t[`tags.${tagKey}.name`] || tagKey;
-    const slug = t[`tags.${tagKey}.slug`] || tagKey;
-    return { name, slug };
-}
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
@@ -97,7 +78,7 @@ function getTranslatedTag(tagKey: string) {
 				margin-top: 1rem;
 				padding: 0 1rem; /* Adiciona o mesmo padding do content */
 				display: flex;
-    		flex-wrap: wrap;
+    			flex-wrap: wrap;
 			}
 
 			.featured-post .tag {
@@ -188,10 +169,10 @@ function getTranslatedTag(tagKey: string) {
 						{featuredPost.data.tags && (
 							<div class="tags">
 								{featuredPost.data.tags.map((tagKey) => {
-									const translatedTag = getTranslatedTag(tagKey);
+									const tag = getTag(tagKey);
 									return (
-										<a href={`/${lang}/${t['nav.categories.slug']}/${translatedTag.slug}/`} class="tag">
-											#{translatedTag.name}
+										<a href={`/categories/${tag.slug}/`} class="tag">
+											#{tag.name}
 										</a>
 									)
 								})}
@@ -215,8 +196,8 @@ function getTranslatedTag(tagKey: string) {
 			</section>
 
 			<nav class="pagination">
-				{page.url.prev && <a class="prev" href={page.url.prev}>{t['pagination.previous']}</a>}
-				{page.url.next && <a class="next" href={page.url.next}>{t['pagination.next']}</a>}
+				{page.url.prev && <a class="prev" href={page.url.prev}>{t('pagination.previous')}</a>}
+				{page.url.next && <a class="next" href={page.url.next}>{t('pagination.next')}</a>}
 			</nav>
 		</main>
 		<Footer />

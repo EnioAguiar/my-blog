@@ -1,17 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
-import { ui } from '../../i18n/ui';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getTag } from '../i18n/ui';
 
-const lang = 'pt';
+// 1. Get all posts
+const posts = await getCollection('blog');
 
-// 1. Obter todos os posts em português
-const posts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
-
-// 2. Coletar todas as chaves de tags em uso e contar suas ocorrências
+// 2. Collect all used tag keys and count their occurrences
 const tagKeyCounts: Record<string, number> = {};
 posts.forEach(post => {
     if (Array.isArray(post.data.tags)) {
@@ -23,28 +21,23 @@ posts.forEach(post => {
     }
 });
 
-// 3. Mapear apenas as chaves de tags EM USO para dados traduzidos e contagens
+// 3. Map tag keys to their data and counts
 const tagsData = Object.keys(tagKeyCounts).map(tagKey => {
-    const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
-    const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
+    const tag = getTag(tagKey);
     return {
-        name,
-        slug,
+        ...tag,
         count: tagKeyCounts[tagKey]
     };
-}).sort((a, b) => a.name.localeCompare(b.name)); // Ordenar pelo nome traduzido
+}).sort((a, b) => a.name.localeCompare(b.name)); // Sort by name
 
-// 5. Preparar dados para o tamanho da fonte na Nuvem (ignora tags com 0 posts)
-const counts = tagsData.filter(tag => tag.count > 0).map(tag => tag.count);
+// 4. Prepare data for font size in the Cloud
+const counts = tagsData.map(tag => tag.count);
 const minCount = counts.length > 0 ? Math.min(...counts) : 1;
 const maxCount = counts.length > 0 ? Math.max(...counts) : 1;
-const minFontSize = 16; // em pixels
-const maxFontSize = 48; // em pixels
+const minFontSize = 16; // in pixels
+const maxFontSize = 48; // in pixels
 
 function getFontSize(count: number) {
-	if (count === 0) {
-		return minFontSize; // Tamanho padrão para tags sem posts
-	}
 	if (maxCount === minCount) {
 		return (minFontSize + maxFontSize) / 2;
 	}
@@ -53,9 +46,9 @@ function getFontSize(count: number) {
 ---
 
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en">
 	<head>
-		<BaseHead title={`Categorias - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={`Categories - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 720px;
@@ -102,13 +95,13 @@ function getFontSize(count: number) {
 	<body style="display: flex; flex-direction: column; min-height: 100vh;">
 		<Header />
 		<main style="flex-grow: 1;">
-			<h1>Nuvem de Categorias</h1>
+			<h1>Categories Cloud</h1>
 
 			<div class="tag-cloud">
 				{
 					tagsData.map((tag) => (
 						<a
-							href={`/pt/categorias/${tag.slug}`}
+							href={`/categories/${tag.slug}`}
 							class="cloud-tag"
 							style={`font-size: ${getFontSize(tag.count)}px;`}
 						>

@@ -1,32 +1,20 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-import Search from './Search.astro';
-import { ui, defaultLang } from '../i18n/ui';
-
-const { lang: langFromProps } = Astro.props;
-
-function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
-}
-
-const lang = langFromProps || getLangFromUrl(Astro.url);
-const t = ui[lang];
+import { t } from '../i18n/ui';
 ---
 
 <header>
     <nav>
         <div class="nav-left">
-            <a href={`/${lang}/`} class="site-title-link">{SITE_TITLE}</a>
+            <a href="/" class="site-title-link">{SITE_TITLE}</a>
         </div>
 
         <div class="search-container">
-            <form action={`/${lang === 'pt' ? 'pt/busca' : 'en/search'}`} method="GET">
-                <label for="header-search-input" class="sr-only">{t['search.label']}</label>
-                <input type="search" id="header-search-input" name="q" placeholder={t['search.placeholder']} />
-                <button type="submit">{t['search.label']}</button>
+            <form action="/search" method="GET">
+                <label for="header-search-input" class="sr-only">{t('search.label')}</label>
+                <input type="search" id="header-search-input" name="q" placeholder={t('search.placeholder')} />
+                <button type="submit">{t('search.label')}</button>
             </form>
         </div>
 
@@ -37,18 +25,13 @@ const t = ui[lang];
         </div>
 
         <div class="nav-links">
-            <HeaderLink href={`/${lang}/${t['nav.categories.slug']}/`} class="categories-link">{t['nav.categories']}</HeaderLink>
-            <div class="language-switcher">
-                <a href="/pt/" class={lang === 'pt' ? 'active' : ''}>PT</a>
-                <span class="separator">|</span>
-                <a href="/en/" class={lang === 'en' ? 'active' : ''}>EN</a>
-            </div>
+            <HeaderLink href="/categories/" class="categories-link">{t('nav.categories')}</HeaderLink>
         </div>
     </nav>
 </header>
 
 <script>
-    // Este script é apenas para o menu hamburger em telas pequenas
+    // This script is for the hamburger menu on small screens
     document.addEventListener('DOMContentLoaded', function() {
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -113,23 +96,6 @@ const t = ui[lang];
 		background-color: var(--green);
 		border-color: var(--green);
 		color: #000000;
-	}
-	.language-switcher {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
-	.language-switcher a {
-		color: rgb(var(--gray-dark));
-		text-decoration: none;
-		font-weight: 500;
-	}
-	.language-switcher a.active {
-		color: var(--green-bright);
-		font-weight: 700;
-	}
-	.separator {
-		color: rgb(var(--gray-dark));
 	}
 
     .hamburger {

@@ -1,29 +1,26 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
-import BaseHead from '../../../components/BaseHead.astro';
-import Footer from '../../../components/Footer.astro';
-import Header from '../../../components/Header.astro';
-import PostCard from '../../../components/PostCard.astro';
-import { ui } from '../../../i18n/ui';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import PostCard from '../../components/PostCard.astro';
+import { getTag } from '../../i18n/ui';
 
 export async function getStaticPaths() {
-	const allPosts = await getCollection('blog', ({ id }) => id.startsWith('en/'));
+	const allPosts = await getCollection('blog');
 	const uniqueTagKeys = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
 
 	return uniqueTagKeys.map((tagKey) => {
-		const tagName = ui.en[`tags.${tagKey}.name`] || tagKey;
-		const tagSlug = ui.en[`tags.${tagKey}.slug`] || tagKey;
-
+		const tag = getTag(tagKey);
 		const filteredPosts = allPosts.filter((post) =>
 			(post.data.tags || []).includes(tagKey)
 		);
 
 		return {
-			params: { tag: tagSlug },
+			params: { tag: tag.slug },
 			props: { 
 				posts: filteredPosts,
-				tagKey: tagKey,
-				tagName: tagName,
+				tagName: tag.name,
 			},
 		};
 	});

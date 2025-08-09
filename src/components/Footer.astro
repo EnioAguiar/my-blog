@@ -1,14 +1,5 @@
 ---
-import { ui, defaultLang } from '../i18n/ui';
-
-function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
-}
-
-const lang = getLangFromUrl(Astro.url);
-const t = ui[lang];
+import { t } from '../i18n/ui';
 
 const today = new Date();
 ---
@@ -17,8 +8,8 @@ const today = new Date();
 	<div class="footer-container">
 		<div class="footer-column newsletter-column">
 			<div class="newsletter">
-				<h3>{t['footer.newsletter.title']}</h3>
-				<p>{t['footer.newsletter.description']}</p>
+				<h3>{t('footer.newsletter.title')}</h3>
+				<p>{t('footer.newsletter.description')}</p>
 				<form
 					action="https://buttondown.email/api/emails/embed-subscribe/brainnoises"
 					method="post"
@@ -26,9 +17,9 @@ const today = new Date();
 					onsubmit="window.open('https://buttondown.email/brainnoises', 'popupwindow')"
 					class="embeddable-buttondown-form"
 				>
-					<label for="bd-email" class="sr-only">{t['footer.newsletter.email']}</label>
-					<input type="email" name="email" id="bd-email" placeholder={t['footer.newsletter.email']} required />
-					<input type="submit" value={t['footer.newsletter.subscribe']} />
+					<label for="bd-email" class="sr-only">{t('footer.newsletter.email')}</label>
+					<input type="email" name="email" id="bd-email" placeholder={t('footer.newsletter.email')} required />
+					<input type="submit" value={t('footer.newsletter.subscribe')} />
 				</form>
 			</div>
 		</div>
@@ -39,11 +30,11 @@ const today = new Date();
 		</div>
 		<div class="footer-column links-column">
 			<div class="links">
-				<a href="https://ko-fi.com/brainnoises" target="_blank" rel="noopener noreferrer">{t['footer.kofi']}</a>
-				<a href={`/${lang}/${t['nav.about.slug']}`}>{t['nav.about']}</a>
-				<a href={`/${lang}/${t['nav.contact.slug']}`}>{t['nav.contact']}</a>
-				<a href={`/${lang}/${t['nav.terms.slug']}`}>{t['nav.terms']}</a>
-				<a href={`/${lang}/${t['nav.privacy.slug']}`}>{t['nav.privacy']}</a>
+				<a href="https://ko-fi.com/brainnoises" target="_blank" rel="noopener noreferrer">{t('footer.kofi')}</a>
+				<a href={`/${t('nav.about.slug')}`}>{t('nav.about')}</a>
+				<a href={`/${t('nav.contact.slug')}`}>{t('nav.contact')}</a>
+				<a href={`/${t('nav.terms.slug')}`}>{t('nav.terms')}</a>
+				<a href={`/${t('nav.privacy.slug')}`}>{t('nav.privacy')}</a>
 			</div>
 			<div class="social-links">
 				<a href="https://x.com/brainnoises_io" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">

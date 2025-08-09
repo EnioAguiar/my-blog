@@ -1,16 +1,14 @@
 ---
-import BaseHead from '../../components/BaseHead.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import { ui } from '../../i18n/ui';
-
-const lang = 'en';
-const t = ui[lang];
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { t } from '../i18n/ui';
+import { SITE_TITLE } from '../consts';
 ---
 
-<html lang={lang}>
+<html lang="en">
 <head>
-    <BaseHead title={t['search.title']} description={t['search.description']} />
+    <BaseHead title={`Search - ${SITE_TITLE}`} description="Search for posts on the blog." />
     <style>
         main {
             width: 960px;
@@ -53,10 +51,10 @@ const t = ui[lang];
     </style>
 </head>
 <body style="display: flex; flex-direction: column; min-height: 100vh;">
-    <Header lang={lang} />
+    <Header />
     <main style="flex-grow: 1;">
-        <h1>{t['search.title']}</h1>
-        <input type="search" id="search-input" placeholder={t['search.placeholder']} />
+        <h1>{t('search.results')}</h1>
+        <input type="search" id="search-input" placeholder={t('search.placeholder')} />
         <ul id="search-results"></ul>
     </main>
     <Footer />
@@ -72,15 +70,13 @@ const t = ui[lang];
             const response = await fetch('/api/search-index.json');
             const searchData = await response.json();
 
-            const enData = searchData.filter(item => item.id.startsWith('en/'));
-
             const options = {
                 keys: ['title', 'description', 'body'],
                 includeScore: true,
                 threshold: 0.4,
                 minMatchCharLength: 2,
             };
-            fuse = new Fuse(enData, options);
+            fuse = new Fuse(searchData, options);
         }
 
         function performSearch() {

@@ -7,8 +7,8 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import PostCard from '../components/PostCard.astro';
-import ShareButtons from '../components/ShareButtons.astro'; // Importa o novo componente
-import { ui, defaultLang } from '../i18n/ui';
+import ShareButtons from '../components/ShareButtons.astro';
+import { t, getTag } from '../i18n/ui';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	slug: CollectionEntry<'blog'>['slug'];
@@ -17,36 +17,22 @@ type Props = CollectionEntry<'blog'>['data'] & {
 
 const { title, description, pubDate, updatedDate, heroImage, tags = [], id } = Astro.props;
 
-// Extrai o idioma do ID do post (ex: "en/my-post" -> "en")
-const lang = id.split('/')[0] as keyof typeof ui;
+// 1. Get all posts
+const allPosts = await getCollection('blog');
 
-// Função para obter o nome e slug traduzido de uma tag
-function getTranslatedTag(tagKey: string) {
-    const name = ui[lang]?.[`tags.${tagKey}.name`] || tagKey;
-    const slug = ui[lang]?.[`tags.${tagKey}.slug`] || tagKey;
-    return { name, slug };
-}
-
-const t = ui[lang];
-const categoriesSlug = t['nav.categories.slug'];
-
-// 1. Obter todos os posts do idioma atual
-const allPosts = await getCollection('blog', ({ id }) => id.startsWith(`${lang}/`));
-
-// 2. Encontrar posts relacionados, excluindo o post atual
+// 2. Find related posts, excluding the current post
 const relatedPosts = allPosts
 	.filter((post) => {
-		if (post.id === id) return false; // Exclui o próprio post
-		if (!tags || tags.length === 0) return false; // Se o post atual não tem tags, não há relacionados
-		// Retorna posts que compartilham pelo menos uma tag
+		if (post.id === id) return false; // Exclude self
+		if (!tags || tags.length === 0) return false; // No tags, no related posts
+		// Return posts that share at least one tag
 		return post.data.tags?.some((tag: string) => tags.includes(tag));
 	})
-	.slice(0, 3); // Limita a 3 posts relacionados
+	.slice(0, 3); // Limit to 3 related posts
 ---
 
-<html lang={lang}>
+<html lang="en">
 	<head>
-		
 		<BaseHead title={title} description={description} image={heroImage} />
 		<style>
 			main {
@@ -146,7 +132,7 @@ const relatedPosts = allPosts
 	</head>
 
 	<body>
-		<Header lang={lang} />
+		<Header />
 		<main>
 			<article>
 				<div class="hero-image">
@@ -181,19 +167,19 @@ const relatedPosts = allPosts
 						<slot />
 					</div>
 
-					<!-- Seção de Tags -->
+					<!-- Tags Section -->
 					{
 						tags && tags.length > 0 && (
 							<div class="tags-container">
 								<div class="tags">
 									{tags.map((tagKey) => {
-										const translatedTag = getTranslatedTag(tagKey);
+										const tag = getTag(tagKey);
 										return (
 											<a
-												href={`/${lang}/${categoriesSlug}/${translatedTag.slug}/`}
+												href={`/categories/${tag.slug}/`}
 												class="tag"
 											>
-												#{translatedTag.name}
+												#{tag.name}
 											</a>
 										);
 									})}
@@ -202,16 +188,16 @@ const relatedPosts = allPosts
 						)
 					}
 
-					<!-- Seção de Compartilhamento -->
-					<ShareButtons title={title} slug={Astro.props.slug} lang={lang} />
+					<!-- Share Section -->
+					<ShareButtons title={title} slug={Astro.props.slug} />
 				</div>
 			</article>
 
-			<!-- Seção de Posts Relacionados -->
+			<!-- Related Posts Section -->
 			{
 				relatedPosts.length > 0 && (
 					<div class="related-posts-container">
-						<h2>{t['posts.related']}</h2>
+						<h2>{t('posts.related')}</h2>
 						<ul class="related-posts-list">
 							{relatedPosts.map((relatedPost, i) => (
 								<PostCard post={relatedPost} number={(i + 1).toString()} />

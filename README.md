@@ -1,140 +1,112 @@
-# Meu Blog Pessoal
+# My Personal Blog
 
-Este é o repositório do meu blog pessoal, construído com [Astro](https://astro.build/).
+This is the repository for my personal blog, built with [Astro](https://astro.build/).
 
-## Status do Projeto
+## Project Status
 
-O projeto foi migrado de sua estrutura original para o Astro. As principais alterações incluem:
+The project was migrated from its original structure to Astro. The main changes include:
 
--   **Migração para Astro:** O site agora usa o framework Astro.
--   **Novo Tema:** Foi aplicado um tema escuro, e a cor de destaque principal (verde) foi atualizada para um tom mais vibrante (`#59ef0b`).
--   **Funcionalidades da Home:**
-    -   A página inicial agora exibe uma breve descrição para cada post.
-    -   Os posts agora podem ter tags, que são exibidas com um estilo minimalista (ex: `#astro`).
-### Busca com Índice JSON e Fuse.js
+-   **Astro Migration:** The site now uses the Astro framework.
+-   **New Theme:** A dark theme has been applied, and the main highlight color (green) has been updated to a more vibrant tone (`#59ef0b`).
+-   **Home Page Features:**
+    -   The home page now displays a brief description for each post.
+    -   Posts can now have tags, which are displayed with a minimalist style (e.g., `#astro`).
 
-Para oferecer uma experiência de busca rápida e totalmente no lado do cliente, o blog utiliza uma abordagem moderna e eficiente:
+### Search with JSON Index and Fuse.js
 
-1.  **Geração de Índice:** Durante o processo de build, um endpoint de API do Astro (`/api/search-index.json.ts`) gera um arquivo `search-index.json`. Este arquivo contém os dados essenciais de todos os posts (título, descrição, corpo e URL) para a busca.
-2.  **Busca no Cliente:** Uma página de busca dedicada (`/pt/busca.astro`) utiliza a biblioteca [Fuse.js](https://fusejs.io/) para fazer uma busca "fuzzy" (aproximada) diretamente no navegador do usuário. Isso significa que a busca é quase instantânea, sem a necessidade de chamadas a um servidor externo.
-3.  **Experiência do Usuário:** A busca é sensível ao idioma e os resultados são exibidos dinamicamente conforme o usuário digita.
--   **Limpeza:** Os posts de exemplo originais foram substituídos e os links de redes sociais foram limpos.
--   **Idioma:** O conteúdo principal está em português.
+To provide a fast and fully client-side search experience, the blog uses a modern and efficient approach:
 
-## Melhorias Recentes
+1.  **Index Generation:** During the build process, an Astro API endpoint (`/api/search-index.json.ts`) generates a `search-index.json` file. This file contains the essential data for all posts (title, description, body, and URL) for the search.
+2.  **Client-Side Search:** A dedicated search page (`/search`) uses the [Fuse.js](https://fusejs.io/) library to perform a "fuzzy" search directly in the user's browser. This means the search is almost instantaneous, without the need for external server calls.
 
-### Layout e Estilo
-- **Rodapé Fixo:** O layout do site foi ajustado com Flexbox para garantir que o rodapé permaneça fixo na parte inferior da tela, mesmo em páginas com pouco conteúdo.
-- **Estilo do Cabeçalho:** O cabeçalho foi redesenhado:
-    - O título do site ("brainnoises") agora tem um estilo mais sutil (branco por padrão, verde ao passar o mouse).
-    - O link "Categorias" foi transformado em um botão estilizado para melhor destaque visual.
-- **Linhas Divisórias:** A espessura das linhas divisórias em todo o site (cabeçalho, rodapé e corpo da página) foi aumentada para `3px` para maior consistência e impacto visual.
+## Recent Improvements
 
-### Sistema de Tags Internacionalizado
-Foi implementado um sistema robusto para que as tags (categorias) sejam traduzidas e funcionem de forma independente em cada idioma.
-- **Tradução Centralizada:** As tags agora são gerenciadas a partir de um único local, o arquivo `src/i18n/ui.ts`. Ele mapeia uma "chave" de tag neutra (ex: `web-dev`) para seu nome de exibição e slug de URL em cada idioma.
-- **URLs Amigáveis:** As páginas de categoria agora usam slugs traduzidos (ex: `/pt/categorias/desenvolvimento-web` e `/en/categories/web-development`).
-- **Como Adicionar Novas Tags:** As instruções para adicionar novas tags foram documentadas diretamente no arquivo `src/i18n/ui.ts` para facilitar a manutenção futura.
+### Layout and Style
+- **Fixed Footer:** The site layout has been adjusted with Flexbox to ensure the footer remains fixed at the bottom of the screen, even on pages with little content.
+- **Header Style:** The header has been redesigned:
+    - The site title ("brainnoises") now has a more subtle style (white by default, green on hover).
+    - The "Categories" link has been transformed into a stylized button for better visual emphasis.
+- **Divider Lines:** The thickness of the divider lines throughout the site (header, footer, and page body) has been increased to `3px` for greater consistency and visual impact.
 
-### Otimização de SEO
+### Tag System
+- **Centralized Management:** Tags are now managed from a single location, the `src/i18n/ui.ts` file. It maps a neutral tag "key" (e.g., `web-dev`) to its display name and URL slug.
+- **How to Add New Tags:** Instructions for adding new tags are documented directly in the `src/i18n/ui.ts` file for easy future maintenance.
 
-Para melhorar a visibilidade do blog nos motores de busca, foi realizada uma otimização completa de SEO, cobrindo aspectos técnicos e de conteúdo.
+### SEO Optimization
 
--   **SEO Técnico:**
-    -   **Sitemap:** O projeto foi configurado com a integração `@astrojs/sitemap` para gerar automaticamente um `sitemap-index.xml`, ajudando os buscadores a descobrir e indexar todas as páginas de forma eficiente.
-    -   **`robots.txt`:** Foi criado um arquivo `public/robots.txt` para instruir os robôs de busca, permitindo o rastreamento de todo o site e apontando para o sitemap.
-    -   **Meta Tags:** O componente `BaseHead.astro` foi verificado e confirmado que já implementa as melhores práticas, incluindo tags `canonical`, Open Graph (para redes sociais) e Twitter Cards.
+To improve the blog's visibility in search engines, a complete SEO optimization was carried out, covering technical and content aspects.
 
--   **SEO On-Page:**
-    -   **Títulos e Descrições:** A `SITE_DESCRIPTION` em `src/consts.ts` foi atualizada para ser mais descritiva e otimizada. Os títulos das páginas "Sobre" (`/about` e `/sobre`) foram ajustados para incluir o nome do blog ("Brainnoises"), reforçando a identidade da marca. Além disso, os títulos e descrições de todos os posts existentes (em português e inglês) foram reescritos para serem mais curtos, diretos e ricos em palavras-chave relevantes.
-    -   **Subtítulos:** A estrutura de subtítulos (`##`, `###`) dentro dos posts foi revisada para garantir uma hierarquia clara e o uso de termos específicos, melhorando a legibilidade para usuários e robôs.
+-   **Technical SEO:**
+    -   **Sitemap:** The project is configured with the `@astrojs/sitemap` integration to automatically generate a `sitemap-index.xml`, helping search engines discover and index all pages efficiently.
+    -   **`robots.txt`:** A `public/robots.txt` file has been created to instruct search engine robots, allowing the entire site to be crawled and pointing to the sitemap.
+    -   **Meta Tags:** The `BaseHead.astro` component has been verified and confirmed to already implement best practices, including `canonical` tags, Open Graph (for social media), and Twitter Cards.
 
-## Filosofia e Estratégia de Conteúdo
+-   **On-Page SEO:**
+    -   **Titles and Descriptions:** The `SITE_DESCRIPTION` in `src/consts.ts` has been updated to be more descriptive and optimized. The titles of the "About" page have been adjusted to include the blog's name ("Brainnoises"), reinforcing the brand identity. Additionally, the titles and descriptions of all existing posts have been rewritten to be shorter, more direct, and rich in relevant keywords.
+    -   **Subheadings:** The subheading structure (`##`, `###`) within the posts has been revised to ensure a clear hierarchy and the use of specific terms, improving readability for users and robots.
 
-O conteúdo deste blog é guiado por uma filosofia central de análise crítica sobre tecnologia, liberdade e finanças. O objetivo é ir além das notícias e oferecer uma perspectiva original e aprofundada. A estratégia de conteúdo se baseia nos seguintes pilares temáticos:
+## Content Philosophy and Strategy
 
-### Pilares Temáticos
+The content of this blog is guided by a central philosophy of critical analysis of technology, freedom, and finance. The goal is to go beyond the news and offer an original and in-depth perspective. The content strategy is based on the following thematic pillars:
 
-1.  **Privacidade e Soberania Digital:**
-    -   **Foco:** Este é o pilar principal e o maior diferencial do blog. O objetivo é capacitar o leitor a retomar o controle de sua vida digital.
-    -   **Tópicos Chave:** `segurança digital para leigos`, `privacidade online`, `self-hosted applications`, `digital sovereignty guide`.
-    -   **Estratégia:** Criar guias completos e séries de posts que se tornem referência no assunto, com uma abordagem filosófica e prática.
+### Thematic Pillars
 
-2.  **Linux e Open Source:**
-    -   **Foco:** Apresentar o mundo do software livre como uma alternativa viável e poderosa ao ecossistema das Big Techs.
-    -   **Tópicos Chave:** `tutoriais linux`, `melhores distribuições linux`, `customização de desktop`, `automação de tarefas`.
-    -   **Estratégia:** Abordar tópicos populares com um ângulo único, sempre conectando a ferramenta à filosofia de liberdade e privacidade.
+1.  **Privacy and Digital Sovereignty:**
+    -   **Focus:** This is the main pillar and the blog's biggest differentiator. The goal is to empower the reader to regain control of their digital life.
+    -   **Key Topics:** `digital security for beginners`, `online privacy`, `self-hosted applications`, `digital sovereignty guide`.
+    -   **Strategy:** Create comprehensive guides and post series that become a reference on the subject, with a philosophical and practical approach.
 
-3.  **Cripto e Web3:**
-    -   **Foco:** Análise crítica do cenário de criptoativos e tecnologias descentralizadas, evitando a narrativa puramente especulativa.
-    -   **Tópicos Chave:** `arbitragem de criptomoedas`, `web3 como funciona`, `DeFi explicado`, `tokenização`.
-    -   **Estratégia:** Manter uma lente política e social, discutindo as implicações de poder, os riscos e as promessas não cumpridas do setor.
+2.  **Linux and Open Source:**
+    -   **Focus:** Present the world of free software as a viable and powerful alternative to the Big Tech ecosystem.
+    -   **Key Topics:** `linux tutorials`, `best linux distributions`, `desktop customization`, `task automation`.
+    -   **Strategy:** Address popular topics with a unique angle, always connecting the tool to the philosophy of freedom and privacy.
 
-4.  **IA e Produtividade (com Foco em Open Source):**
-    -   **Foco:** Explorar o universo da Inteligência Artificial através da perspectiva do código aberto, destacando ferramentas que respeitam a soberania do usuário.
-    -   **Tópicos Chave:** `inteligência artificial de código aberto`, `ferramentas de IA para produtividade`, `modelos de IA auto-hospedados`.
-    -   **Estratégia:** Posicionar o blog como uma referência em IA que pode ser controlada pelo próprio usuário, em oposição às plataformas fechadas.
+3.  **Crypto and Web3:**
+    -   **Focus:** Critical analysis of the crypto-asset and decentralized technology landscape, avoiding a purely speculative narrative.
+    -   **Key Topics:** `cryptocurrency arbitrage`, `how web3 works`, `DeFi explained`, `tokenization`.
+    -   **Strategy:** Maintain a political and social lens, discussing the implications of power, the risks, and the unfulfilled promises of the sector.
 
-5.  **Desenvolvimento e Cloud:**
-    -   **Foco:** Oferecer guias práticos para desenvolvedores e pequenos negócios que buscam construir na web de forma independente e com baixo custo.
-    -   **Tópicos Chave:** `desenvolvimento web open source`, `computação em nuvem para pequenos negócios`, `zero cost cloud solutions`.
-    -   **Estratégia:** Criar tutoriais e guias de alto valor prático que resolvam problemas reais para um público técnico.
+4.  **AI and Productivity (with a Focus on Open Source):**
+    -   **Focus:** Explore the universe of Artificial Intelligence through the perspective of open source, highlighting tools that respect user sovereignty.
+    -   **Key Topics:** `open source artificial intelligence`, `AI productivity tools`, `self-hosted AI models`.
+    -   **Strategy:** Position the blog as a reference in AI that can be controlled by the user, as opposed to closed platforms.
 
-## Funcionalidades Adicionais
+5.  **Development and Cloud:**
+    -   **Focus:** Offer practical guides for developers and small businesses looking to build on the web independently and at a low cost.
+    -   **Key Topics:** `open source web development`, `cloud computing for small businesses`, `zero cost cloud solutions`.
+    -   **Strategy:** Create high-value practical tutorials and guides that solve real problems for a technical audience.
 
-### Estratégias de Engajamento e Marketing
+## Additional Features
 
-Para otimizar o retorno sobre o investimento em campanhas de publicidade e melhorar o engajamento de novos visitantes, estão sendo implementadas as seguintes estratégias:
+### Advertising System in Posts
 
--   **Landing Page para Anúncios (`/en/welcome`):** Foi criada uma página de destino dedicada para campanhas de anúncios. Em vez de direcionar o tráfego para o feed principal (que pode causar "paralisia de decisão"), esta página funciona como uma vitrine curada. Ela apresenta os melhores e mais populares artigos do blog, cada um com sua imagem, título e descrição, guiando o novo usuário a uma experiência de leitura de alta qualidade e aumentando a probabilidade de um primeiro clique.
+An system has been implemented to highlight posts as advertisements. The solution has been restructured to use a component-based architecture, ensuring the code is robust and easy to maintain.
 
-### Sistema de Publicidade em Posts
+**How to use:**
 
-Foi implementado um sistema para destacar posts como publicidade. A solução foi reestruturada para usar uma arquitetura de componentes, garantindo que o código seja robusto e de fácil manutenção.
-
-**Como usar:**
-
-1.  Para marcar um post como publicidade, adicione a seguinte propriedade ao frontmatter do arquivo `.md` do post:
+1.  To mark a post as an advertisement, add the following property to the frontmatter of the post's `.md` file:
     ```yaml
     ads: true
     ```
 
-**Detalhes da Implementação:**
+**Implementation Details:**
 
--   **Componente `PostCard.astro`:** Foi criado o componente em `src/components/PostCard.astro`. Ele é responsável por renderizar cada card de post na grade. Toda a lógica de exibição, incluindo a numeração e a etiqueta "ads", está isolada neste componente.
--   **Etiquetas Duplas:** Um post marcado como `ads` exibirá tanto seu número de ordem (canto esquerdo) quanto a etiqueta "ads" (canto direito).
--   **Schema de Conteúdo:** A propriedade `ads` foi adicionada ao schema de coleções em `src/content.config.ts`. Isso garante que o Astro reconheça o campo e o disponibilize para os componentes.
+-   **`PostCard.astro` Component:** The component was created in `src/components/PostCard.astro`. It is responsible for rendering each post card in the grid. All display logic, including numbering and the "ads" label, is isolated in this component.
+-   **Dual Labels:** A post marked as `ads` will display both its order number (left corner) and the "ads" label (right corner).
+-   **Content Schema:** The `ads` property has been added to the collections schema in `src/content.config.ts`. This ensures that Astro recognizes the field and makes it available to the components.
 
-### Páginas Estruturais e Layout
+### Structural Pages and Layout
 
-Para profissionalizar o site, foram criadas páginas essenciais e um layout dedicado para elas, separando-as dos posts de blog.
+To professionalize the site, essential pages and a dedicated layout for them have been created, separating them from blog posts.
 
--   **`PageLayout.astro`:** Um novo layout em `src/layouts/PageLayout.astro` foi criado para fornecer uma estrutura consistente para páginas estáticas.
--   **Página Sobre (`/pt/about`):** A página "Sobre" foi atualizada com conteúdo autêntico e uma nova imagem, e agora usa o `PageLayout`.
--   **Página de Contato (`/pt/contato`):** Foi criada uma página de contato com um formulário completo, integrado com o serviço [Formspree](https://formspree.io/) para o envio de e-mails.
--   **Rodapé Atualizado:** O rodapé do site foi limpo e agora contém links para as páginas "Sobre" e "Contato".
+-   **`PageLayout.astro`:** A new layout in `src/layouts/PageLayout.astro` has been created to provide a consistent structure for static pages.
+-   **About Page (`/about`):** The "About" page has been updated with authentic content and a new image, and now uses the `PageLayout`.
+-   **Contact Page (`/contact`):** A contact page with a complete form has been created, integrated with the [Formspree](https://formspree.io/) service for sending emails.
+-   **Updated Footer:** The site's footer has been cleaned up and now contains links to the "About" and "Contact" pages.
 
-### Internacionalização e Estrutura de Conteúdo
+## 🚀 Project Structure
 
-O blog foi estruturado para suportar múltiplos idiomas (português e inglês) de forma coesa. A seguir, a descrição da arquitetura que mantém o sistema funcionando.
-
-**Nota sobre `id` vs. `slug`:** Após depuração, foi identificado que a propriedade correta para criar links únicos para os posts é `id`, e não `slug`. O objeto de post retornado por `getCollection` neste projeto contém o `id` (ex: `pt/primeiro-post`) como o identificador que também funciona como o slug da URL. Toda a lógica foi padronizada para usar `post.id` de forma consistente.
-
-A funcionalidade de internacionalização é mantida pela seguinte estrutura:
-
-1.  **Configuração de Idiomas (`src/i18n/ui.ts`)**: Este arquivo é o centro do sistema de tradução. Ele define os idiomas suportados (`en`, `pt`) e armazena os textos da interface do usuário (UI), como títulos de navegação e seus respectivos slugs.
-
-2.  **Organização do Conteúdo (`src/content/blog/`)**: As postagens do blog são organizadas em subdiretórios nomeados com o código do idioma (ex: `en/` e `pt/`). Isso permite que o Astro associe cada post ao seu idioma correto.
-
-3.  **Geração de Páginas de Post (`src/pages/blog/[...slug].astro`)**: Esta é a rota dinâmica que renderiza cada post individual. Sua função `getStaticPaths` itera sobre todos os posts e gera uma página para cada um, usando o `post.id` como o parâmetro da URL.
-
-4.  **Geração das Páginas de Listagem (`src/pages/[lang]/[...page].astro`)**: Esta rota dinâmica cria as páginas de índice para cada idioma (ex: `/pt/`, `/en/`, `/pt/2`). Ela filtra os posts pelo idioma contido no `id` antes de criar as páginas paginadas.
-
-5.  **Layouts (`src/layouts/`)**: O `BlogPost.astro` serve como o template para as páginas de post individuais, incluindo a lógica para encontrar e exibir posts relacionados do mesmo idioma. O `PageLayout.astro` é usado para páginas estáticas como "Sobre" e "Contato".
-
-## 🚀 Estrutura do Projeto
-
-A estrutura de pastas e arquivos do projeto é a seguinte:
+The project's folder and file structure is as follows:
 
 ```text
 ├── public/
@@ -150,114 +122,105 @@ A estrutura de pastas e arquivos do projeto é a seguinte:
 └── tsconfig.json
 ```
 
--   **`src/pages/`**: Contém as páginas do site. Cada arquivo `.astro` ou `.md` nesta pasta se torna uma rota no site.
--   **`src/content/blog/`**: Contém as postagens do blog em formato Markdown ou MDX.
--   **`src/components/`**: Contém os componentes reutilizáveis (Astro, React, etc.).
--   **`public/`**: Contém os arquivos estáticos, como imagens e fontes.
+-   **`src/pages/`**: Contains the site's pages. Each `.astro` or `.md` file in this folder becomes a route on the site.
+-   **`src/content/blog/`**: Contains the blog posts in Markdown or MDX format.
+-   **`src/components/`**: Contains reusable components (Astro, React, etc.).
+-   **`public/`**: Contains static files, such as images and fonts.
 
-## 🧞 Comandos
+## 🧞 Commands
 
-Todos os comandos devem ser executados a partir da raiz do projeto em um terminal:
+All commands must be run from the project root in a terminal:
 
-| Comando            | Ação                                                                                                                   |
+| Command            | Action                                                                                                                   |
 | :----------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| `npm install`      | Instala as dependências do projeto.                                                                                    |
-| `npm run dev`      | Inicia o servidor de desenvolvimento local em `localhost:4321`.                                                        |
-| `npm run build`    | Compila o site para produção. **Útil para testar a versão final localmente**, mas não é necessário para publicar.      |
-| `npm run preview`  | Visualiza a compilação de produção localmente antes de implantar.                                                      |
-| `npm run optimize` | Otimiza as imagens na pasta `src/assets` para a web.                                                                   |
+| `npm install`      | Installs the project's dependencies.                                                                                    |
+| `npm run dev`      | Starts the local development server at `localhost:4321`.                                                        |
+| `npm run build`    | Compiles the site for production. **Useful for testing the final version locally**, but not necessary for publishing.      |
+| `npm run preview`  | Previews the production build locally before deploying.                                                      |
+| `npm run optimize` | Optimizes images in the `src/assets` folder for the web.                                                                   |
 
-## 🚀 Publicação (Deploy)
+## 🚀 Deployment
 
-Este projeto utiliza **GitHub Actions** para automatizar o processo de publicação. Qualquer `push` para a branch `main` irá disparar um fluxo de trabalho que automaticamente compila e publica o site no GitHub Pages.
+This project uses **GitHub Actions** to automate the deployment process. Any `push` to the `main` branch will trigger a workflow that automatically compiles and deploys the site to GitHub Pages.
 
-Isso significa que **não é necessário executar `npm run build` localmente** antes de enviar suas alterações. O processo é 100% automatizado.
+This means that **it is not necessary to run `npm run build` locally** before submitting your changes. The process is 100% automated.
 
-## ✨ Recursos Úteis
+## ✨ Useful Resources
 
--   **Documentação do Astro:** [docs.astro.build](https://docs.astro.build)
--   **Servidor do Discord:** [astro.build/chat](https://astro.build/chat)
-## Créditos
+-   **Astro Documentation:** [docs.astro.build](https://docs.astro.build)
+-   **Discord Server:** [astro.build/chat](https://astro.build/chat)
+## Credits
 
-Este tema é baseado no [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+This theme is based on the [Bear Blog](https://github.com/HermanMartinus/bearblog/).
 
 ---
 
-## Como Gerenciar o Blog
+## How to Manage the Blog
 
-Esta seção documenta os processos para criar e gerenciar o conteúdo do blog.
+This section documents the processes for creating and managing the blog's content.
 
-### Criando um Novo Post
+### Creating a New Post
 
-1.  **Localização:** Crie um novo arquivo `.md` dentro do diretório correspondente ao idioma:
-    -   **Português:** `src/content/blog/pt/`
-    -   **Inglês:** `src/content/blog/en/`
+1.  **Location:** Create a new `.md` file inside the `src/content/blog/` directory.
 
-2.  **Nome do Arquivo:** O nome do arquivo se tornará parte da URL (ex: `meu-novo-post.md`).
+2.  **File Name:** The file name will become part of the URL (e.g., `my-new-post.md`).
 
-3.  **Estrutura do Post (Frontmatter):** O cabeçalho do arquivo deve conter os seguintes campos:
+3.  **Post Structure (Frontmatter):** The file's header must contain the following fields:
     ```yaml
     ---
-    title: "Título do Post"
-    description: "Uma breve descrição que aparecerá na listagem e nos resultados de busca."
-    pubDate: "YYYY-MM-DDTHH:MM:SSZ" # Data de publicação. Use o formato ISO 8601 com horário para garantir a ordem correta.
-    heroImage: "@/assets/nome-da-imagem.jpg" # Caminho para a imagem usando o alias.
-    tags: ["chave-da-tag-1", "chave-da-tag-2"] # Lista de chaves de tags (veja abaixo).
-    ads: true # (Opcional) Adicione esta linha para marcar o post como publicidade.
+    title: "Post Title"
+    description: "A brief description that will appear in the listing and in search results."
+    pubDate: "YYYY-MM-DDTHH:MM:SSZ" # Publication date. Use the ISO 8601 format with time to ensure correct ordering.
+    heroImage: "@/assets/image-name.jpg" # Path to the image using the alias.
+    tags: ["tag-key-1", "tag-key-2"] # List of tag keys (see below).
+    ads: true # (Optional) Add this line to mark the post as an advertisement.
     ---
 
-    O conteúdo do seu post começa aqui...
+    Your post content starts here...
     ```
 
-### Otimizando Imagens
+### Optimizing Images
 
-Para garantir que o site permaneça rápido, todas as imagens de capa (`heroImage`) devem ser otimizadas. Foi criado um comando para automatizar esse processo.
+To ensure the site remains fast, all cover images (`heroImage`) must be optimized. A command has been created to automate this process.
 
-**Quando usar:** Após adicionar um novo arquivo de imagem (ex: `.jpg` ou `.png`) na pasta `src/assets`.
+**When to use:** After adding a new image file (e.g., `.jpg` or `.png`) to the `src/assets` folder.
 
-**Como usar:**
-1.  Adicione sua imagem original em `src/assets`.
-2.  Execute o seguinte comando no terminal:
+**How to use:**
+1.  Add your original image to `src/assets`.
+2.  Run the following command in the terminal:
     ```bash
     npm run optimize
     ```
-3.  O script irá automaticamente redimensionar imagens (se maiores que 1200px de largura) e **converterá para o formato WebP**, salvando a versão `.webp` ao lado do arquivo original. O Astro, através do `astro:assets`, servirá automaticamente a versão mais otimizada para o navegador do usuário.
+3.  The script will automatically resize images (if larger than 1200px wide) and **convert them to the WebP format**, saving the `.webp` version alongside the original file. Astro, through `astro:assets`, will automatically serve the most optimized version to the user's browser.
 
-### Gerenciando Tags (Categorias)
+### Managing Tags (Categories)
 
-O sistema de tags é centralizado e preparado para múltiplos idiomas.
+The tag system is centralized in the `src/i18n/ui.ts` file.
 
-1.  **Como Funciona:** As tags nos posts são definidas por **chaves** (apelidos curtos em inglês, ex: `web-dev`, `crypto`). O site então usa o arquivo `src/i18n/ui.ts` para traduzir essas chaves para o nome e a URL corretos em cada idioma.
+1.  **How It Works:** Tags in posts are defined by **keys** (short English aliases, e.g., `web-dev`, `crypto`). The site then uses the `src/i18n/ui.ts` file to translate these keys into the correct name and URL slug.
 
-2.  **Para Adicionar uma Nova Tag:**
-    1.  **Escolha uma Chave:** Pense em uma chave curta e descritiva em inglês (ex: `performance`).
-    2.  **Edite `src/i18n/ui.ts`:** Adicione as traduções para a nova chave nos objetos `pt` e `en`. Siga o padrão existente:
+2.  **To Add a New Tag:**
+    1.  **Choose a Key:** Think of a short, descriptive key in English (e.g., `performance`).
+    2.  **Edit `src/i18n/ui.ts`:** Add the entries for the new key. Follow the existing pattern:
         ```javascript
-        // Dentro do objeto 'pt':
-        'tags.performance.name': 'Performance',
-        'tags.performance.slug': 'performance',
-
-        // Dentro do objeto 'en':
         'tags.performance.name': 'Performance',
         'tags.performance.slug': 'performance',
         ```
-    3.  **Use a Chave no Post:** Agora você pode usar a chave `performance` na lista de `tags` do seu post.
+    3.  **Use the Key in the Post:** Now you can use the `performance` key in your post's `tags` list.
 
-3.  **Exibição das Categorias:** As páginas de categoria (`/pt/categorias` e `/en/categories`) foram projetadas para exibir **todas as tags definidas** em `ui.ts`, mesmo que uma tag ainda não tenha sido usada em nenhum post daquele idioma. A contagem de posts será simplesmente "0". Isso garante que a lista de categorias seja consistente em todo o site.
+### Path Aliases
 
-### Aliases de Caminho
+To simplify imports and file references in the project, path aliases have been configured. Instead of using complex relative paths like `../../../components/Header.astro`, you can use a cleaner alias.
 
-Para simplificar as importações e referências a arquivos no projeto, foram configurados aliases de caminho. Em vez de usar caminhos relativos complexos como `../../../components/Header.astro`, você pode usar um alias mais limpo.
+**How to use:**
 
-**Como usar:**
+-   Use aliases in the frontmatter of posts (for `heroImage`) or in any import within `.astro` or `.ts` files.
+-   `heroImage` example: `heroImage: "@/assets/my-image.jpg"`
+-   Import example: `import Header from '@/components/Header.astro';`
 
--   Use os aliases no frontmatter dos posts (para `heroImage`) ou em qualquer importação dentro de arquivos `.astro` ou `.ts`.
--   Exemplo de `heroImage`: `heroImage: "@/assets/minha-imagem.jpg"`
--   Exemplo de importação: `import Header from '@/components/Header.astro';`
+**Available Aliases:**
 
-**Aliases Disponíveis:**
-
-| Alias | Caminho Real |
+| Alias | Real Path |
 | :--- | :--- |
 | `@/assets` | `src/assets` |
 | `@/components` | `src/components` |

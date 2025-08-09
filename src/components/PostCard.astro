@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import FormattedDate from './FormattedDate.astro';
-import { ui, defaultLang } from '../i18n/ui';
+import { getTag, t } from '../i18n/ui';
 
 export interface Props {
   post: any;
@@ -9,23 +9,7 @@ export interface Props {
 }
 
 const { post, number } = Astro.props;
-
-function getLangFromId(id: string) {
-	const [lang] = id.split('/');
-	if (lang in ui) return lang as keyof typeof ui;
-	return defaultLang;
-}
-
-const lang = getLangFromId(post.id);
-const t = ui[lang];
-const categoriesSlug = t['nav.categories.slug'];
-
-// Função para obter o nome e slug traduzido de uma tag
-function getTranslatedTag(tagKey: string) {
-    const name = t[`tags.${tagKey}.name`] || tagKey;
-    const slug = t[`tags.${tagKey}.slug`] || tagKey;
-    return { name, slug };
-}
+const categoriesSlug = t('nav.categories.slug');
 ---
 
 <!-- Componente de Card para Post -->
@@ -50,10 +34,10 @@ function getTranslatedTag(tagKey: string) {
     {post.data.tags && (
       <div class="tags">
         {post.data.tags.map((tagKey) => {
-          const translatedTag = getTranslatedTag(tagKey);
+          const tag = getTag(tagKey);
           return (
-            <a href={`/${lang}/${categoriesSlug}/${translatedTag.slug}/`} class="tag">
-              #{translatedTag.name}
+            <a href={`/categories/${tag.slug}/`} class="tag">
+              #{tag.name}
             </a>
           )
         })}
@@ -160,7 +144,7 @@ function getTranslatedTag(tagKey: string) {
     padding: 0;
     border: none;
     text-decoration: none;
-	margin-right: 0.5rem; /* Garante o espaçamento */
+    margin-right: 0.5rem; /* Garante o espaçamento */
   }
 
   .tag:hover {

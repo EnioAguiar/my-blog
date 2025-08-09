@@ -1,121 +1,20 @@
-export const languages = {
-  pt: 'Português',
-  en: 'English',
-};
-
-export const defaultLang = 'pt';
-
 /*
- * COMO ADICIONAR NOVAS TAGS (CATEGORIAS)
+ * HOW TO ADD NEW TAGS (CATEGORIES)
  *
- * 1. ESCOLHA UMA CHAVE (APELIDO) PARA A TAG:
- *    - Deve ser curta, em inglês e sem espaços (ex: `performance`, `backend`, `tutorial`).
- *    - Esta chave será usada nos arquivos .md dos posts.
+ * 1. CHOOSE A KEY FOR THE TAG:
+ *    - It should be short, in English, and without spaces (e.g., `performance`, `backend`, `tutorial`).
+ *    - This key will be used in the .md files of the posts.
  *
- * 2. ADICIONE AS TRADUÇÕES ABAIXO:
- *    - Para cada idioma (`pt` e `en`), adicione duas entradas:
- *      - `tags.sua-chave.name`: O nome que será exibido no site.
- *      - `tags.sua-chave.slug`: O texto que aparecerá na URL.
+ * 2. ADD THE TAG BELOW:
+ *    - Add two entries for the key:
+ *      - `tags.your-key.name`: The name that will be displayed on the site.
+ *      - `tags.your-key.slug`: The text that will appear in the URL.
  *
- * 3. USE A CHAVE NO POST:
- *    - No frontmatter do seu arquivo .md, adicione a chave à lista de tags:
- *      `tags: ["sua-chave", "outra-chave"]`
- *
- * O site cuidará do resto automaticamente.
+ * 3. USE THE KEY IN THE POST:
+ *    - In the frontmatter of your .md file, add the key to the tags list:
+ *      `tags: ["your-key", "another-key"]`
  */
-export function getLangFromUrl(url: URL) {
-  const [, lang] = url.pathname.split('/');
-  if (lang in ui) return lang as keyof typeof ui;
-  return defaultLang;
-}
-
 export const ui = {
-  pt: {
-    'nav.about': 'Sobre',
-    'nav.contact': 'Contato',
-    'nav.categories': 'Categorias',
-    'nav.terms': 'Termos',
-    'nav.privacy': 'Privacidade',
-    'nav.about.slug': 'about',
-    'nav.contact.slug': 'contato',
-    'nav.categories.slug': 'categorias',
-    'nav.terms.slug': 'termos',
-    'nav.privacy.slug': 'privacidade',
-    'footer.kofi': 'Apoie com um café',
-    'footer.newsletter.title': 'Inscreva-se na Brainnoises',
-    'footer.newsletter.description': 'Receba os últimos posts diretamente no seu email.',
-    'footer.newsletter.email': 'Seu melhor email',
-    'footer.newsletter.subscribe': 'Inscrever',
-    'posts.related': 'Posts Relacionados',
-    'pagination.previous': '« Voltar',
-    'pagination.next': 'Próximo »',
-
-    'search.placeholder': 'Buscar posts...',
-    'search.label': 'Busca',
-    'search.results': 'Resultados da Busca',
-    'search.resultsFor': 'Resultados para',
-    'search.noResults': 'Nenhum resultado encontrado.',
-
-    'share.title': 'Compartilhe este post',
-    'share.twitter': 'Compartilhar no Twitter',
-    'share.facebook': 'Compartilhar no Facebook',
-    'share.linkedin': 'Compartilhar no LinkedIn',
-    'share.whatsapp': 'Compartilhar no WhatsApp',
-    'share.telegram': 'Compartilhar no Telegram',
-    'share.reddit': 'Compartilhar no Reddit',
-    'share.copy': 'Copiar link',
-    'share.copied': 'Link copiado!',
-    'tags.web-dev.name': 'Desenvolvimento Web',
-    'tags.web-dev.slug': 'desenvolvimento-web',
-    'tags.ads.name': 'Publicidade',
-    'tags.ads.slug': 'publicidade',
-    'tags.crypto.name': 'Criptomoedas',
-    'tags.crypto.slug': 'criptomoedas',
-    'tags.brazil.name': 'Brasil',
-    'tags.brazil.slug': 'brasil',
-    'tags.regulation.name': 'Regulação',
-    'tags.regulation.slug': 'regulacao',
-    'tags.blockchain.name': 'Blockchain',
-    'tags.blockchain.slug': 'blockchain',
-    'tags.politics.name': 'Política',
-    'tags.politics.slug': 'politica',
-    'tags.linux.name': 'Linux',
-    'tags.linux.slug': 'linux',
-    'tags.open-source.name': 'Código Aberto',
-    'tags.open-source.slug': 'codigo-aberto',
-    'tags.security.name': 'Segurança',
-    'tags.security.slug': 'seguranca',
-    'tags.ai.name': 'Inteligência Artificial',
-    'tags.ai.slug': 'inteligencia-artificial',
-    'tags.film-review.name': 'Crítica de Filme',
-    'tags.film-review.slug': 'critica-de-filme',
-    'tags.games.name': 'Jogos',
-    'tags.games.slug': 'jogos',
-    'tags.fps.name': 'FPS',
-    'tags.fps.slug': 'fps',
-    'tags.tech.name': 'Tecnologia',
-    'tags.tech.slug': 'tecnologia',
-    'tags.mobile.name': 'Mobile',
-    'tags.mobile.slug': 'mobile',
-    'tags.development.name': 'Desenvolvimento',
-    'tags.development.slug': 'desenvolvimento',
-    'tags.liberdade.name': 'Liberdade',
-    'tags.liberdade.slug': 'liberdade',
-    'tags.debanking.name': 'Debanking',
-    'tags.debanking.slug': 'debanking',
-    'tags.investing.name': 'Investimento',
-    'tags.investing.slug': 'investimento',
-    'tags.mentalidade.name': 'Mentalidade',
-    'tags.mentalidade.slug': 'mentalidade',
-    'tags.web3.name': 'Web3',
-    'tags.web3.slug': 'web3',
-    'tags.vr.name': 'Realidade Virtual',
-    'tags.vr.slug': 'realidade-virtual',
-    '404.title': 'Página não encontrada',
-    '404.message': 'A página que você está procurando não existe ou foi movida.',
-    '404.back': 'Voltar para a página inicial',
-  },
-  en: {
     'nav.about': 'About',
     'nav.contact': 'Contact',
     'nav.categories': 'Categories',
@@ -182,14 +81,14 @@ export const ui = {
     'tags.mobile.slug': 'mobile',
     'tags.development.name': 'Development',
     'tags.development.slug': 'development',
-    'tags.liberdade.name': 'Freedom',
-    'tags.liberdade.slug': 'freedom',
+    'tags.freedom.name': 'Freedom',
+    'tags.freedom.slug': 'freedom',
     'tags.debanking.name': 'Debanking',
     'tags.debanking.slug': 'debanking',
     'tags.investing.name': 'Investing',
     'tags.investing.slug': 'investing',
-    'tags.mentalidade.name': 'Mindset',
-    'tags.mentalidade.slug': 'mindset',
+    'tags.mindset.name': 'Mindset',
+    'tags.mindset.slug': 'mindset',
     'tags.web3.name': 'Web3',
     'tags.web3.slug': 'web3',
     'tags.vr.name': 'Virtual Reality',
@@ -199,5 +98,41 @@ export const ui = {
     '404.title': 'Page Not Found',
     '404.message': 'The page you are looking for does not exist or has been moved.',
     '404.back': 'Go back to the homepage',
-  },
 } as const;
+
+/**
+ * A simple translation function that returns a string for a given key.
+ * @param key The key of the UI string to retrieve.
+ * @returns The translated string.
+ */
+export function t(key: keyof typeof ui): string {
+    return ui[key];
+}
+
+/**
+ * Retrieves the display name and slug for a given tag key.
+ * @param key The key of the tag (e.g., 'web-dev').
+ * @returns An object with the name and slug, or a default if not found.
+ */
+export function getTag(key: string): { name: string; slug: string } {
+    const nameKey = `tags.${key}.name` as keyof typeof ui;
+    const slugKey = `tags.${key}.slug` as keyof typeof ui;
+
+    if (nameKey in ui && slugKey in ui) {
+        return {
+            name: ui[nameKey],
+            slug: ui[slugKey],
+        };
+    }
+    
+    // If a tag is not found in the dictionary, create a sensible default.
+    // This makes development easier as you don't have to define every single tag.
+    const name = key
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, char => char.toUpperCase());
+    
+    return {
+        name: name,
+        slug: key,
+    };
+}

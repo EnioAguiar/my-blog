@@ -13,13 +13,7 @@ export default defineConfig({
 	site: 'https://brainnoises.com',
 	integrations: [mdx(), sitemap()],
     
-	i18n: {
-		defaultLocale: 'en', // Define o inglês como idioma principal
-		locales: ['pt', 'en'],
-		routing: {
-			prefixDefaultLocale: false,
-		},
-	},
+	
 	vite: {
 		resolve: {
 			alias: {
