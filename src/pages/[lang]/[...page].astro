@@ -67,6 +67,9 @@ function getTranslatedTag(tagKey: string) {
 			.featured-post img {
 				border-radius: 12px;
 				margin-bottom: 1.5rem;
+				width: 100%;
+				aspect-ratio: 2 / 1; /* Define a proporção da imagem */
+				object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
 			}
 
 			.featured-post .content {
