@@ -1,7 +1,7 @@
 ---
 title: "The AI Gig Economy is Real — And It Pays in Crypto"
 description: "A critical analysis of the emerging AI Gig Economy. Is it an evolution of work or a new form of exploitation? We explore the pros and cons of a future where payments are made in crypto assets."
-pubDate: "2025-08-09T15:00:00Z"
+pubDate: "2025-08-09T12:00:00Z"
 heroImage: "@/assets/ai-gig-economy.png"
 tags: ["ai", "crypto", "web3", "investing"]
 ---

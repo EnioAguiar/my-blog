@@ -1,7 +1,7 @@
 ---
 title: "The Culture War for Crypto's Soul: Why Progressives Are Fumbling the Future"
 description: "Crypto is being shaped by a distinct political ideology, while progressives remain hesitant. A critical look at why this is happening and what's at stake for the future of a decentralized world."
-pubDate: "2025-08-09T18:00:00Z"
+pubDate: "2025-08-09T16:30:00Z"
 heroImage: "@/assets/crypto-culture-war.png"
 tags: ["crypto", "politics", "freedom", "culture"]
 ---

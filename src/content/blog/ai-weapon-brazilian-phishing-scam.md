@@ -1,7 +1,7 @@
 ---
 title: "AI as a Weapon: Inside Brazil's Phishing & Malware Campaigns"
 description: "A deep dive into two sophisticated attack campaigns in Brazil: one using AI to create government phishing sites for PIX theft, and another spreading the 'Efimer' crypto-stealing trojan."
-pubDate: "2025-08-09T16:00:00Z"
+pubDate: "2025-08-09T13:30:00Z"
 heroImage: "@/assets/ai-phishing-brazil.png"
 tags: ["ai", "security", "crypto", "politics"]
 ---

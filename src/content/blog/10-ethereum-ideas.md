@@ -1,7 +1,7 @@
 ---
 title: "More Than Just Money: 10 Ethereum Ideas That Are Changing the World"
 description: "Ethereum's 10-year anniversary is a moment to reflect on its core innovations. From smart contracts to DAOs, we explore the foundational ideas that are reshaping finance, ownership, and the internet itself."
-pubDate: "2025-08-09T19:00:00Z"
+pubDate: "2025-08-09T19:30:00Z"
 heroImage: "@/assets/ethereum-ecosystem-ideas.png"
 tags: ["crypto", "blockchain", "web3", "tech"]
 ---
