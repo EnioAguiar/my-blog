@@ -194,6 +194,8 @@ export const ui = {
     'tags.web3.slug': 'web3',
     'tags.vr.name': 'Virtual Reality',
     'tags.vr.slug': 'virtual-reality',
+    'tags.culture.name': 'Culture',
+    'tags.culture.slug': 'culture',
     '404.title': 'Page Not Found',
     '404.message': 'The page you are looking for does not exist or has been moved.',
     '404.back': 'Go back to the homepage',

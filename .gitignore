@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # Gemini files
 .gemini/GEMINI.md
+\n# Local development scripts\n/scripts/
