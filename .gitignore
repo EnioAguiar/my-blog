@@ -25,4 +25,10 @@ pnpm-debug.log*
 
 # Gemini files
 .gemini/GEMINI.md
-\n# Local development scripts\n/scripts/
+
+# Local development scripts
+/scripts/
+
+# Private context files
+PROJECT_CONTEXT.md
+GEMINI.md

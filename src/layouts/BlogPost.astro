@@ -8,6 +8,7 @@ import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import PostCard from '../components/PostCard.astro';
 import ShareButtons from '../components/ShareButtons.astro';
+import Giscus from '../components/Giscus.astro';
 import { t, getTag } from '../i18n/ui';
 
 type Props = CollectionEntry<'blog'>['data'] & {
@@ -206,6 +207,7 @@ const relatedPosts = allPosts
 					</div>
 				)
 			}
+			<Giscus />
 		</main>
 		<Footer />
 	</body>
