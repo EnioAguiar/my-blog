@@ -101,6 +101,8 @@ export const ui = {
     'tags.data-breach.slug': 'data-breach',
     'tags.privacy.name': 'Privacy',
     'tags.privacy.slug': 'privacy',
+    'tags.environment.name': 'Environment',
+    'tags.environment.slug': 'environment',
     '404.title': 'Page Not Found',
     '404.message': 'The page you are looking for does not exist or has been moved.',
     '404.back': 'Go back to the homepage',
