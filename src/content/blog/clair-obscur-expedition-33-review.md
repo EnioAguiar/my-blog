@@ -1,7 +1,7 @@
 ---
 title: "Clair Obscur: Expedition 33 — A Defiant Masterpiece"
 description: "An in-depth review of Clair Obscur: Expedition 33, a game that redefines what a modern turn-based RPG can be. A masterpiece of art, sound, and soul."
-pubDate: "2025-08-11T10:00:00Z"
+pubDate: "2025-08-11T23:59:59Z"
 heroImage: "/src/assets/clair-obscur-expedition-33.jpg"
 tags: ['rpg', 'gaming', 'review', 'opinion']
 ---
