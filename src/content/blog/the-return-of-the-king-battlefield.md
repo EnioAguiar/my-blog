@@ -3,7 +3,7 @@ title: "Battlefield 6: The Hope of a Genre Tired of Greed"
 description: "While Call of Duty drowns in microtransactions, Battlefield 6 beckons to fans with the promise of a return to its roots. Could this be the FPS that finally saves us?"
 pubDate: "2025-08-06T10:00:00"
 heroImage: "/src/assets/battlefield6.jpeg"
-tags: ["games", "fps"]
+tags: ["gaming"]
 ---
 
 Let's be honest: the multiplayer FPS scene has been depressing. For years, we've been held hostage by a predictable cycle led by *Call of Duty*. Annual releases, a total focus on aggressive monetization, and a glaring lack of innovation that drains the soul of any longtime fan.

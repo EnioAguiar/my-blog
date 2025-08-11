@@ -3,7 +3,7 @@ title: "Cyberpunk 2077: The Redemption of a Giant"
 description: "From a disastrous launch to a triumphant comeback: the journey of Cyberpunk 2077 and its current success."
 pubDate: 2025-08-07T22:15:00Z
 heroImage: "/src/assets/Cyberpunk2077.webp"
-tags: ["games", "tech"]
+tags: ["gaming", "tech"]
 ---
 
 The launch of Cyberpunk 2077 in December 2020 was, to say the least, a disaster. After years of intense hype, ambitious promises, and a massive marketing campaign, what players received was a game riddled with bugs, performance issues, especially on last-gen consoles, and an experience that fell far short of the expectations created. CD Projekt Red, a studio acclaimed for The Witcher 3, saw its reputation tarnished, its stock plummet, and fan trust shaken.

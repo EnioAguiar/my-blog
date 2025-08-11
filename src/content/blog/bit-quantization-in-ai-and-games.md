@@ -3,7 +3,7 @@ title: "Bit Quantization: The Secret to Efficiency in AI and Games (and No, It's
 description: "Have you ever heard of 'quantization' and thought of quantum computers? Hold on. The technique used in AI and games is something else, and it's the reason why your models and games run so fast."
 pubDate: "2025-08-06T11:00:00"
 heroImage: "/src/assets/machine-learning.jpeg"
-tags: ["ai", "games"]
+tags: ["ai", "gaming"]
 ---
 
 There's a term in the tech world that sounds incredibly complex and futuristic: **quantization**. The first time I heard it, my mind immediately jumped to quantum physics, qubits, and the computing of the future. The truth, however, is much more practical, down-to-earth, and absolutely essential for the technology we use today, especially in Artificial Intelligence and game engines.
