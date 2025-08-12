@@ -33,6 +33,7 @@ export const ui = {
     'posts.related': 'Related Posts',
     'pagination.previous': '« Previous',
     'pagination.next': 'Next »',
+    'category.title': 'Posts with category',
 
     'search.placeholder': 'Search posts...',
     'search.label': 'Search',

@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/PageLayout.astro';
+import PostCard from '@/components/PostCard.astro';
+import { t, getTag } from '@/i18n/ui';
+import { BLOG_PAGINATION_SIZE } from '@/consts';
+
+export async function getStaticPaths({ paginate }) {
+	const allPosts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+	const uniqueTagKeys = [...new Set(allPosts.flatMap(post => post.data.tags || []))];
+
+	return uniqueTagKeys.flatMap((tagKey) => {
+		const tag = getTag(tagKey);
+		const filteredPosts = allPosts.filter((post) =>
+			(post.data.tags || []).includes(tagKey)
+		);
+
+		return paginate(filteredPosts, {
+			params: { tag: tag.slug },
+			props: { 
+				tagName: tag.name,
+			},
+      pageSize: BLOG_PAGINATION_SIZE,
+		});
+	});
+}
+
+const { page, tagName } = Astro.props;
+const title = `${t('category.title')} #${tagName}`;
+---
+
+<PageLayout title={title} description={`All posts about ${tagName}`}>
+	<section>
+		<ul class="grid">
+			{page.data.map((post, i) => (
+				<PostCard post={post} number={`${page.start + i + 1}`} />
+			))}
+		</ul>
+	</section>
+
+	<nav class="pagination">
+		{page.url.prev && <a class="prev" href={page.url.prev}>{t('pagination.previous')}</a>}
+		{page.url.next && <a class="next" href={page.url.next}>{t('pagination.next')}</a>}
+	</nav>
+</PageLayout>
+
+<style>
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+    list-style-type: none;
+	}
+</style>

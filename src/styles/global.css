@@ -248,3 +248,24 @@ footer {
   z-index: 1;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
+
+.pagination {
+	display: flex;
+	margin-top: 4rem;
+	width: 100%;
+}
+.pagination a {
+	color: rgb(var(--black));
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	border: 1px solid rgb(var(--black));
+	border-radius: 8px;
+	transition: 0.2s ease;
+}
+.pagination a:hover {
+	color: var(--green-bright);
+	border-color: var(--green-bright);
+}
+.pagination .next {
+	margin-left: auto; /* Empurra o botão "Próximo" para a direita */
+}
