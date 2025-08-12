@@ -1,7 +1,7 @@
 ---
 title: "28 Years Later: From Raw Horror to... Power Rangers?"
 description: "The film starts with a spark of promise but quickly devolves into a bizarre sequel that forgets what made the franchise a horror masterpiece."
-pubDate: "2025-08-05"
+pubDate: "2025-08-05T10:00:00Z"
 heroImage: "@/assets/28anos.jpg"
 tags: ["film-review"]
 ---

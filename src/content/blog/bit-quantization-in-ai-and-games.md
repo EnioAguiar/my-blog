@@ -1,7 +1,7 @@
 ---
 title: "Bit Quantization: The Secret to Efficiency in AI and Games (and No, It's Not Quantum!)"
 description: "Have you ever heard of 'quantization' and thought of quantum computers? Hold on. The technique used in AI and games is something else, and it's the reason why your models and games run so fast."
-pubDate: "2025-08-06T11:00:00"
+pubDate: "2025-08-06T11:00:00Z"
 heroImage: "/src/assets/machine-learning.jpeg"
 tags: ["ai", "gaming"]
 ---

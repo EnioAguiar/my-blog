@@ -10,8 +10,12 @@ const blog = defineCollection({
 			title: z.string(),
 			description: z.string(),
 			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
+			pubDate: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/, {
+				message: "A data de publicação deve estar no formato completo ISO 8601 (YYYY-MM-DDTHH:MM:SSZ)",
+			}).transform((str) => new Date(str)),
+			updatedDate: z.string().regex(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/, {
+				message: "A data de atualização deve estar no formato completo ISO 8601 (YYYY-MM-DDTHH:MM:SSZ)",
+			}).transform((str) => new Date(str)).optional(),
 			heroImage: image().optional(),
 			tags: z.array(z.string()).optional(),
 			ads: z.boolean().optional(),

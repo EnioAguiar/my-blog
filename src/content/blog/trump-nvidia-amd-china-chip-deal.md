@@ -3,7 +3,7 @@ title: "The Nvidia-AMD 'Deal': A National Security Fee or a Political Payoff?"
 description: "The Trump administration's plan to take a 15% cut of Nvidia and AMD's revenue from China isn't just a policy—it's a shakedown that blurs the line between national security and political extortion."
 pubDate: "2025-08-11T23:59:59Z"
 heroImage: "/src/assets/trump-chip-shakedown.webp"
-tags: ["politics", "technology", "economy"]
+tags: ["politics", "tech", "economy"]
 ---
 
 In the grand theater of political absurdity, the latest act is a masterclass in blurring lines. The Trump administration has confirmed a "deal" that feels less like trade policy and more like a scene from a mob movie: Nvidia and AMD are to hand over 15% of their chip revenue from China directly to the U.S. government.

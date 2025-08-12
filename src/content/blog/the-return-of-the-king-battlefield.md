@@ -1,7 +1,7 @@
 ---
 title: "Battlefield 6: The Hope of a Genre Tired of Greed"
 description: "While Call of Duty drowns in microtransactions, Battlefield 6 beckons to fans with the promise of a return to its roots. Could this be the FPS that finally saves us?"
-pubDate: "2025-08-06T10:00:00"
+pubDate: "2025-08-06T10:00:00Z"
 heroImage: "/src/assets/battlefield6.jpeg"
 tags: ["gaming"]
 ---

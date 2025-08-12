@@ -1,7 +1,7 @@
 ---
 title: "Cyberpunk 2077: The Redemption of a Giant"
 description: "From a disastrous launch to a triumphant comeback: the journey of Cyberpunk 2077 and its current success."
-pubDate: 2025-08-07T22:15:00Z
+pubDate: "2025-08-07T22:15:00Z"
 heroImage: "/src/assets/Cyberpunk2077.webp"
 tags: ["gaming", "tech"]
 ---

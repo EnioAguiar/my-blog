@@ -1,7 +1,7 @@
 ---
 title: "NVIDIA 580.65.06 Beta: Wayland and VR Improvements for Linux"
 description: "The new NVIDIA driver beta brings significant advancements for Linux users, focusing on Wayland and virtual reality."
-pubDate: 2025-08-07T22:05:00Z
+pubDate: "2025-08-07T22:05:00Z"
 heroImage: "/src/assets/nvidia.jpg"
 tags: ["linux", "vr"]
 ---
