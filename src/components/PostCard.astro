@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import FormattedDate from './FormattedDate.astro'
-import { getTag, t } from '../i18n/ui'
+import { getTag } from '../i18n/ui'
 
 export interface Props {
 	post: any
@@ -9,7 +9,6 @@ export interface Props {
 }
 
 const { post, number } = Astro.props
-const categoriesSlug = t('nav.categories.slug')
 ---
 
 <!-- Componente de Card para Post -->
