@@ -26,6 +26,10 @@ pnpm-debug.log*
 # Gemini files
 .gemini/GEMINI.md
 
+# Cursor files
+.cursor/
+.eslintrc.json
+
 # Local development scripts
 /scripts/
 
