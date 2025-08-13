@@ -23,13 +23,17 @@ const allPosts = await getCollection('blog');
 
 // 2. Find related posts, excluding the current post
 const relatedPosts = allPosts
-	.filter((post) => {
-		if (post.id === id) return false; // Exclude self
-		if (!tags || tags.length === 0) return false; // No tags, no related posts
-		// Return posts that share at least one tag
-		return post.data.tags?.some((tag: string) => tags.includes(tag));
+	.map((post) => {
+		if (post.id === id || !post.data.tags) {
+			return { post, score: 0 };
+		}
+		const sharedTags = post.data.tags.filter((tag: string) => tags.includes(tag));
+		return { post, score: sharedTags.length };
 	})
-	.slice(0, 3); // Limit to 3 related posts
+	.filter((item) => item.score > 0)
+	.sort((a, b) => b.score - a.score)
+	.slice(0, 3)
+	.map((item) => item.post);
 ---
 
 <html lang="en">
