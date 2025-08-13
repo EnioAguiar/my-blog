@@ -28,11 +28,9 @@ pnpm-debug.log*
 
 # Cursor files
 .cursor/
-.eslintrc.json
 
 # Local development scripts
 /scripts/
 
 # Private context files
-PROJECT_CONTEXT.md
-GEMINI.md
+.github/copilot-instructions.md
