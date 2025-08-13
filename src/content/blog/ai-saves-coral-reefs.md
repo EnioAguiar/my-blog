@@ -1,9 +1,9 @@
 ---
-title: "AI Dives Deep: How Artificial Intelligence is Helping to Save Our Coral Reefs"
+title: 'AI Dives Deep: How Artificial Intelligence is Helping to Save Our Coral Reefs'
 description: "Forget the dystopian nightmares for a second. AI is being used as a powerful ally in one of the most critical environmental battles: the race to save our planet's coral reefs."
-pubDate: "2025-08-11T20:00:00Z"
-heroImage: "/src/assets/ai-coral-reef.webp"
-tags: ["ai", "tech", "environment", "open-source"]
+pubDate: '2025-08-11T20:00:00Z'
+heroImage: '/src/assets/ai-coral-reef.webp'
+tags: ['ai', 'tech', 'environment', 'open-source']
 ---
 
 It’s easy to get cynical about technology. We’re constantly bombarded with stories about AI stealing jobs, data breaches, and the slow creep of a surveillance society. But every now and then, a project comes along that cuts through the noise and reminds you of the incredible potential technology holds for good. This is one of those times.
@@ -20,7 +20,7 @@ Here’s how it works:
 
 1.  **Automated Analysis:** Drones and underwater cameras capture thousands of high-resolution images of the seafloor. Instead of a human having to painstakingly analyze each photo, an AI model can process the entire dataset in a fraction of the time.
 
-2.  **Early Detection:** The AI is trained to identify not just coral, but the specific *types* of coral and, crucially, the earliest signs of bleaching or disease. It can spot subtle color changes that a human eye might miss, giving scientists a vital head-start to intervene.
+2.  **Early Detection:** The AI is trained to identify not just coral, but the specific _types_ of coral and, crucially, the earliest signs of bleaching or disease. It can spot subtle color changes that a human eye might miss, giving scientists a vital head-start to intervene.
 
 3.  **Ecosystem Monitoring:** It goes beyond coral. The AI can identify and count fish populations, track the presence of invasive species like the crown-of-thorns starfish, and monitor the overall biodiversity of an area. This data provides a complete health report for the ecosystem.
 

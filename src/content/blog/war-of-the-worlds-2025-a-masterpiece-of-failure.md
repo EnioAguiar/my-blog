@@ -1,9 +1,9 @@
 ---
 title: "'War of the Worlds' (2025): A Review of a Perfect, Zero-Star Disaster"
 description: "We watched the 2025 'War of the Worlds' so you don't have to. A hilarious, tragic, and bafflingly awful film that achieves a perfect 0% on Rotten Tomatoes. This isn't a review; it's a warning."
-pubDate: "2025-08-09T22:00:00Z"
-heroImage: "/src/assets/war-of-the-worlds-2025-disaster.webp"
-tags: ["film-review", "culture", "tech"]
+pubDate: '2025-08-09T22:00:00Z'
+heroImage: '/src/assets/war-of-the-worlds-2025-disaster.webp'
+tags: ['film-review', 'culture', 'tech']
 ---
 
 Every once in a while, a film comes along that doesn’t just fail; it achieves a kind of perfect, awe-inspiring awfulness. A film so profoundly misguided, so tragically executed, that it transcends badness and becomes a work of accidental comedic genius.

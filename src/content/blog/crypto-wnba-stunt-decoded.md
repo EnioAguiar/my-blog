@@ -1,9 +1,9 @@
 ---
 title: "Crypto's Latest PR Stunt: Sex Toys, the WNBA, and the Absurd Quest for Mainstream Attention"
-description: "A cultural analysis of the recent WNBA game disruptions and what they say about the state of crypto marketing and the search for relevance."
-pubDate: "2025-08-08T19:01:00Z"
-heroImage: "/src/assets/wnba-crypto-stunt.webp"
-tags: ["culture", "web3"]
+description: 'A cultural analysis of the recent WNBA game disruptions and what they say about the state of crypto marketing and the search for relevance.'
+pubDate: '2025-08-08T19:01:00Z'
+heroImage: '/src/assets/wnba-crypto-stunt.webp'
+tags: ['culture', 'web3']
 ---
 
 Just when you think you've seen every possible flavor of crypto marketing insanity, from laser eyes to Elon Musk's dog-themed tweets, the universe says, "Hold my beer."

@@ -1,9 +1,9 @@
 ---
-title: "My View on Global Crypto in 2025: Regulation, ETFs, and AI are Changing Everything"
+title: 'My View on Global Crypto in 2025: Regulation, ETFs, and AI are Changing Everything'
 description: "From my perspective, 2025 is the year crypto finally grows up. I'm breaking down the three things that I believe matter most: real regulation, the flood of institutional money from ETFs, and the mind-blowing impact of AI."
-pubDate: "2025-08-04T10:00:00Z"
-heroImage: "@/assets/crypto.jpg"
-tags: ["crypto", "blockchain", "regulation"]
+pubDate: '2025-08-04T10:00:00Z'
+heroImage: '@/assets/crypto.jpg'
+tags: ['crypto', 'blockchain', 'regulation']
 ---
 
 I've been in the crypto space for a while, and 2025 feels different. It feels like the industry is finally being forced to mature. The days of the wild west are ending, and I think it's happening because of three major forces: serious regulation, a flood of institutional money, and the integration of truly powerful AI.
@@ -20,8 +20,8 @@ I remember when people laughed at the idea of a Bitcoin ETF. Now, they're a real
 
 Beyond the money, two tech trends get me really excited:
 
--   **Artificial Intelligence (AI):** I'm seeing AI being used for everything from crafting smarter trading bots to making blockchain networks more secure. It's like we're giving the entire ecosystem a brain upgrade.
--   **Real-World Assets (RWAs):** This is a big one. We're starting to tokenize things like real estate and commodities. Think about it: this unlocks trillions of dollars stuck in illiquid markets. It's the bridge I've been waiting for between the old financial world and our new digital one.
+- **Artificial Intelligence (AI):** I'm seeing AI being used for everything from crafting smarter trading bots to making blockchain networks more secure. It's like we're giving the entire ecosystem a brain upgrade.
+- **Real-World Assets (RWAs):** This is a big one. We're starting to tokenize things like real estate and commodities. Think about it: this unlocks trillions of dollars stuck in illiquid markets. It's the bridge I've been waiting for between the old financial world and our new digital one.
 
 ## My Conclusion
 

@@ -1,9 +1,9 @@
 ---
 title: "Beyond JavaScript: Why I'm Betting on WebAssembly for the Future of High-Performance Web Apps"
 description: "JavaScript has served us well, but it's time to look at the next frontier. Here's why I'm convinced WebAssembly is the key to unlocking a new era of powerful, fast, and secure web applications."
-pubDate: "2025-08-07T20:00:00Z"
-heroImage: "@/assets/web-assembly-future.jpg"
-tags: ["web-dev", "development", "tech", "open-source"]
+pubDate: '2025-08-07T20:00:00Z'
+heroImage: '@/assets/web-assembly-future.jpg'
+tags: ['web-dev', 'development', 'tech', 'open-source']
 ---
 
 For the longest time, web development has been synonymous with one language: JavaScript. It's the language that built the modern web, and for that, it deserves our respect. But as our ambitions for web applications grow, we're starting to hit the ceiling of what JavaScript can comfortably do. We need more speed, more power, and more security.
@@ -19,16 +19,17 @@ And I'm convinced it's the future. Here's why.
 This is the most obvious benefit. JavaScript is an interpreted language, which means it's parsed and compiled on the fly. Wasm, on the other hand, is pre-compiled into a highly optimized binary format. The browser can execute it at near-native speed.
 
 What does this mean in practice?
--   **Complex applications in the browser:** Think video editing, 3D rendering, scientific simulations, and even full-fledged game engines running smoothly, without stutters.
--   **Heavy computations on the client-side:** Tasks that previously required a powerful server can now be offloaded to the user's machine, reducing latency and server costs.
+
+- **Complex applications in the browser:** Think video editing, 3D rendering, scientific simulations, and even full-fledged game engines running smoothly, without stutters.
+- **Heavy computations on the client-side:** Tasks that previously required a powerful server can now be offloaded to the user's machine, reducing latency and server costs.
 
 ### 2. A Truly Polyglot Web
 
 For years, if you wanted to build for the web, you had to use JavaScript. WebAssembly shatters that monopoly. Now, developers can write performance-critical parts of their applications in the language that is best suited for the job.
 
--   Love the safety and performance of **Rust**? Compile it to Wasm.
--   Have a massive existing codebase in **C++**? Bring it to the web.
--   Want to use **Python** for data analysis directly in the browser? It's becoming possible.
+- Love the safety and performance of **Rust**? Compile it to Wasm.
+- Have a massive existing codebase in **C++**? Bring it to the web.
+- Want to use **Python** for data analysis directly in the browser? It's becoming possible.
 
 This opens the door to a new level of code reuse and allows teams to leverage their existing skills without being forced into a single ecosystem. It's a more open, flexible, and powerful web.
 

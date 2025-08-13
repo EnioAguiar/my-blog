@@ -1,9 +1,9 @@
 ---
-title: "The Global-Fly Hack: Anatomy of a 21st-Century Data Breach"
-description: "A deep dive into the fictional Global-Fly data breach, dissecting the attack, the corporate fallout, and the essential lessons for our digital safety."
-pubDate: "2025-08-11T18:00:00Z"
-heroImage: "/src/assets/anatomy-of-a-data-breach.webp"
-tags: ["cybersecurity", "data-breach", "privacy", "tech"]
+title: 'The Global-Fly Hack: Anatomy of a 21st-Century Data Breach'
+description: 'A deep dive into the fictional Global-Fly data breach, dissecting the attack, the corporate fallout, and the essential lessons for our digital safety.'
+pubDate: '2025-08-11T18:00:00Z'
+heroImage: '/src/assets/anatomy-of-a-data-breach.webp'
+tags: ['cybersecurity', 'data-breach', 'privacy', 'tech']
 ---
 
 Another week, another billion-dollar corporation spilling customer data like a cheap, cracked plastic cup. This time, the unlucky winner is Global-Fly Airlines, whose entire database of passenger info, including passport numbers and payment details, is now probably a featured listing on some dark web marketplace.
@@ -32,9 +32,9 @@ This is the core of the rot: for many corporations, cybersecurity isn't a prereq
 
 Forget the corporate platitudes. Here’s what you, the individual, should do right now:
 
-*   **Assume You're Compromised:** Go to `haveibeenpwned.com` and check every email address you own.
-*   **Password Manager & MFA:** If you are not using a unique, strong password for every single service, you are setting yourself up for failure. Use a password manager. And enable Multi-Factor Authentication (MFA) on every account that offers it. No excuses.
-*   **Question Everything:** Be ruthlessly skeptical of every email, text, and link. That urgent request from your "boss" or that "failed payment" notification? Verify it through a separate, trusted channel.
-*   **Demand Better:** As consumers and citizens, we must demand more. Support companies that make security a core part of their product. Advocate for stronger data privacy laws with real, painful penalties for negligence.
+- **Assume You're Compromised:** Go to `haveibeenpwned.com` and check every email address you own.
+- **Password Manager & MFA:** If you are not using a unique, strong password for every single service, you are setting yourself up for failure. Use a password manager. And enable Multi-Factor Authentication (MFA) on every account that offers it. No excuses.
+- **Question Everything:** Be ruthlessly skeptical of every email, text, and link. That urgent request from your "boss" or that "failed payment" notification? Verify it through a separate, trusted channel.
+- **Demand Better:** As consumers and citizens, we must demand more. Support companies that make security a core part of their product. Advocate for stronger data privacy laws with real, painful penalties for negligence.
 
 The Global-Fly hack isn't a story about sophisticated hackers. It's a story about corporate indifference and the systemic failure to treat our digital lives with the seriousness they deserve. Until that changes, we're all just passengers on a plane waiting for the next bit of turbulence.

@@ -1,9 +1,9 @@
 ---
-title: "The Open Source Dilemma: Who Pays for Our Digital Infrastructure?"
+title: 'The Open Source Dilemma: Who Pays for Our Digital Infrastructure?'
 description: "Our digital world is built on a fragile foundation: critical open-source projects maintained by a few unpaid volunteers. After major security scares, it's time to ask a hard question: is this model sustainable, or are we waiting for a collapse?"
-pubDate: "2025-08-10T13:00:00Z"
-heroImage: "/src/assets/open-source-dilemma.webp"
-tags: ["open-source", "security", "politics"]
+pubDate: '2025-08-10T13:00:00Z'
+heroImage: '/src/assets/open-source-dilemma.webp'
+tags: ['open-source', 'security', 'politics']
 ---
 
 Imagine the entire global economy, from banking to transportation to energy, running inside a skyscraper. Now imagine the foundation of that skyscraper is being maintained, for free, by a handful of volunteers in their spare time. This isn't a metaphor; it's the reality of our relationship with open-source software.
@@ -21,6 +21,7 @@ This chronic lack of resources—time, money, and manpower—is a ticking time b
 ### The Awkward Search for a Solution
 
 The good news is that the problem is finally being discussed. The bad news is that the solutions are slow and awkward.
+
 - **Corporate Sponsorship:** While welcome, it's often a drop in the ocean. Companies might fund projects they directly depend on, but this can create conflicts of interest and leaves countless other essential libraries orphaned.
 - **Non-Profit Foundations:** Organizations like the OpenSSF (Open Source Security Foundation) are doing crucial work in coordinating security efforts and directing funds. However, they can be bureaucratic and slow to react compared to the speed of the threat landscape.
 - **Pay-for-Support Models:** This allows companies to monetize their work by selling support contracts and enterprise features. It's a viable business model, but it doesn't solve the core problem for the free version of the software that the vast majority of the world still uses.

@@ -1,9 +1,9 @@
 ---
 title: "The Culture War for Crypto's Soul: Why Progressives Are Fumbling the Future"
 description: "Crypto is being shaped by a distinct political ideology, while progressives remain hesitant. A critical look at why this is happening and what's at stake for the future of a decentralized world."
-pubDate: "2025-08-09T16:30:00Z"
-heroImage: "@/assets/crypto-culture-war.png"
-tags: ["crypto", "politics", "freedom", "culture"]
+pubDate: '2025-08-09T16:30:00Z'
+heroImage: '@/assets/crypto-culture-war.png'
+tags: ['crypto', 'politics', 'freedom', 'culture']
 ---
 
 A quiet but fierce culture war is being waged for the soul of cryptocurrency. While the technology professes to be a neutral tool, its narrative, development, and political backing are being overwhelmingly shaped by a specific ideological camp: a blend of right-leaning, libertarian, and free-market conservatism.
@@ -12,7 +12,7 @@ As Michael Rovner points out in a recent Cointelegraph piece, progressives are l
 
 ### The Right's Full-Throated Embrace
 
-The conservative adoption of crypto is no longer subtle. It's a core political and financial strategy. When Donald Trump calls for America to be the "crypto capital of the planet," he's tapping into a powerful current. Crypto-aligned PACs are funneling millions into elections. Adoption rates are significantly higher among Republican-leaning men. 
+The conservative adoption of crypto is no longer subtle. It's a core political and financial strategy. When Donald Trump calls for America to be the "crypto capital of the planet," he's tapping into a powerful current. Crypto-aligned PACs are funneling millions into elections. Adoption rates are significantly higher among Republican-leaning men.
 
 Why? Because the narrative fits perfectly. Crypto is framed as the ultimate free-market tool—a parallel financial system free from the clutches of government oversight and central bank inflation. It represents individual sovereignty, economic freedom, and a check on what is perceived as state overreach. They aren't just investing in an asset; they are building an alternative.
 
@@ -24,7 +24,7 @@ But this is where critique curdles into inaction. By dismissing the entire ecosy
 
 ### The Trillion-Dollar Missed Opportunity
 
-What's being lost is the immense potential for blockchain technology to advance progressive values. 
+What's being lost is the immense potential for blockchain technology to advance progressive values.
 
 Imagine a world where DAOs (Decentralized Autonomous Organizations) are used to create new models for cooperative ownership and collaborative governance. Consider projects like Gitcoin, which has already directed over $50 million to fund "digital public goods"—the roads and bridges of the open internet.
 

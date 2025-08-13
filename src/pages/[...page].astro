@@ -1,27 +1,27 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import PostCard from '../components/PostCard.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
-import { Image } from 'astro:assets';
-import { t, getTag } from '../i18n/ui';
+import { getCollection } from 'astro:content'
+import BaseHead from '../components/BaseHead.astro'
+import Footer from '../components/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import Header from '../components/Header.astro'
+import PostCard from '../components/PostCard.astro'
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts'
+import { Image } from 'astro:assets'
+import { t, getTag } from '../i18n/ui'
 
 export async function getStaticPaths({ paginate }) {
-  const posts = (await getCollection('blog')).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-  );
-  
-  return paginate(posts, { pageSize: 9 });
+	const posts = (await getCollection('blog')).sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	)
+
+	return paginate(posts, { pageSize: 9 })
 }
 
-const { page } = Astro.props;
+const { page } = Astro.props
 
-const isFirstPage = page.currentPage === 1;
-const featuredPost = isFirstPage ? page.data[0] : null;
-const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
+const isFirstPage = page.currentPage === 1
+const featuredPost = isFirstPage ? page.data[0] : null
+const otherPosts = isFirstPage ? page.data.slice(1) : page.data
 ---
 
 <!doctype html>
@@ -35,7 +35,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 
 			.featured-post {
 				margin-bottom: 4rem;
-				border-bottom: 1px solid #FFFFFF; /* Linha branca e mais grossa */
+				border-bottom: 1px solid #ffffff; /* Linha branca e mais grossa */
 				padding-bottom: 2rem;
 				position: relative; /* Necessário para o posicionamento da etiqueta */
 			}
@@ -78,7 +78,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				margin-top: 1rem;
 				padding: 0 1rem; /* Adiciona o mesmo padding do content */
 				display: flex;
-    			flex-wrap: wrap;
+				flex-wrap: wrap;
 			}
 
 			.featured-post .tag {
@@ -95,7 +95,8 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				color: var(--green-bright);
 			}
 
-			.featured-post .tag:hover { /* Seletor corrigido para o link da tag */
+			.featured-post .tag:hover {
+				/* Seletor corrigido para o link da tag */
 				color: var(--green-bright);
 			}
 
@@ -110,7 +111,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			.posts-grid :global(li) {
 				width: calc(50% - 2rem);
 			}
-			
+
 			@media (max-width: 720px) {
 				.posts-grid ul {
 					gap: 0.5em;
@@ -134,12 +135,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 						<a href={`/blog/${featuredPost.id}/`}>
 							<span class="post-label">1</span>
 							{featuredPost.data.heroImage && (
-								<Image
-									width={1080}
-									height={540}
-									src={featuredPost.data.heroImage}
-									alt=""
-								/>
+								<Image width={1080} height={540} src={featuredPost.data.heroImage} alt="" />
 							)}
 							<div class="content">
 								<h2 class="title">{featuredPost.data.title}</h2>
@@ -152,7 +148,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 						{featuredPost.data.tags && (
 							<div class="tags">
 								{featuredPost.data.tags.map((tagKey) => {
-									const tag = getTag(tagKey);
+									const tag = getTag(tagKey)
 									return (
 										<a href={`/categories/${tag.slug}/`} class="tag">
 											#{tag.name}
@@ -169,7 +165,7 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 				<ul>
 					{
 						otherPosts.map((post, i) => (
-							<PostCard 
+							<PostCard
 								post={post}
 								number={(isFirstPage ? i + 2 : page.start + i + 1).toString()}
 							/>
@@ -179,8 +175,20 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data;
 			</section>
 
 			<nav class="pagination">
-				{page.url.prev && <a class="prev" href={page.url.prev}>{t('pagination.previous')}</a>}
-				{page.url.next && <a class="next" href={page.url.next}>{t('pagination.next')}</a>}
+				{
+					page.url.prev && (
+						<a class="prev" href={page.url.prev}>
+							{t('pagination.previous')}
+						</a>
+					)
+				}
+				{
+					page.url.next && (
+						<a class="next" href={page.url.next}>
+							{t('pagination.next')}
+						</a>
+					)
+				}
 			</nav>
 		</main>
 		<Footer />

@@ -1,9 +1,9 @@
 ---
 title: "The Benevolent Dictator: Silicon Valley's Authoritarian Dream"
-description: "A critical look at the supposed libertarian ideals of tech billionaires, arguing they often lead to a desire for corporate-controlled authoritarianism."
-pubDate: "2025-08-08T18:00:00Z"
-heroImage: "/src/assets/Corporate Dictatorship.jpg"
-tags: ["tech", "politics", "freedom"]
+description: 'A critical look at the supposed libertarian ideals of tech billionaires, arguing they often lead to a desire for corporate-controlled authoritarianism.'
+pubDate: '2025-08-08T18:00:00Z'
+heroImage: '/src/assets/Corporate Dictatorship.jpg'
+tags: ['tech', 'politics', 'freedom']
 ---
 
 There's a nauseating irony that festers in the heart of Silicon Valley. It's a place that built its empire on the rhetoric of disruption, freedom, and decentralization, all while cultivating a generation of billionaires who seem to harbor a deep-seated desire for absolute control. The article "Why tech billionaires want a ‘corporate dictatorship’" peels back the curtain on this ugly truth, and it’s a view that should frankly disgust anyone who ever bought into the utopian sales pitch.

@@ -1,9 +1,9 @@
 ---
 title: "The AI Black Box: Are We Building Technology We Can't Control?"
 description: "We are eagerly handing over critical decisions to AI systems whose reasoning is a complete mystery, even to their creators. This is not innovation; it's a reckless abdication of responsibility."
-pubDate: "2025-08-10T11:00:00Z"
-heroImage: "/src/assets/ai-black-box.webp"
-tags: ["ai", "security", "politics", "ai-ethics"]
+pubDate: '2025-08-10T11:00:00Z'
+heroImage: '/src/assets/ai-black-box.webp'
+tags: ['ai', 'security', 'politics', 'ai-ethics']
 ---
 
 We are in a frantic race to build the most powerful artificial intelligence, celebrating every new benchmark and capability. In our blind enthusiasm, we're handing over staggering amounts of control—from who gets a loan to how medical conditions are diagnosed—to systems that operate as inscrutable "black boxes."

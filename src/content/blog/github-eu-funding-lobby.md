@@ -1,9 +1,9 @@
 ---
 title: "GitHub's EU Push: Is Corporate Lobbying the Future of Open Source?"
-description: "GitHub is urging the EU to create a Sovereign Tech Fund for OSS. We dive into the complex implications: is this a necessary step for sustainability, or a threat to the independence of open source?"
-pubDate: "2025-08-09T15:00:00Z"
-heroImage: "@/assets/github-eu-lobby.png"
-tags: ["open-source", "politics", "regulation", "freedom"]
+description: 'GitHub is urging the EU to create a Sovereign Tech Fund for OSS. We dive into the complex implications: is this a necessary step for sustainability, or a threat to the independence of open source?'
+pubDate: '2025-08-09T15:00:00Z'
+heroImage: '@/assets/github-eu-lobby.png'
+tags: ['open-source', 'politics', 'regulation', 'freedom']
 ---
 
 On the surface, the news sounds like a dream come true for every open-source developer: GitHub, the Microsoft-owned behemoth, is lobbying the European Union to establish a massive "Sovereign Tech Fund" to support the maintenance of open-source software (OSS).

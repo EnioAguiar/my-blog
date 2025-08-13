@@ -1,9 +1,9 @@
 ---
 title: "The Bitcoin Order: Decoding the White House's Double-Edged Sword for Crypto"
-description: "A deep dive into the implications of the US executive order on Bitcoin, exploring both the potential for legitimacy and the risks of government control."
-pubDate: "2025-08-08T19:00:00Z"
-heroImage: "/src/assets/the-bitcoin-order.webp"
-tags: ["regulation", "politics", "freedom"]
+description: 'A deep dive into the implications of the US executive order on Bitcoin, exploring both the potential for legitimacy and the risks of government control.'
+pubDate: '2025-08-08T19:00:00Z'
+heroImage: '/src/assets/the-bitcoin-order.webp'
+tags: ['regulation', 'politics', 'freedom']
 ---
 
 So, the moment we all knew was coming is finally here. The US government, in its infinite wisdom, has decided to "protect" Bitcoin. Whenever I hear a politician use the word "protect," I instinctively check my pockets. The White House is rolling out an Executive Order, and the crypto world is buzzing with that familiar cocktail of excitement and dread.

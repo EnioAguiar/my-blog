@@ -1,9 +1,9 @@
 ---
 title: "Bit Quantization: The Secret to Efficiency in AI and Games (and No, It's Not Quantum!)"
 description: "Have you ever heard of 'quantization' and thought of quantum computers? Hold on. The technique used in AI and games is something else, and it's the reason why your models and games run so fast."
-pubDate: "2025-08-06T11:00:00Z"
-heroImage: "/src/assets/machine-learning.jpeg"
-tags: ["ai", "gaming"]
+pubDate: '2025-08-06T11:00:00Z'
+heroImage: '/src/assets/machine-learning.jpeg'
+tags: ['ai', 'gaming']
 ---
 
 There's a term in the tech world that sounds incredibly complex and futuristic: **quantization**. The first time I heard it, my mind immediately jumped to quantum physics, qubits, and the computing of the future. The truth, however, is much more practical, down-to-earth, and absolutely essential for the technology we use today, especially in Artificial Intelligence and game engines.
@@ -33,9 +33,9 @@ It's because of quantization that we now have powerful AIs running locally, with
 
 In game engines, the logic is the same. Think about textures, shaders, animations, physics data. Not everything needs maximum precision all the time. Game developers use quantization to compress this data, resulting in:
 
--   **Lower Memory Usage:** Allows games to have larger and more detailed worlds without maxing out the memory of your console or PC.
--   **Faster Loading Times:** Less data to load from the disk into memory.
--   **Better Frame Rates (FPS):** The GPU has less work to do processing the data, freeing up resources to render the game more smoothly.
+- **Lower Memory Usage:** Allows games to have larger and more detailed worlds without maxing out the memory of your console or PC.
+- **Faster Loading Times:** Less data to load from the disk into memory.
+- **Better Frame Rates (FPS):** The GPU has less work to do processing the data, freeing up resources to render the game more smoothly.
 
 ### Conclusion: The Magic of Simplicity
 

@@ -1,9 +1,9 @@
 ---
-title: "Beyond the Hype: 5 Real Trends Shaping the Future of Web3 Gaming"
+title: 'Beyond the Hype: 5 Real Trends Shaping the Future of Web3 Gaming'
 description: "The first wave of 'Play-to-Earn' is over. Now, a quieter, more serious evolution is happening. These five trends show how Web3 gaming is finally growing up and focusing on what matters: fun."
-pubDate: "2025-08-10T12:00:00Z"
-heroImage: "/src/assets/web3-gaming-trends.webp"
-tags: ["gaming", "web3", "investing"]
+pubDate: '2025-08-10T12:00:00Z'
+heroImage: '/src/assets/web3-gaming-trends.webp'
+tags: ['gaming', 'web3', 'investing']
 ---
 
 For a while, "Web3 gaming" was a dirty word. Associated with the speculative bubble of "Play-to-Earn" (P2E) and the spectacular collapse of NFT markets, many gamers wrote it off as a cynical cash grab. They weren't entirely wrong. The first wave, which treated gaming more like a job than a form of entertainment, was deeply flawed and unsustainable.

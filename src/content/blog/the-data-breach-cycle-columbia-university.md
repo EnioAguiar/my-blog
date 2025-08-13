@@ -1,9 +1,9 @@
 ---
-title: "Another Week, Another Breach: Columbia University and the Erosion of Digital Trust"
+title: 'Another Week, Another Breach: Columbia University and the Erosion of Digital Trust'
 description: "A data breach at Columbia University exposed the data of 870,000 people. But the real story isn't the hack—it's that we're no longer surprised. This is a symptom of a much larger disease."
-pubDate: "2025-08-09T20:30:00Z"
-heroImage: "/src/assets/columbia-university-data-breach.webp"
-tags: ["security", "politics", "tech", "culture"]
+pubDate: '2025-08-09T20:30:00Z'
+heroImage: '/src/assets/columbia-university-data-breach.webp'
+tags: ['security', 'politics', 'tech', 'culture']
 ---
 
 Here we go again.

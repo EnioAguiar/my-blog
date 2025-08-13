@@ -1,9 +1,9 @@
 ---
-title: "My Take on Linux & Open Source in 2025: AI, Security Drama, and Gaming"
-description: "As someone deep in the open-source world, here are my thoughts on 2025. We need to talk about the AI revolution, the xz backdoor drama, and why I think Linux gaming is finally becoming a real thing."
-pubDate: "2025-08-04T11:00:00Z"
-heroImage: "@/assets/linux.jpg"
-tags: ["linux", "open-source", "security", "ai"]
+title: 'My Take on Linux & Open Source in 2025: AI, Security Drama, and Gaming'
+description: 'As someone deep in the open-source world, here are my thoughts on 2025. We need to talk about the AI revolution, the xz backdoor drama, and why I think Linux gaming is finally becoming a real thing.'
+pubDate: '2025-08-04T11:00:00Z'
+heroImage: '@/assets/linux.jpg'
+tags: ['linux', 'open-source', 'security', 'ai']
 ---
 
 As someone who lives and breathes open source, I feel like 2025 is a year of reckoning for our community. We're at a crossroads, with Artificial Intelligence changing everything and some serious security scares making us question how we build software.
@@ -16,7 +16,7 @@ Let's be honest, AI is the biggest thing to happen to open source, maybe ever. I
 
 After the whole xz Utils backdoor fiasco, nobody can ignore the software supply chain anymore. I've seen a huge push for Software Bills of Materials (SBOMs), which is basically just a list of ingredients for our code. It's a good step, but it also started this uncomfortable conversation: who is actually responsible for maintaining critical infrastructure? It's highlighted the massive gap between giant corporate projects and the one-person, volunteer-run libraries that everyone depends on. I don't think we have an answer for that yet.
 
-## Is This *Finally* the Year of the Linux Desktop?
+## Is This _Finally_ the Year of the Linux Desktop?
 
 I know, I know, we say this every year. But in 2025, I'm starting to believe it. I'm seeing market share numbers creep towards 10%, and for me, it comes down to two things:
 

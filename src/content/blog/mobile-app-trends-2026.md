@@ -1,9 +1,9 @@
 ---
-title: "Beyond the Hype: 3 Mobile App Trends for 2026 That Actually Matter"
+title: 'Beyond the Hype: 3 Mobile App Trends for 2026 That Actually Matter'
 description: "Forget the buzzwords. Let's break down the three mobile app development trends that will actually change how we use our phones by 2026."
-pubDate: "2025-08-06T15:00:00Z"
-heroImage: "@/assets/futuristic mobile app.jpg"
-tags: ["tech", "mobile", "ai", "development"]
+pubDate: '2025-08-06T15:00:00Z'
+heroImage: '@/assets/futuristic mobile app.jpg'
+tags: ['tech', 'mobile', 'ai', 'development']
 ---
 
 Every year, we're bombarded with lists of "the next big thing" in mobile development. Most of it is noise. But looking ahead to 2026, a few trends are starting to solidify into real, tangible shifts that will fundamentally change how we interact with our devices.

@@ -1,9 +1,9 @@
 ---
-title: "My Voice, Not My Words: The Uncanny Valley of AI Fakes"
-description: "Exploring the rise of AI-generated content that mimics real creators and the implications for digital identity and trust online."
-pubDate: "2025-08-08T18:05:00Z"
-heroImage: "/src/assets/AI Fakes.jpg"
-tags: ["tech", "ai", "future"]
+title: 'My Voice, Not My Words: The Uncanny Valley of AI Fakes'
+description: 'Exploring the rise of AI-generated content that mimics real creators and the implications for digital identity and trust online.'
+pubDate: '2025-08-08T18:05:00Z'
+heroImage: '/src/assets/AI Fakes.jpg'
+tags: ['tech', 'ai', 'future']
 ---
 
 We're standing on the edge of a fascinating and slightly terrifying new era of content creation. The recent NPR piece about a fake TikTok video, where every word was stolen from a real creator and synthesized by AI, isn't just a curiosity—it's a glimpse into the future of digital identity. And honestly, part of me is incredibly excited.

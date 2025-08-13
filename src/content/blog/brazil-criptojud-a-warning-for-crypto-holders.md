@@ -1,9 +1,9 @@
 ---
 title: "The State Strikes Back: Brazil's 'CriptoJud' Is a Wake-Up Call for Crypto Holders"
 description: "Brazil has launched CriptoJud, a system to instantly seize crypto assets from exchanges. This isn't just modernization; it's a direct assault on financial sovereignty and a final warning: get your coins into self-custody."
-pubDate: "2025-08-09T21:00:00Z"
-heroImage: "/src/assets/brazil-criptojud-control.webp"
-tags: ["crypto", "regulation", "politics", "security", "freedom"]
+pubDate: '2025-08-09T21:00:00Z'
+heroImage: '/src/assets/brazil-criptojud-control.webp'
+tags: ['crypto', 'regulation', 'politics', 'security', 'freedom']
 ---
 
 The promise of cryptocurrency was always about financial sovereignty—the radical idea that you, and only you, should control your assets. This week, the Brazilian state delivered a powerful counter-punch to that idea.

@@ -1,39 +1,39 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import PostCard from '../components/PostCard.astro';
-import ShareButtons from '../components/ShareButtons.astro';
-import Giscus from '../components/Giscus.astro';
-import { t, getTag } from '../i18n/ui';
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+import BaseHead from '../components/BaseHead.astro'
+import Footer from '../components/Footer.astro'
+import FormattedDate from '../components/FormattedDate.astro'
+import Header from '../components/Header.astro'
+import PostCard from '../components/PostCard.astro'
+import ShareButtons from '../components/ShareButtons.astro'
+import Giscus from '../components/Giscus.astro'
+import { t, getTag } from '../i18n/ui'
 
 type Props = CollectionEntry<'blog'>['data'] & {
-	slug: CollectionEntry<'blog'>['slug'];
-	id: CollectionEntry<'blog'>['id'];
-};
+	slug: CollectionEntry<'blog'>['slug']
+	id: CollectionEntry<'blog'>['id']
+}
 
-const { title, description, pubDate, updatedDate, heroImage, tags = [], id } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags = [], id } = Astro.props
 
 // 1. Get all posts
-const allPosts = await getCollection('blog');
+const allPosts = await getCollection('blog')
 
 // 2. Find related posts, excluding the current post
 const relatedPosts = allPosts
 	.map((post) => {
 		if (post.id === id || !post.data.tags) {
-			return { post, score: 0 };
+			return { post, score: 0 }
 		}
-		const sharedTags = post.data.tags.filter((tag: string) => tags.includes(tag));
-		return { post, score: sharedTags.length };
+		const sharedTags = post.data.tags.filter((tag: string) => tags.includes(tag))
+		return { post, score: sharedTags.length }
 	})
 	.filter((item) => item.score > 0)
 	.sort((a, b) => b.score - a.score)
 	.slice(0, 3)
-	.map((item) => item.post);
+	.map((item) => item.post)
 ---
 
 <html lang="en">
@@ -148,7 +148,7 @@ const relatedPosts = allPosts
 								height={574}
 								src={heroImage}
 								alt={title}
-								class="object-cover w-full h-full"
+								class="h-full w-full object-cover"
 							/>
 						)
 					}
@@ -178,15 +178,12 @@ const relatedPosts = allPosts
 							<div class="tags-container">
 								<div class="tags">
 									{tags.map((tagKey) => {
-										const tag = getTag(tagKey);
+										const tag = getTag(tagKey)
 										return (
-											<a
-												href={`/categories/${tag.slug}/`}
-												class="tag"
-											>
+											<a href={`/categories/${tag.slug}/`} class="tag">
 												#{tag.name}
 											</a>
-										);
+										)
 									})}
 								</div>
 							</div>

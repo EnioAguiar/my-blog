@@ -1,9 +1,9 @@
 ---
-title: "More Than Just Money: 10 Ethereum Ideas That Are Changing the World"
+title: 'More Than Just Money: 10 Ethereum Ideas That Are Changing the World'
 description: "Ethereum's 10-year anniversary is a moment to reflect on its core innovations. From smart contracts to DAOs, we explore the foundational ideas that are reshaping finance, ownership, and the internet itself."
-pubDate: "2025-08-09T19:30:00Z"
-heroImage: "@/assets/ethereum-ecosystem-ideas.png"
-tags: ["crypto", "blockchain", "web3", "tech"]
+pubDate: '2025-08-09T19:30:00Z'
+heroImage: '@/assets/ethereum-ecosystem-ideas.png'
+tags: ['crypto', 'blockchain', 'web3', 'tech']
 ---
 
 As Ethereum marks its 10-year anniversary, it's easy to get lost in the charts and the price of ETH. But to do so is to miss the point entirely. Ethereum's true legacy isn't a currency; it's a set of powerful, foundational ideas that have radically altered how we can think about finance, ownership, and the very structure of the internet.
@@ -32,9 +32,9 @@ This pairs with new funding models like **Quadratic Funding**, pioneered by Gitc
 
 The early criticisms of Ethereum were valid: it was slow, expensive, and energy-intensive. But the ecosystem has relentlessly innovated to solve these problems.
 
-*   **Layer 2 Scaling Solutions:** Networks like Polygon and Base process transactions faster and cheaper, acting as express lanes that inherit the security of the main Ethereum chain.
-*   **The Move to Proof-of-Stake:** In 2022, "The Merge" updated Ethereum's consensus mechanism, reducing its energy consumption by over 99%. This single event set a new standard for sustainable blockchain infrastructure.
-*   **Modular Architecture:** Ethereum is evolving into a modular blockchain, allowing developers to mix and match pre-built components to launch sophisticated applications faster and more cheaply.
+- **Layer 2 Scaling Solutions:** Networks like Polygon and Base process transactions faster and cheaper, acting as express lanes that inherit the security of the main Ethereum chain.
+- **The Move to Proof-of-Stake:** In 2022, "The Merge" updated Ethereum's consensus mechanism, reducing its energy consumption by over 99%. This single event set a new standard for sustainable blockchain infrastructure.
+- **Modular Architecture:** Ethereum is evolving into a modular blockchain, allowing developers to mix and match pre-built components to launch sophisticated applications faster and more cheaply.
 
 ### The Real Innovation: A New Kind of Trust
 

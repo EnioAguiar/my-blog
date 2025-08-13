@@ -1,153 +1,157 @@
 ---
-import { Image } from 'astro:assets';
-import FormattedDate from './FormattedDate.astro';
-import { getTag, t } from '../i18n/ui';
+import { Image } from 'astro:assets'
+import FormattedDate from './FormattedDate.astro'
+import { getTag, t } from '../i18n/ui'
 
 export interface Props {
-  post: any;
-  number: string;
+	post: any
+	number: string
 }
 
-const { post, number } = Astro.props;
-const categoriesSlug = t('nav.categories.slug');
+const { post, number } = Astro.props
+const categoriesSlug = t('nav.categories.slug')
 ---
 
 <!-- Componente de Card para Post -->
 <li>
-  <div class="card">
-    <a href={`/blog/${post.id}/`}>
-      <span class="post-label">{number}</span>
-      {post.data.ads && <span class="post-label is-ad">ads</span>}
-      {post.data.heroImage && (
-        <div class="image-wrapper">
-          <Image width={720} height={360} src={post.data.heroImage} alt="" />
-        </div>
-      )}
-      <div class="content">
-        <h4 class="title">{post.data.title}</h4>
-        <p class="description">{post.data.description}</p>
-        <p class="date">
-          <FormattedDate date={post.data.pubDate} />
-        </p>
-      </div>
-    </a>
-    {post.data.tags && (
-      <div class="tags">
-        {post.data.tags.map((tagKey) => {
-          const tag = getTag(tagKey);
-          return (
-            <a href={`/categories/${tag.slug}/`} class="tag">
-              #{tag.name}
-            </a>
-          )
-        })}
-      </div>
-    )}
-  </div>
+	<div class="card">
+		<a href={`/blog/${post.id}/`}>
+			<span class="post-label">{number}</span>
+			{post.data.ads && <span class="post-label is-ad">ads</span>}
+			{
+				post.data.heroImage && (
+					<div class="image-wrapper">
+						<Image width={720} height={360} src={post.data.heroImage} alt="" />
+					</div>
+				)
+			}
+			<div class="content">
+				<h4 class="title">{post.data.title}</h4>
+				<p class="description">{post.data.description}</p>
+				<p class="date">
+					<FormattedDate date={post.data.pubDate} />
+				</p>
+			</div>
+		</a>
+		{
+			post.data.tags && (
+				<div class="tags">
+					{post.data.tags.map((tagKey) => {
+						const tag = getTag(tagKey)
+						return (
+							<a href={`/categories/${tag.slug}/`} class="tag">
+								#{tag.name}
+							</a>
+						)
+					})}
+				</div>
+			)
+		}
+	</div>
 </li>
 
 <style>
-  li {
-    position: relative;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
+	li {
+		position: relative;
+		list-style-type: none;
+		display: flex;
+		flex-direction: column;
+	}
 
-  .card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+	.card {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
 
-  .card > a {
-    text-decoration: none;
-    flex-grow: 1;
-  }
+	.card > a {
+		text-decoration: none;
+		flex-grow: 1;
+	}
 
-  .card > a:hover .title,
-  .card > a:hover .description,
-  .card > a:hover .date {
-    color: var(--green-bright);
-  }
+	.card > a:hover .title,
+	.card > a:hover .description,
+	.card > a:hover .date {
+		color: var(--green-bright);
+	}
 
-  .card > a:hover .image-wrapper img {
-    transform: scale(1.05);
-  }
+	.card > a:hover .image-wrapper img {
+		transform: scale(1.05);
+	}
 
-  li .post-label.is-ad {
-    background-color: #ffd700; /* Cor dourada */
-    left: unset;
-    right: -0.75rem;
-  }
+	li .post-label.is-ad {
+		background-color: #ffd700; /* Cor dourada */
+		left: unset;
+		right: -0.75rem;
+	}
 
-  .image-wrapper {
-    margin-bottom: 0.5rem;
-    border-radius: 12px;
-    overflow: hidden; /* Garante que a imagem não ultrapasse a borda arredondada */
-    height: 200px; /* Altura fixa para o contêiner da imagem */
-    transition: box-shadow 0.2s ease;
-  }
+	.image-wrapper {
+		margin-bottom: 0.5rem;
+		border-radius: 12px;
+		overflow: hidden; /* Garante que a imagem não ultrapasse a borda arredondada */
+		height: 200px; /* Altura fixa para o contêiner da imagem */
+		transition: box-shadow 0.2s ease;
+	}
 
-  .card > a:hover .image-wrapper {
-    box-shadow: var(--box-shadow);
-  }
+	.card > a:hover .image-wrapper {
+		box-shadow: var(--box-shadow);
+	}
 
-  .image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cobre o contêiner mantendo a proporção */
-    transition: transform 0.2s ease;
-  }
+	.image-wrapper img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; /* Cobre o contêiner mantendo a proporção */
+		transition: transform 0.2s ease;
+	}
 
-  .content {
-    padding: 0 1rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .content p {
-    flex-grow: 1;
-  }
+	.content {
+		padding: 0 1rem;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+	}
 
-  .title {
-    margin: 0;
-    color: rgb(var(--black));
-    line-height: 1;
-  }
+	.content p {
+		flex-grow: 1;
+	}
 
-  .date {
-    margin: 0;
-    color: rgb(var(--black));
-  }
+	.title {
+		margin: 0;
+		color: rgb(var(--black));
+		line-height: 1;
+	}
 
-  .description {
-    margin: 0.5rem 0 0;
-    color: rgb(var(--gray-dark));
-    font-size: 0.9rem;
-  }
+	.date {
+		margin: 0;
+		color: rgb(var(--black));
+	}
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    padding: 0 1rem;
-  }
+	.description {
+		margin: 0.5rem 0 0;
+		color: rgb(var(--gray-dark));
+		font-size: 0.9rem;
+	}
 
-  .tag {
-    font-size: 0.9rem;
-    color: rgb(var(--black));
-    background-color: transparent;
-    padding: 0;
-    border: none;
-    text-decoration: none;
-    margin-right: 0.5rem; /* Garante o espaçamento */
-  }
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+		padding: 0 1rem;
+	}
 
-  .tag:hover {
-    color: var(--green-bright);
-  }
+	.tag {
+		font-size: 0.9rem;
+		color: rgb(var(--black));
+		background-color: transparent;
+		padding: 0;
+		border: none;
+		text-decoration: none;
+		margin-right: 0.5rem; /* Garante o espaçamento */
+	}
+
+	.tag:hover {
+		color: var(--green-bright);
+	}
 </style>

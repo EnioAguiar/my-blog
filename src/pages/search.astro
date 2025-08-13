@@ -1,125 +1,125 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { t } from '../i18n/ui';
-import { SITE_TITLE } from '../consts';
+import BaseHead from '../components/BaseHead.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { t } from '../i18n/ui'
+import { SITE_TITLE } from '../consts'
 ---
 
 <html lang="en">
-<head>
-    <BaseHead title={`Search - ${SITE_TITLE}`} description="Search for posts on the blog." />
-    <style>
-        main {
-            width: 960px;
-            margin: auto;
-            padding: 2rem 1.5em;
-        }
-        #search-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            font-size: 1.2rem;
-            border: 2px solid rgb(var(--gray));
-            border-radius: 8px;
-            background-color: #111111;
-            color: white;
-            margin-bottom: 2rem;
-        }
-        #search-results {
-            list-style: none;
-            padding: 0;
-        }
-        #search-results li a {
-            display: block;
-            padding: 1rem;
-            border-bottom: 1px solid #333;
-            text-decoration: none;
-            color: white;
-            transition: background-color 0.2s ease;
-        }
-        #search-results li a:hover {
-            background-color: #222;
-        }
-        #search-results h3 {
-            margin: 0 0 0.5rem 0;
-            color: var(--green);
-        }
-        #search-results p {
-            margin: 0;
-            color: rgb(var(--gray-dark));
-        }
-    </style>
-</head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
-    <Header />
-    <main style="flex-grow: 1;">
-        <h1>{t('search.results')}</h1>
-        <input type="search" id="search-input" placeholder={t('search.placeholder')} />
-        <ul id="search-results"></ul>
-    </main>
-    <Footer />
+	<head>
+		<BaseHead title={`Search - ${SITE_TITLE}`} description="Search for posts on the blog." />
+		<style>
+			main {
+				width: 960px;
+				margin: auto;
+				padding: 2rem 1.5em;
+			}
+			#search-input {
+				width: 100%;
+				padding: 0.75rem 1rem;
+				font-size: 1.2rem;
+				border: 2px solid rgb(var(--gray));
+				border-radius: 8px;
+				background-color: #111111;
+				color: white;
+				margin-bottom: 2rem;
+			}
+			#search-results {
+				list-style: none;
+				padding: 0;
+			}
+			#search-results li a {
+				display: block;
+				padding: 1rem;
+				border-bottom: 1px solid #333;
+				text-decoration: none;
+				color: white;
+				transition: background-color 0.2s ease;
+			}
+			#search-results li a:hover {
+				background-color: #222;
+			}
+			#search-results h3 {
+				margin: 0 0 0.5rem 0;
+				color: var(--green);
+			}
+			#search-results p {
+				margin: 0;
+				color: rgb(var(--gray-dark));
+			}
+		</style>
+	</head>
+	<body style="display: flex; flex-direction: column; min-height: 100vh;">
+		<Header />
+		<main style="flex-grow: 1;">
+			<h1>{t('search.results')}</h1>
+			<input type="search" id="search-input" placeholder={t('search.placeholder')} />
+			<ul id="search-results"></ul>
+		</main>
+		<Footer />
 
-    <script>
-        import Fuse from 'fuse.js';
+		<script>
+			import Fuse from 'fuse.js'
 
-        let fuse;
-        const searchInput = document.getElementById('search-input') as HTMLInputElement;
-        const searchResults = document.getElementById('search-results');
+			let fuse
+			const searchInput = document.getElementById('search-input') as HTMLInputElement
+			const searchResults = document.getElementById('search-results')
 
-        async function initFuse() {
-            const response = await fetch('/api/search-index.json');
-            const searchData = await response.json();
+			async function initFuse() {
+				const response = await fetch('/api/search-index.json')
+				const searchData = await response.json()
 
-            const options = {
-                keys: ['title', 'description', 'body'],
-                includeScore: true,
-                threshold: 0.4,
-                minMatchCharLength: 2,
-            };
-            fuse = new Fuse(searchData, options);
-        }
+				const options = {
+					keys: ['title', 'description', 'body'],
+					includeScore: true,
+					threshold: 0.4,
+					minMatchCharLength: 2
+				}
+				fuse = new Fuse(searchData, options)
+			}
 
-        function performSearch() {
-            if (!fuse) return;
+			function performSearch() {
+				if (!fuse) return
 
-            const urlParams = new URLSearchParams(window.location.search);
-            const query = urlParams.get('q') || '';
-            searchInput.value = query;
+				const urlParams = new URLSearchParams(window.location.search)
+				const query = urlParams.get('q') || ''
+				searchInput.value = query
 
-            const results = fuse.search(query);
-            searchResults.innerHTML = '';
+				const results = fuse.search(query)
+				searchResults.innerHTML = ''
 
-            if (results.length > 0) {
-                results.forEach(result => {
-                    const post = result.item;
-                    const li = document.createElement('li');
-                    const a = document.createElement('a');
-                    a.href = `/blog/${post.id}/`;
-                    a.innerHTML = `<h3>${post.title}</h3><p>${post.description}</p>`;
-                    li.appendChild(a);
-                    searchResults.appendChild(li);
-                });
-            } else if (query.length > 0) {
-                const li = document.createElement('li');
-                li.textContent = 'No results found.';
-                searchResults.appendChild(li);
-            }
-        }
+				if (results.length > 0) {
+					results.forEach((result) => {
+						const post = result.item
+						const li = document.createElement('li')
+						const a = document.createElement('a')
+						a.href = `/blog/${post.id}/`
+						a.innerHTML = `<h3>${post.title}</h3><p>${post.description}</p>`
+						li.appendChild(a)
+						searchResults.appendChild(li)
+					})
+				} else if (query.length > 0) {
+					const li = document.createElement('li')
+					li.textContent = 'No results found.'
+					searchResults.appendChild(li)
+				}
+			}
 
-        searchInput.addEventListener('input', () => {
-            const query = searchInput.value.trim();
-            const url = new URL(window.location.href);
-            url.searchParams.set('q', query);
-            window.history.replaceState({}, '', url);
-            performSearch();
-        });
+			searchInput.addEventListener('input', () => {
+				const query = searchInput.value.trim()
+				const url = new URL(window.location.href)
+				url.searchParams.set('q', query)
+				window.history.replaceState({}, '', url)
+				performSearch()
+			})
 
-        async function main() {
-            await initFuse();
-            performSearch();
-        }
+			async function main() {
+				await initFuse()
+				performSearch()
+			}
 
-        main();
-    </script>
-</body>
+			main()
+		</script>
+	</body>
 </html>

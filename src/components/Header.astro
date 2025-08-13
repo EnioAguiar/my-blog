@@ -1,48 +1,53 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
-import { t } from '../i18n/ui';
+import { SITE_TITLE } from '../consts'
+import HeaderLink from './HeaderLink.astro'
+import { t } from '../i18n/ui'
 ---
 
 <header>
-    <nav>
-        <div class="nav-left">
-            <a href="/" class="site-title-link">{SITE_TITLE}</a>
-        </div>
+	<nav>
+		<div class="nav-left">
+			<a href="/" class="site-title-link">{SITE_TITLE}</a>
+		</div>
 
-        <div class="search-container">
-            <form action="/search" method="GET">
-                <label for="header-search-input" class="sr-only">{t('search.label')}</label>
-                <input type="search" id="header-search-input" name="q" placeholder={t('search.placeholder')} />
-                <button type="submit">{t('search.label')}</button>
-            </form>
-        </div>
+		<div class="search-container">
+			<form action="/search" method="GET">
+				<label for="header-search-input" class="sr-only">{t('search.label')}</label>
+				<input
+					type="search"
+					id="header-search-input"
+					name="q"
+					placeholder={t('search.placeholder')}
+				/>
+				<button type="submit">{t('search.label')}</button>
+			</form>
+		</div>
 
-        <div class="hamburger">
-            <span class="line"></span>
-            <span class="line"></span>
-            <span class="line"></span>
-        </div>
+		<div class="hamburger">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</div>
 
-        <div class="nav-links">
-            <HeaderLink href="/categories/" class="categories-link">{t('nav.categories')}</HeaderLink>
-        </div>
-    </nav>
+		<div class="nav-links">
+			<HeaderLink href="/categories/" class="categories-link">{t('nav.categories')}</HeaderLink>
+		</div>
+	</nav>
 </header>
 
 <script>
-    // This script is for the hamburger menu on small screens
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+	// This script is for the hamburger menu on small screens
+	document.addEventListener('DOMContentLoaded', function () {
+		const hamburger = document.querySelector('.hamburger')
+		const navLinks = document.querySelector('.nav-links')
 
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('expanded');
-                hamburger.classList.toggle('active');
-            });
-        }
-    });
+		if (hamburger && navLinks) {
+			hamburger.addEventListener('click', () => {
+				navLinks.classList.toggle('expanded')
+				hamburger.classList.toggle('active')
+			})
+		}
+	})
 </script>
 
 <style>
@@ -53,7 +58,7 @@ import { t } from '../i18n/ui';
 		margin: 0;
 		padding: 0 1.5em;
 		background: #000000;
-		border-bottom: 1px solid #FFFFFF;
+		border-bottom: 1px solid #ffffff;
 	}
 	nav {
 		display: flex;
@@ -67,7 +72,9 @@ import { t } from '../i18n/ui';
 		text-decoration: none !important;
 		color: rgb(var(--black));
 		text-shadow: none;
-		transition: color 0.3s ease, text-shadow 0.3s ease;
+		transition:
+			color 0.3s ease,
+			text-shadow 0.3s ease;
 	}
 	.site-title-link:hover {
 		color: var(--green);
@@ -84,12 +91,15 @@ import { t } from '../i18n/ui';
 		border-radius: 20px;
 		color: rgb(var(--gray-dark));
 		text-decoration: none;
-		font-family: "Poppins", sans-serif;
+		font-family: 'Poppins', sans-serif;
 		font-size: 0.8em;
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
-		transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease,
+			border-color 0.3s ease;
 	}
 	.categories-link:hover,
 	.categories-link.active {
@@ -98,114 +108,116 @@ import { t } from '../i18n/ui';
 		color: #000000;
 	}
 
-    .hamburger {
-        display: none;
-        cursor: pointer;
-        flex-direction: column;
-        gap: 5px;
-        z-index: 20;
-    }
+	.hamburger {
+		display: none;
+		cursor: pointer;
+		flex-direction: column;
+		gap: 5px;
+		z-index: 20;
+	}
 
-    .hamburger .line {
-        width: 30px;
-        height: 3px;
-        background-color: white;
-        border-radius: 3px;
-        transition: all 0.3s ease-in-out;
-    }
+	.hamburger .line {
+		width: 30px;
+		height: 3px;
+		background-color: white;
+		border-radius: 3px;
+		transition: all 0.3s ease-in-out;
+	}
 
-    .hamburger.active .line:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active .line:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger.active .line:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+	.hamburger.active .line:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+	.hamburger.active .line:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger.active .line:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
 
-    .search-container {
-        flex-grow: 1;
-        display: flex;
-        justify-content: center;
-        padding: 0 2rem;
-    }
+	.search-container {
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+		padding: 0 2rem;
+	}
 
-    .search-container form {
-        display: flex;
-        width: 100%;
-        max-width: 400px;
-        gap: 0.5rem;
-    }
+	.search-container form {
+		display: flex;
+		width: 100%;
+		max-width: 400px;
+		gap: 0.5rem;
+	}
 
-    .search-container input {
-        flex-grow: 1;
-        padding: 0.5rem 1rem;
-        border: 1px solid rgb(var(--gray));
-        border-radius: 4px;
-        background-color: #000000;
-        color: rgb(var(--black));
-        font-size: 0.9em;
-    }
+	.search-container input {
+		flex-grow: 1;
+		padding: 0.5rem 1rem;
+		border: 1px solid rgb(var(--gray));
+		border-radius: 4px;
+		background-color: #000000;
+		color: rgb(var(--black));
+		font-size: 0.9em;
+	}
 
-    .search-container input::placeholder {
-        color: var(--accent-dark);
-        opacity: 1;
-    }
+	.search-container input::placeholder {
+		color: var(--accent-dark);
+		opacity: 1;
+	}
 
-    .search-container button {
-        padding: 0.5rem 1rem;
-        border: 1px solid rgb(var(--gray));
-        border-radius: 4px;
-        background-color: #000000;
-        color: rgb(var(--black));
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.2s ease, color 0.2s ease;
-        font-size: 0.9em;
-    }
+	.search-container button {
+		padding: 0.5rem 1rem;
+		border: 1px solid rgb(var(--gray));
+		border-radius: 4px;
+		background-color: #000000;
+		color: rgb(var(--black));
+		font-weight: bold;
+		cursor: pointer;
+		transition:
+			background-color 0.2s ease,
+			color 0.2s ease;
+		font-size: 0.9em;
+	}
 
-    .search-container button:hover {
-        background-color: rgb(var(--black));
-        color: #000000;
-    }
+	.search-container button:hover {
+		background-color: rgb(var(--black));
+		color: #000000;
+	}
 
-    .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-    }
+	.sr-only {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
 
-    @media (max-width: 720px) {
-        .search-container {
-            display: none;
-        }
+	@media (max-width: 720px) {
+		.search-container {
+			display: none;
+		}
 
-        .nav-links {
-            display: none;
-            position: absolute;
-            top: 4.5rem;
-            left: 0;
-            width: 100%;
-            background-color: #000000;
-            flex-direction: column;
-            align-items: center;
-            padding: 2rem 0;
-            border-bottom: 1px solid #FFFFFF;
-        }
+		.nav-links {
+			display: none;
+			position: absolute;
+			top: 4.5rem;
+			left: 0;
+			width: 100%;
+			background-color: #000000;
+			flex-direction: column;
+			align-items: center;
+			padding: 2rem 0;
+			border-bottom: 1px solid #ffffff;
+		}
 
-        .nav-links.expanded {
-            display: flex;
-        }
+		.nav-links.expanded {
+			display: flex;
+		}
 
-        .hamburger {
-            display: flex;
-        }
-    }
+		.hamburger {
+			display: flex;
+		}
+	}
 </style>

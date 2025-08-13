@@ -1,9 +1,9 @@
 ---
 title: "Digital Retro-Futurism: How 90s Nostalgia is Shaping 2025's Tech"
-description: "The cold, sterile minimalism of the 2010s is over. A new wave of design, inspired by the tactile, transparent, and playful tech of the 90s, is defining the future."
-pubDate: "2025-08-10T10:00:00Z"
-heroImage: "/src/assets/digital-retro-futurism.webp"
-tags: ["tech", "retro-tech", "design"]
+description: 'The cold, sterile minimalism of the 2010s is over. A new wave of design, inspired by the tactile, transparent, and playful tech of the 90s, is defining the future.'
+pubDate: '2025-08-10T10:00:00Z'
+heroImage: '/src/assets/digital-retro-futurism.webp'
+tags: ['tech', 'retro-tech', 'design']
 ---
 
 If you remember the satisfying click of a Motorola Razr, the translucent, candy-colored shell of an iMac G3, or the blocky, charming pixels of a Game Boy screen, you're familiar with the soul of 90s and early 2000s technology. For a long time, that era of design was seen as clunky and outdated. But now, it's making a powerful comeback.

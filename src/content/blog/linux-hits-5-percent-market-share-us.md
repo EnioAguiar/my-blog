@@ -1,9 +1,9 @@
 ---
-title: "The Penguin Breaks Through: Linux Finally Hits 5% Market Share in the US"
+title: 'The Penguin Breaks Through: Linux Finally Hits 5% Market Share in the US'
 description: "It finally happened. After years of being the underdog, Linux has surpassed 5% market share in the US. Let's dive into why this is a huge deal and what's fueling the penguin's ascent."
-pubDate: "2025-08-09T20:00:00Z"
-heroImage: "/src/assets/linux-5-percent-market-share.webp"
-tags: ["linux", "open-source", "tech"]
+pubDate: '2025-08-09T20:00:00Z'
+heroImage: '/src/assets/linux-5-percent-market-share.webp'
+tags: ['linux', 'open-source', 'tech']
 ---
 
 It looks like Linux is finally starting to win over the masses. In a historic achievement, the open-source operating system has officially surpassed **5% market share** among PC users in the United States, a market long dominated by the duopoly of Microsoft's Windows and Apple's macOS.

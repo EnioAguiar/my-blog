@@ -1,9 +1,9 @@
 ---
 title: "The Web's Next Leap: Smarter, Faster, and More Alive Than Ever"
-description: "The web is undergoing a quiet revolution. Driven by AI-powered personalization and radical advances in CSS and WebAssembly, websites are becoming smarter, faster, and more interactive than we ever thought possible."
-pubDate: "2025-08-09T22:30:00Z"
-heroImage: "/src/assets/web-dev-ai-speed-trends.webp"
-tags: ["web-dev", "tech", "ai", "development"]
+description: 'The web is undergoing a quiet revolution. Driven by AI-powered personalization and radical advances in CSS and WebAssembly, websites are becoming smarter, faster, and more interactive than we ever thought possible.'
+pubDate: '2025-08-09T22:30:00Z'
+heroImage: '/src/assets/web-dev-ai-speed-trends.webp'
+tags: ['web-dev', 'tech', 'ai', 'development']
 ---
 
 For years, we've thought of websites as relatively static pages. You click a link, you get a page. But that model is rapidly becoming obsolete. The web is developing a pulse, becoming a dynamic, intelligent environment that adapts to you. This evolution is being driven by two powerful forces: on-device intelligence and a massive leap in browser performance.
