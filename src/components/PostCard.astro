@@ -20,7 +20,7 @@ const { post, number } = Astro.props
 			{
 				post.data.heroImage && (
 					<div class="image-wrapper">
-						<Image width={720} height={360} src={post.data.heroImage} alt="" />
+						<Image width={720} height={360} src={post.data.heroImage} alt={post.data.title} />
 					</div>
 				)
 			}

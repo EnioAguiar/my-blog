@@ -38,7 +38,14 @@ const relatedPosts = allPosts
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={heroImage} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={heroImage}
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			isBlogPost={true}
+		/>
 		<style>
 			main {
 				width: auto;

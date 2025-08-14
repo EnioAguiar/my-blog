@@ -22,12 +22,14 @@ const { page } = Astro.props
 const isFirstPage = page.currentPage === 1
 const featuredPost = isFirstPage ? page.data[0] : null
 const otherPosts = isFirstPage ? page.data.slice(1) : page.data
+
+const pageTitle = isFirstPage ? SITE_DESCRIPTION : `${SITE_TITLE} - Page ${page.currentPage}`
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={pageTitle} description={SITE_DESCRIPTION} />
 		<style>
 			main {
 				width: 960px;
@@ -129,13 +131,19 @@ const otherPosts = isFirstPage ? page.data.slice(1) : page.data
 	<body style="display: flex; flex-direction: column; min-height: 100vh;">
 		<Header />
 		<main style="flex-grow: 1;">
+			<h1 class="sr-only">{SITE_DESCRIPTION}</h1>
 			{
 				featuredPost && (
 					<section class="featured-post">
 						<a href={`/blog/${featuredPost.id}/`}>
 							<span class="post-label">1</span>
 							{featuredPost.data.heroImage && (
-								<Image width={1080} height={540} src={featuredPost.data.heroImage} alt="" />
+								<Image
+									width={1080}
+									height={540}
+									src={featuredPost.data.heroImage}
+									alt={featuredPost.data.title}
+								/>
 							)}
 							<div class="content">
 								<h2 class="title">{featuredPost.data.title}</h2>
