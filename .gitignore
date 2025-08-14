@@ -36,3 +36,4 @@ pnpm-debug.log*
 .github/copilot-instructions.md
 
 .gemini/gemini.md
+content-dashboard/

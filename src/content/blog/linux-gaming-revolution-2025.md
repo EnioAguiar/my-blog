@@ -3,7 +3,7 @@ title: "Linux Gaming Revolution: How Valve's Steam Deck Changed Everything in 20
 description: "The gaming landscape is shifting dramatically, and Linux is at the center of this revolution. From Steam Deck's massive success to Proton's incredible compatibility, discover why 2025 is the year Linux gaming finally went mainstream."
 pubDate: '2025-08-13T16:18:00Z'
 heroImage: '@/assets/linux-gaming-revolution.jpg'
-tags: ['linux', 'gaming', 'tech', 'steam-deck']
+tags: ['linux', 'gaming', 'tech']
 ---
 
 For decades, Linux gaming was the punchline of tech jokes. "The Year of Linux Gaming" became a meme, repeated year after year with diminishing hope. But in 2025, something remarkable happened: the joke stopped being funny because it finally became true.

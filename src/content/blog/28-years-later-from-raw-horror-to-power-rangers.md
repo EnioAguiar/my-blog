@@ -3,7 +3,7 @@ title: '28 Years Later: From Raw Horror to... Power Rangers?'
 description: 'The film starts with a spark of promise but quickly devolves into a bizarre sequel that forgets what made the franchise a horror masterpiece.'
 pubDate: '2025-08-05T10:00:00Z'
 heroImage: '@/assets/28anos.jpg'
-tags: ['film-review']
+tags: ['review']
 ---
 
 I had high hopes for _28 Years Later_. The legacy of its predecessors is built on raw, visceral horror and the terrifying exploration of human nature under extreme pressure. The film even starts with a spark of that old promise. We're introduced to a group of children, with a focus on a boy named Jimmy, giving us an intriguing glimpse into a new generation of survivors.

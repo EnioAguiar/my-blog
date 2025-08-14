@@ -3,7 +3,7 @@ title: "The Factory Firewall: Why Manufacturing is Leading the AI Security Race"
 description: "It sounds counterintuitive, but the manufacturing sector is outpacing almost everyone in adopting AI for cybersecurity. We explore why the stakes are so much higher when a digital breach can cause physical, real-world damage."
 pubDate: '2025-08-13T20:15:00Z'
 heroImage: '@/assets/factory-ai-firewall.webp'
-tags: ['ai', 'cybersecurity', 'security', 'tech', 'business', 'iot']
+tags: ['ai', 'cybersecurity', 'security', 'tech', 'business']
 ---
 
 Let's play a word association game. If I say "heavy industry," you probably think of sparks, steel, maybe a union dispute. You almost certainly don't think "AI cybersecurity pioneer."
