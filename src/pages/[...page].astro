@@ -23,7 +23,7 @@ const isFirstPage = page.currentPage === 1
 const featuredPost = isFirstPage ? page.data[0] : null
 const otherPosts = isFirstPage ? page.data.slice(1) : page.data
 
-const pageTitle = isFirstPage ? SITE_DESCRIPTION : `${SITE_TITLE} - Page ${page.currentPage}`
+const pageTitle = isFirstPage ? SITE_TITLE : `${SITE_TITLE} - Page ${page.currentPage}`
 ---
 
 <!doctype html>

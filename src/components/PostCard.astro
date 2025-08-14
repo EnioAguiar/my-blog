@@ -14,7 +14,7 @@ const { post, number } = Astro.props
 <!-- Componente de Card para Post -->
 <li>
 	<div class="card">
-		<a href={`/blog/${post.id}/`}>
+		<a href={`/blog/${post.id}/`} title={`Read the full article: ${post.data.title}`}>
 			<span class="post-label">{number}</span>
 			{post.data.ads && <span class="post-label is-ad">ads</span>}
 			{
@@ -38,7 +38,7 @@ const { post, number } = Astro.props
 					{post.data.tags.map((tagKey) => {
 						const tag = getTag(tagKey)
 						return (
-							<a href={`/categories/${tag.slug}/`} class="tag">
+							<a href={`/categories/${tag.slug}/`} class="tag" title={`View all posts tagged with ${tag.name}`}>
 								#{tag.name}
 							</a>
 						)
