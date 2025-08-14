@@ -32,15 +32,15 @@ Para criar um novo post:
 1. **Crie um arquivo `.md`** em `src/content/blog/`.
 2. **Adicione o frontmatter obrigatório.**
    - A data (`pubDate`) **deve** estar no formato `YYYY-MM-DDTHH:MM:SSZ`.
-   - A imagem (`heroImage`) **deve** ser importada usando o alias de path: ` '@/assets/nome-da-imagem.webp'`.
+   - A imagem (`heroImage`) **deve** ser importada usando o alias de path: ` '''@/assets/nome-da-imagem.webp'''`.
    - As tags (`tags`) **devem** usar as chaves definidas em `src/i18n/ui.ts`.
     ```markdown
     ---
-    title: 'Título do Post'
-    description: 'Descrição curta do post'
-    pubDate: '2025-08-13T16:18:00Z'
-    heroImage: '@/assets/nome-da-imagem.webp'
-    tags: ['tag-key']
+    title: '''Título do Post'''
+    description: '''Descrição curta do post'''
+    pubDate: '''2025-08-13T16:18:00Z'''
+    heroImage: '''@/assets/nome-da-imagem.webp'''
+    tags: ['''tag-key''']
     ---
     ```
 3. **Adicione as novas imagens** à pasta `src/assets/`.
@@ -59,7 +59,7 @@ As tags são gerenciadas em `src/i18n/ui.ts`. No frontmatter de um post, **use s
 ```ts
 // src/i18n/ui.ts
 export const tags = {
-  'astro-stack': 'Astro'
+  '''astro-stack''': '''Astro'''
   // ...
 }
 ```
@@ -90,5 +90,14 @@ A escrita deve ser **pessoal, opinativa e humana**. O objetivo é escrever como 
 | Em vez de... (Estilo Jornal) | Prefira... (Estilo Brain Noises) |
 | :--- | :--- |
 | "Foi anunciado um novo framework JavaScript." | "E lá vamos nós de novo... mais um framework foi jogado na arena." |
-| "O produto oferece funcionalidades inovadoras." | "Eles dizem que é 'inovador', mas vamos ser honestos: o que ele faz de verdade?" |
+| "O produto oferece funcionalidades inovadoras." | "Eles dizem que é '''inovador''', mas vamos ser honestos: o que ele faz de verdade?" |
 | "É importante notar os riscos de segurança." | "Isso é uma falha de segurança esperando para acontecer. É inaceitável." |
+
+---
+
+## Memórias Adicionadas (Regras Específicas)
+- Ao escrever textos para o blog, devo adotar uma personalidade com uma marca de escrita própria, usando sarcasmo e evitando um tom de IA. Para posts sobre política, o tom deve ser de desgosto. Para posts sobre tecnologia, o tom deve ser de ânimo e felicidade.
+- Para otimizar novas imagens no blog, o usuário pode executar o comando `npm run optimize` na raiz do projeto.
+- Ao escrever para o blog, o estilo deve ser pessoal, informal e opinativo. Devo usar a primeira pessoa ("eu acho", "na minha experiência") e focar em compartilhar experiências, tutoriais e reflexões, em vez de um tom jornalístico, formal e objetivo.
+- O usuário observou que eu uso o travessão (em dash) em excesso, o que faz meu texto parecer gerado por IA. Devo evitar seu uso e preferir frases mais curtas e pontuação mais simples para um tom mais humano.
+- Ao escrever posts para o blog, devo garantir que eles tenham um tamanho substancial e conteúdo aprofundado para evitar uma alta Taxa de Rejeição (Bounce Rate). É preciso equilibrar o tom pessoal e direto com a necessidade de fornecer detalhes, exemplos e análises que mantenham o leitor engajado.

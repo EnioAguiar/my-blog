@@ -34,3 +34,5 @@ pnpm-debug.log*
 
 # Private context files
 .github/copilot-instructions.md
+
+.gemini/gemini.md
