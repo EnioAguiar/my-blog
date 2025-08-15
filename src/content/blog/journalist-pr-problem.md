@@ -1,7 +1,7 @@
 ---
 title: "A Journalist's Life is Now Just a PR Problem to be Solved"
 description: "A new report reveals an Israeli military unit was tasked with smearing journalists as Hamas fighters. This is the horrifying reality of modern warfare: murder by public relations."
-pubDate: '2025-08-15T23:00:00Z'
+pubDate: '2025-08-15T21:55:00Z'
 heroImage: '@/assets/journalist-pr-target.webp'
 tags: ['politics', 'opinion']
 ---
