@@ -10,13 +10,19 @@ Let's be honest: the hardware industry runs on a cycle of planned obsolescence. 
 
 That's why the latest announcement from Jack Dorsey's Block is so interesting. They've introduced the "Proto Rig," a modular Bitcoin mining system with a target lifecycle of *ten years*.
 
+## A Radical Bet Against E-Waste
+
 This isn't just an incremental improvement; it's a fundamental challenge to the industry's status quo.
 
 The core idea is simple and, frankly, beautiful in its common sense. Instead of tossing an entire multi-thousand-dollar unit when it's no longer efficient, miners can simply swap out the individual hashboards. Block claims this could cut upgrade costs by up to 20% per cycle. It’s a design philosophy focused on longevity and sustainability, not just raw, immediate performance.
 
+## More Than Just Greenwashing
+
 I'm immediately skeptical of any corporate "green" initiative, but this one feels different. It's not about carbon credits or vague promises; it's a tangible engineering decision with clear economic and environmental benefits. As Kadan Stadelmann from Komodo Platform pointed out, the industry is dominated by "monopoly hardware producers" who profit from forcing miners into constant, expensive upgrades. Block's open-source, modular approach is a direct shot at that model.
 
 This is about more than just reducing e-waste. It's about democratizing the physical layer of the Bitcoin network. By lowering the long-term capital expenditure, it could make mining more accessible and resilient. It’s a move that, as Stadelmann says, "aligns with Bitcoin’s original decentralized ethos."
+
+## The Vision for a Decentralized Future
 
 Of course, the challenges are immense. Will the modular design compromise on peak performance? Can the chassis and power components truly withstand a decade of continuous, high-heat operation? And can Block compete on price and efficiency with giants like Bitmain, who have perfected the art of mass-producing powerful, if disposable, machines?
 

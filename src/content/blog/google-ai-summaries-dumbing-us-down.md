@@ -10,15 +10,23 @@ I have to admit, the first few times I saw an AI-generated summary at the top of
 
 And that’s exactly what terrifies me.
 
+## The Illusion of Convenience
+
 According to recent reports, news publishers are already seeing a drop in traffic as more people settle for Google's AI-generated synopsis instead of reading the actual articles. Experts are also, quite rightly, raising alarms about the accuracy of these summaries. This isn't just a new feature; it feels like a fundamental rewiring of how we access information, and I'm convinced it's a step in the wrong direction.
+
+## Shattering the Internet's Implicit Contract
 
 For years, the implicit contract of the internet was simple: publishers create content, and search engines help us find it. We, the users, click on the links that seem most relevant, and in doing so, we support the ecosystem that creates the information in the first place. It was messy, sure, but it was decentralized and it encouraged exploration.
 
 AI summaries shatter that contract. Google is no longer just a directory; it's positioning itself as the ultimate source. It scrapes the hard work of journalists, bloggers, and experts, and then repackages it into a bland, context-free paragraph designed to keep you on Google's property. Why bother clicking through to the original article when the AI has already given you the "answer"?
 
+## The Cost of Shallow Answers
+
 The problem is, the "answer" is often a pale imitation of the real thing. It lacks nuance, authorial voice, and the critical context that helps us form our own opinions. It’s the intellectual equivalent of a meal replacement shake – it gives you the basic nutrients, but you miss out on the texture, the flavor, and the very experience of eating. We're trading a library for a set of flashcards.
 
 What happens when these AI summaries, which are known to hallucinate and get things wrong, become the primary source of information for millions of people? A factual error in a single article is one thing; a factual error in an AI summary presented as authoritative truth at the top of every search result is a potential disaster for public understanding.
+
+## Optimizing for the Wrong Thing
 
 I'm worried we're optimizing for the wrong thing. We're so obsessed with the speed of finding an answer that we're forgetting the value of the search itself. The process of sifting through different sources, comparing perspectives, and synthesizing information is how we learn. By outsourcing that process to an algorithm, we're not just getting dumber; we're actively deskilling ourselves.
 

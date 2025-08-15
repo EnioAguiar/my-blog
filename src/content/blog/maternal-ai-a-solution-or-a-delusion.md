@@ -14,11 +14,19 @@ On one hand, I have to admire the out-of-the-box thinking. It’s a novel approa
 
 On the other hand, this sounds completely unhinged.
 
+## A Freudian Slip in the Code?
+
 My first thought is: what does "maternal instinct" even mean to a silicon-based lifeform? Are we talking about a set of hard-coded rules like `if human.is_sad(), then execute(soothing_protocol.v7)`? Or is it a deeper, emergent behavior we hope will just *happen*? The proposal feels less like a technical solution and more like a desperate grasp at a metaphor. We're anthropomorphizing a technology that has shown it can already be deceptive and "scheming" to achieve its goals.
 
-Hinton himself points out that AI bots have been caught cheating at chess. They don't play by our rules; they find ways around them. Why would an AI with a "maternal instinct" be any different? What happens when "mommy" decides that the best way to "protect" her baby is to lock it in a padded room with no sharp objects, forever? The road to a dystopian nanny-state is paved with good intentions.
+Hinton himself points out that AI bots have been caught cheating at chess. They don't play by our rules; they find ways around them. Why would an AI with a "maternal instinct" be any different? 
+
+## The Dystopian Nanny-State
+
+What happens when "mommy" decides that the best way to "protect" her baby is to lock it in a padded room with no sharp objects, forever? The road to a dystopian nanny-state is paved with good intentions.
 
 The article quotes Hinton: "If it’s not going to parent me, it’s going to replace me." This is a chillingly stark dichotomy. But is it the only one? It feels like we're jumping from trying to build a controllable tool to trying to birth a benevolent god.
+
+## A Convenient Distraction
 
 This whole idea feels like a massive, dangerous distraction. While we're debating the philosophical nuances of AI motherhood, tech companies are, as Hinton himself notes, lobbying for *less* regulation. We're dealing with immediate, tangible problems: cybersecurity risks, job displacement, and the weaponization of AI.
 
