@@ -24,7 +24,7 @@ This is the observer effect in action. You can't be sure if the bottleneck you'r
 
 ### Enter xstack: The Power of Passive Observation
 
-This is where a new generation of tools, like Tanel Poder's [`xstack`](https://github.com/tanelpoder/0xtools/tree/master/xstack), comes in. It leverages modern eBPF features to do something brilliant: it profiles the system *passively*.
+This is where a new generation of tools, like Tanel Poder's `xstack`, comes in. It leverages modern eBPF features to do something brilliant: it profiles the system *passively*.
 
 Instead of injecting tracepoints, `xstack` uses an eBPF task iterator to periodically and safely take a snapshot of what every thread in the system is doing at that moment—both in user-space and kernel-space. It's the ultimate fly on the wall. It doesn't interrupt the running processes or inject any code. It just *looks*. The result is profiling with almost zero overhead, making it safe to use even on the most sensitive production systems.
 
@@ -33,3 +33,7 @@ Instead of injecting tracepoints, `xstack` uses an eBPF task iterator to periodi
 Tools like `xstack` represent a fundamental shift in how we approach performance analysis on Linux. The ability to get a complete, system-wide picture of what's happening, without fear of contaminating the results, is a massive leap forward.
 
 This isn't just an academic exercise. It means faster debugging, more reliable applications, and a deeper, truer understanding of how our code behaves in the real world. It’s a powerful example of the constant innovation happening in the open-source community, turning the complex, powerful capabilities of the Linux kernel into accessible tools that can solve real-world problems. The superpowers were always there; now we have a safer way to use them.
+
+---
+
+*You can find the `xstack` tool discussed in this post on [GitHub](https://github.com/tanelpoder/0xtools/tree/master/xstack).*
